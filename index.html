@@ -157,7 +157,7 @@ details.topic>summary::-webkit-details-marker{display:none}
 .planimg p{font-size:15.5px;color:var(--ink)}
 
 .celebrate{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;background:rgba(30,12,20,.55);padding:16px}
-.celebrate[hidden]{display:none}
+[hidden]{display:none!important}.celebrate[hidden]{display:none}
 #confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
 .celcard{position:relative;background:var(--card);border-radius:18px;border-top:10px solid var(--cc,#5A1A2E);padding:28px 26px 24px;max-width:420px;width:100%;text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center;box-shadow:0 20px 50px rgba(0,0,0,.25);animation:pop .35s ease-out}
 .celgrade{font-family:var(--display);font-size:60px;line-height:1;color:var(--card);background:var(--cc,#5A1A2E);width:110px;height:110px;border-radius:50%;display:flex;align-items:center;justify-content:center}
@@ -456,6 +456,12 @@ body.gated{overflow:hidden}
 .devm-btns{display:flex;flex-direction:column;gap:10px;margin-top:16px}.devm-btns .btn{width:100%;justify-content:center;min-height:52px;font-size:17px}
 .devm-steps{text-align:left;margin:10px 0;padding-left:24px;font-size:16px}.devm-steps li{margin:8px 0}.devm-ic{display:inline-block;border:1.5px solid currentColor;border-radius:5px;padding:0 5px;font-size:13px}
 .devm-url{font-size:20px!important;font-weight:800;color:#5A1A2E;background:#F4F1EA;border-radius:10px;padding:10px;word-break:break-all;user-select:all}
+.rtopics{display:flex;flex-direction:column;gap:8px;margin:8px 0}
+.rtopic{display:flex;align-items:center;gap:12px;min-height:52px;padding:10px 14px;background:#fff;border:2px solid var(--line,#ddd);border-left-width:8px;border-radius:12px;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.rtopic:hover{border-color:#5A1A2E}.rt-l{flex:1;display:flex;flex-direction:column;align-items:flex-start;gap:6px}.rt-n{font-weight:700}.rt-m{color:var(--muted);font-size:16px;white-space:nowrap}.rt-go{color:var(--muted)}
+.rt-b{background:#A3243A;color:#fff;border-radius:999px;padding:3px 10px;font-size:13px;font-weight:700}.rt-b.ok{background:#2E7D4F}
+.rtopic.b-start{border-left-color:#A3243A}.rtopic.b-next{border-left-color:#C98A1B}.rtopic.b-secure{border-left-color:#2E7D4F}
+.ib-open{flex:1;background:none;border:0;padding:6px 0;font:inherit;color:inherit;text-align:left;cursor:pointer;min-height:44px}.ib-open b{color:var(--claret);text-decoration:underline}
 .tp-head{display:flex;flex-direction:row;text-align:left;align-items:center;gap:10px;color:#fff;padding:10px 8px 10px 16px}
 .tp-head h2{color:#fff;font-size:18px;flex:1;margin:0;line-height:1.25}
 .tp-x{font:inherit;font-size:30px;line-height:1;border:0;background:rgba(255,255,255,.15);color:#fff;border-radius:10px;min-width:44px;min-height:44px;cursor:pointer}
@@ -589,7 +595,7 @@ section.step[class*="tp-"] h2{color:var(--tc)}
 </div>
 <div class="installbar noprint" id="installBar" hidden>
   <img src="data:image/png;base64,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" alt="" width="36" height="36">
-  <p id="installMsg">Install D+M as an app: it opens full screen and works offline.</p>
+  <button type="button" class="ib-open" id="installOpen"><span id="installMsg">Add D+M to your home screen. <b>Tap to see how.</b></span></button>
   <button class="btn sm" type="button" id="installBtn" hidden>Install</button>
   <button class="ib-x" type="button" id="installX" aria-label="Close">×</button>
 </div>
@@ -663,49 +669,24 @@ section.step[class*="tp-"] h2{color:var(--tc)}
   <div class="stephead"><h2><span class="num">2</span>Your results</h2></div>
   <div class="tiles" id="tiles"></div>
   <details class="gnote"><summary>How grades are worked out</summary><p class="note">Grades and bands use the average of the 2025 and 2026 National 5 D&amp;M grade boundaries: A from 70.3%, B from 60.0%, C from 49.7%, D from 39.4%. Within each grade, the top half is the higher band: A1 from 85.2%, B3 from 65.2%, C5 from 54.9%. They’re a guide: real boundaries cover the whole course, coursework included. In the final exam the question paper is worth 80 marks: 30 for workshop manufacture (always question 1), 30 for design and 20 for commercial manufacture. Your weakest area is where to start.</p></details>
-  <div id="swBody"></div>
-  <div class="row noprint"><button class="btn" type="button" id="goPlan">Make my revision plan →</button><button class="btn ghost" type="button" id="copyBtn">Copy my results</button></div>
-  <p class="status" id="copyStatus" aria-live="polite"></p><div id="copyFallback" hidden></div>
+  <div id="swBody" hidden></div>
+  <div class="row noprint"><button class="btn" type="button" id="s2Pdf">Download my revision plan (PDF)</button><button class="btn ghost" type="button" id="s2Img">Save as a picture</button><button class="btn ghost" type="button" id="copyBtn">Copy my results</button></div>
+  <p class="status" id="s2Status" aria-live="polite"></p><p class="status" id="copyStatus" aria-live="polite"></p><div id="copyFallback" hidden></div>
+  <div class="planimg noprint" id="s2ImgBox" hidden></div>
 </section>
 
-<section class="step s3" id="plan" hidden>
-  <div class="stephead"><h2><span class="num">3</span>Your revision plan</h2></div>
-  <p>Topics are ranked by <b>marks you lost × how many marks the topic is usually worth in the exam</b>. A topic you scored badly on that comes up a lot goes to the top.</p>
-  <div id="schedule"></div>
-  <div class="row noprint"><button class="btn" type="button" id="planPdfBtn2">Download my revision plan (PDF)</button><button class="btn ghost" type="button" id="planImgBtn2">Save as a picture</button><span class="status" id="pdfStatus2" aria-live="polite"></span></div>
-  <div class="planimg noprint" id="planImgBox2" hidden></div>
-  <h3>Topics in priority order</h3>
-  <div class="topics" id="topics"></div>
+<section class="step s3" id="plan">
+  <div class="stephead"><h2><span class="num">3</span>Topics to revise in priority order</h2></div>
+  <div class="rtopics" id="topics"></div>
 </section>
 
-<section class="step s4" id="also" hidden>
+<section class="step s4" id="also">
   <div class="stephead"><h2><span class="num">4</span>Also on the exam</h2><span class="sub">Not in this skills check</span></div>
-  <p>The skills check samples the course. These parts of the course specification weren’t tested, but they come up in the final exam. They’re ordered by how many marks they’re usually worth.</p>
-  <div class="extra" id="extra"></div>
+  <div class="rtopics" id="extra"></div>
 </section>
 
-<section class="step s5" id="technique" hidden>
-  <div class="stephead"><h2><span class="num">5</span>Exam technique</h2></div>
-  <p>The course reports say the same things every year. These rules apply to every question.</p>
-  <dl class="cmd">
-    <dt>Name, state</dt><dd>A word or short phrase is enough. Be exact: “outside callipers”, not “callipers”.</dd>
-    <dt>Describe</dt><dd>Give the steps or features in sentences. One clear point for each mark.</dd>
-    <dt>Explain</dt><dd>Give a reason and its consequence: “wax is applied with a cloth, <i>so</i> there is no brush to clean”.</dd>
-    <dt>Never</dt><dd>“Quick”, “cheap” or “easy” on their own score zero. Always say why or compared with what.</dd>
-    <dt>Read the stem</dt><dd>Don’t repeat what the question already tells you (“pine” when it says red pine). Check if it asks about a <i>designer</i> or a <i>manufacturer</i>, and a <i>hand tool</i> or a <i>machine</i>.</dd>
-  </dl>
-</section>
-
-<section id="results" class="s6" hidden>
-  <div class="stephead"><h2>Results card</h2><span class="sub" id="rdate"></span></div>
-  <div id="rbody"></div>
-  <div class="row noprint">
-    <button class="btn" type="button" id="planPdfBtn">Download my revision plan (PDF)</button>
-    <button class="btn ghost" type="button" id="planImgBtn">Save as a picture</button>
-  </div>
-  <div class="planimg noprint" id="planImgBox" hidden></div>
-  <p class="note" id="howto">To hand in: download your plan, take a screenshot of this card, or press <b>Copy my results</b> and paste them into your Teams assignment. Your marks save on this device as you go: use <b>Save progress link</b> at the top to keep them safe.</p>
-</section>
+<div hidden aria-hidden="true"><div id="schedule"></div><button type="button" id="planPdfBtn2"></button><button type="button" id="planImgBtn2"></button><span id="pdfStatus2"></span><div id="planImgBox2"></div>
+<span id="rdate"></span><div id="rbody"></div><button type="button" id="planPdfBtn"></button><button type="button" id="planImgBtn"></button><div id="planImgBox"></div><p id="howto"></p><button type="button" id="goPlan"></button></div>
 </div>
 </div>
 
@@ -715,7 +696,6 @@ section.step[class*="tp-"] h2{color:var(--tc)}
 <div id="prioBody"></div>
 <div id="profileBody"></div>
 <div class="chartcard"><h3>My skills checks</h3><div id="historyList"></div></div>
-<div id="checklistBody"></div>
 <div class="chartcard planCard" id="planCard"><h3>Make my revision plan</h3>
   <div class="settings noprint">
     <div><label for="weeks">Weeks until prelim/final exam</label><select id="weeks"></select></div>
@@ -1499,7 +1479,7 @@ function renderEntry(){
   box.addEventListener('click',e=>{
     const b=e.target.closest('button[data-q]');if(!b)return;LASTY=b.getBoundingClientRect().top+window.scrollY;
     const id=b.dataset.q,v=+b.dataset.v;
-    if(S.m[id]===v)delete S.m[id];else S.m[id]=v;curRec().date=today();
+    if(S.m[id]===v)delete S.m[id];else S.m[id]=v;curRec().date=today();curRec().ts=Date.now();
     save();paintEntry();update();
   });
   paintEntry();
@@ -1578,31 +1558,10 @@ function renderSchedule(s){
   box.innerHTML=h;
 }
 function renderTopics(s){
-  const box=$('topics');const open=new Set([...box.querySelectorAll('details[open]')].map(d=>d.dataset.k));
-  const first=!box.dataset.done;
-  let h='';
-  s.ranked.forEach(t=>{
-    const P=T[t.k],A=AREAS[P.area];
-    const isOpen=first?false:open.has(t.k);
-    const lostQ=t.e.filter(q=>S.m[q.id]<q.max);
-    h+=`<details class="topic ${A.cls} b-${t.band}" id="t-${t.k}" data-k="${t.k}"${isOpen?' open':''}><summary>
-      <span class="tname">${esc(P.name)}</span>
-      <span class="tscore">${t.max?`${t.got} / ${t.max}`:`– / ${t.full}`}<small>your marks</small></span>
-      <span class="tmeta"><span class="band ${t.band}">${BANDS[t.band]}</span><span class="chip">${A.name}</span><span>About ${P.weight} marks per exam (2025–26)</span></span>
-    </summary><div class="tbody">
-      <div class="blk"><h4>Course specification</h4><p class="spec">${esc(P.spec)}</p></div>
-      <div class="blk"><h4>How it’s asked</h4><p>${esc(P.asked)}</p></div>
-      ${lostQ.length?`<div class="blk"><h4>Where your marks went</h4><div class="lost">${lostQ.map(q=>`<div><b>${q.l} · ${S.m[q.id]} / ${q.max}</b> ${esc(q.t)}.<br>${esc(q.mi)}</div>`).join('')}</div></div>`:''}
-      <div class="blk"><h4>Learn</h4><ul class="learn">${P.learn.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
-      <div class="blk"><h4>Practise</h4><div class="prac" data-k="${t.k}"></div></div>
-      <div class="blk"><h4>Past papers</h4><p class="past">${esc(PAST[t.k])}</p></div>
-    </div></details>`;
-  });
-  box.innerHTML=h;box.dataset.done='1';
-  box.querySelectorAll('.prac').forEach(p=>renderPractice(p,p.dataset.k));
+  $('topics').innerHTML=s.ranked.map(t=>{const P=T[t.k],l=K2L(t.k);
+    return `<button type="button" class="rtopic b-${t.band}" ${l?`data-golearn="${l}"`:''}><span class="rt-l"><span class="rt-n">${esc(P.name)}</span>${t.band==='start'?'<span class="rt-b">Start here</span>':t.band==='secure'?'<span class="rt-b ok">Strong</span>':''}</span><span class="rt-m">${t.max?`${t.got} / ${t.max}`:`–`}</span><span class="rt-go" aria-hidden="true">→</span></button>`}).join('');
+  $('topics').dataset.done='1';
 }
-
-/* ---------- practice: quick quiz + written with live feedback ---------- */
 function shuffleIdx(n,seed){const a=[...Array(n).keys()];let s=seed;for(let i=n-1;i>0;i--){s=(s*9301+49297)%233280;const j=Math.floor(s/233280*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function renderPractice(box,k,noWritten){
   const P=T[k];let h='';
@@ -1660,8 +1619,9 @@ function pracClick(e){
 $('topics').addEventListener('click',pracClick);
 $('topics').addEventListener('input',e=>{if(e.target.tagName==='TEXTAREA'){S.w[e.target.id]=e.target.value;save();const err=$(e.target.id+'-err');if(err)err.textContent=''}});
 
+const EXTRA_L={'Commercial processes and materials':'c-processes','Graphics and modelling in design':'d-model','Function, performance, market and aesthetics':'d-function','Lathes and threads':'m-tools','Evaluation and people who influence design':'d-eval','Mass and one-off production':'c-systems'};
 function renderExtra(){
-  $('extra').innerHTML=EXTRA.map(x=>`<div class="xcard ${AREAS[x.a].cls}"><b>${esc(x.n)}</b><span><span class="chip">${AREAS[x.a].name}</span> <span class="sub">${esc(x.w)}</span></span><span>${esc(x.d)}</span></div>`).join('');
+  $('extra').innerHTML=EXTRA.map(x=>{const l=EXTRA_L[x.n];return `<button type="button" class="rtopic" ${l?`data-golearn="${l}"`:''}><span class="rt-l"><span class="rt-n">${esc(x.n)}</span></span><span class="rt-go" aria-hidden="true">→</span></button>`}).join('');
 }
 
 /* ---------- results card ---------- */
@@ -1789,7 +1749,7 @@ wk.addEventListener('change',()=>{S.weeks=+wk.value;save();renderSchedule(score(
 $('per').addEventListener('change',()=>{S.per=+$('per').value;save();renderSchedule(score())});
 $('example').addEventListener('click',e=>{LASTY=e.currentTarget.getBoundingClientRect().top+window.scrollY;
   const ex={'1ai':0,'1aii':1,'1bi':0,'1bii':1,'1biii':1,'1biv':0,'1ci':1,'1cii':1,'1ciii':1,'1di':1,'1dii':0,'1diii':1,'1div':0,'1ei':1,'1eii':0,'1eiii':0,'1eiv':1,'2ai':2,'2aii':1,'2b':1,'2c':2,'3a':2,'3b':1,'4':1,'5':2,'6':1};
-  S.m=Object.assign({},ex);curRec().date=today();save();paintEntry();$('topics').dataset.done='';update();
+  S.m=Object.assign({},ex);curRec().date=today();curRec().ts=Date.now();save();paintEntry();$('topics').dataset.done='';update();
 });
 $('clear').addEventListener('click',()=>{S.m={};save();paintEntry();$('topics').dataset.done='';update()});
 
@@ -1904,7 +1864,7 @@ function showTab(t){
   t=({history:'progress',profile:'progress',overall:'progress'})[t]||t;if(!$('tab-'+t))t='learn';
   ['enter','progress','learn','cad'].forEach(x=>{const on=x===t;$('tab-'+x).hidden=!on;const b=$('tabbtn-'+x);b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1});
   S.tab=t;save();
-  if(t==='progress'){renderPrio();renderProfile();renderHistory();renderChecklist();renderOverall()}if(t==='learn')renderLearn();
+  if(t==='progress'){renderPrio();renderProfile();renderHistory();renderOverall()}if(t==='learn')renderLearn();
 }
 document.querySelector('.tabs').addEventListener('click',e=>{const b=e.target.closest('button[data-tab]');if(b)showTab(b.dataset.tab)});
 document.querySelector('.tabs').addEventListener('keydown',e=>{const bs=[...document.querySelectorAll('.tabs button')];const i=bs.indexOf(document.activeElement);if(i<0)return;
@@ -1966,6 +1926,8 @@ function renderProfile(){
   if(!st.length){box.innerHTML=`<div class="empty">No ${esc(LEVELS[lv])} checks entered yet. Your charts appear after your first skills check.</div>`;return}
   const keys=Object.keys(T).filter(k=>st.some(x=>x.topics[k]));
   const last=st[st.length-1],prev=st.length>1?st[st.length-2]:null;
+  const now={topics:{}};keys.forEach(k=>{const ls=Object.keys(L2K).filter(l=>L2K[l].has(k)).map(l=>topicStatus(l).pct).filter(v=>v!==null);
+    const o=last.topics[k];now.topics[k]=ls.length?{got:ls.reduce((a,b)=>a+b,0)/ls.length,max:1}:(o?{got:o.got,max:o.max}:null)});
   const N=keys.length,cx=260,cy=215,R=150;const PH=window.innerWidth<560,FS=PH?27:19,SF=PH?1.8:1;
   const pt=(i,v)=>{const a=-Math.PI/2+i*2*Math.PI/N;return [cx+Math.cos(a)*R*v,cy+Math.sin(a)*R*v]};
   const poly=x=>keys.map((k,i)=>{const o=x.topics[k];return pt(i,o?o.got/o.max:0).map(n=>n.toFixed(1)).join(',')}).join(' ');
@@ -1977,9 +1939,9 @@ function renderProfile(){
     const lab=SHORT[k]||T[k].name;let lines=[lab];if(PH&&lab.length>10&&lab.includes(' ')){const w=lab.split(' ');let best=1,bd=99;for(let j=1;j<w.length;j++){const d=Math.abs(w.slice(0,j).join(' ').length-w.slice(j).join(' ').length);if(d<bd){bd=d;best=j}}lines=[w.slice(0,best).join(' '),w.slice(best).join(' ')]}
     svg+=`<text x="${lx}" y="${ly}" font-size="${FS}" fill="var(--text)" text-anchor="${anchor}" dominant-baseline="middle">${lines.map((t,j)=>`<tspan x="${lx}" dy="${j===0?(lines.length>1?-FS*0.55:0):FS*1.1}">${esc(t)}</tspan>`).join('')}</text>`});
   [['50%',.5],['100%',1]].forEach(([l,r])=>svg+=`<text x="${cx+4}" y="${cy-R*r-3}" font-size="${11*(PH?1.5:1)}" fill="var(--muted)">${l}</text>`);
-  if(prev)svg+=`<polygon points="${poly(prev)}" fill="none" stroke="#8257B5" stroke-width="2" stroke-dasharray="5 4"/>`;
-  svg+=`<polygon points="${poly(last)}" fill="rgba(163,36,58,.18)" stroke="#A3243A" stroke-width="2.5"/>`;
-  keys.forEach((k,i)=>{const o=last.topics[k];if(!o)return;const [x,y]=pt(i,o.got/o.max);svg+=`<circle cx="${x}" cy="${y}" r="${PH?7:4.5}" fill="#A3243A" stroke="var(--card)" stroke-width="2"><title>${esc(T[k].name)}: ${Math.round(100*o.got/o.max)}%</title></circle>`});
+  svg+=`<polygon points="${poly(last)}" fill="none" stroke="#8257B5" stroke-width="2" stroke-dasharray="5 4"/>`;
+  svg+=`<polygon points="${poly(now)}" fill="rgba(163,36,58,.18)" stroke="#A3243A" stroke-width="2.5"/>`;
+  keys.forEach((k,i)=>{const o=now.topics[k];if(!o)return;const [x,y]=pt(i,o.got/o.max);svg+=`<circle cx="${x}" cy="${y}" r="${PH?7:4.5}" fill="#A3243A" stroke="var(--card)" stroke-width="2"><title>${esc(T[k].name)}: ${Math.round(100*o.got/o.max)}%</title></circle>`});
   svg+='</svg>';
   // score over time
   const W2=520,H2=200,pl=PH?62:40,pr=20,pt2=20,pb=PH?56:40;const xs=i=>st.length===1?(pl+W2-pr)/2:pl+i*(W2-pl-pr)/(st.length-1);const ys=v=>pt2+(1-v/100)*(H2-pt2-pb);
@@ -1988,25 +1950,39 @@ function renderProfile(){
   line+=`<polyline fill="none" stroke="#5A1A2E" stroke-width="2" points="${st.map((x,i)=>xs(i)+','+ys(x.pct)).join(' ')}"/>`;
   st.forEach((x,i)=>line+=`<circle cx="${xs(i)}" cy="${ys(x.pct)}" r="${PH?8:5}" fill="#5A1A2E" stroke="var(--card)" stroke-width="2"><title>${esc(x.ck.name)}: ${x.pct}%</title></circle><text x="${xs(i)}" y="${ys(x.pct)-10*SF}" font-size="${12*SF}" font-weight="700" fill="var(--ink)" text-anchor="middle">${x.pct}%</text><text x="${xs(i)}" y="${H2-14*SF/1.3}" font-size="${11.5*SF}" fill="var(--muted)" text-anchor="middle">${esc(x.ck.name.replace(' Skills Check',''))}</text>`);
   line+='</svg>';
-  box.innerHTML=`<div class="chartcard"><h3>Topics</h3><div class="legend"><span><i class="sw" style="background:#A3243A"></i>${esc(last.ck.name)}</span>${prev?`<span><i class="sw" style="background:#8257B5"></i>${esc(prev.ck.name)} (dashed)</span>`:''}</div>${svg}
+  box.innerHTML=`<div class="chartcard"><h3>Topics</h3><div class="legend"><span><i class="sw" style="background:#A3243A"></i>Now: all your work</span><span><i class="sw" style="background:#8257B5"></i>${esc(last.ck.name)} (dashed)</span></div>${svg}
    <p class="sub">Further out means a stronger topic. Hover or tap a point for its score.</p></div>
    <div class="chartcard"><h3>Score over time</h3>${line}</div>`;
 }
 $('profLevel').addEventListener('change',renderProfile);
 
+function liveRanked(){
+  const st=levelStats('N5'),last=st[st.length-1],ord=Object.keys(T);const out=[];
+  ord.forEach(k=>{const ls=Object.keys(L2K).filter(l=>L2K[l].has(k)).map(l=>topicStatus(l).pct).filter(v=>v!==null);
+    let pct=ls.length?ls.reduce((a,b)=>a+b,0)/ls.length:null;
+    if(pct===null&&last&&last.topics[k])pct=last.topics[k].got/last.topics[k].max;
+    if(pct!==null)out.push({k,pct,pri:(1-pct)*T[k].weight})});
+  out.sort((a,b)=>b.pri-a.pri||ord.indexOf(a.k)-ord.indexOf(b.k));
+  let n=0;out.forEach(t=>{t.band=t.pct>=0.8?'secure':(n++<3?'start':'next')});return out;
+}
+function liveSrc(){
+  const r=liveRanked();if(!r.length)return null;const avg=Math.round(100*r.reduce((a,t)=>a+t.pct,0)/r.length);
+  return {ranked:r,big:avg+'%',small:'from all your work',label:'Now',tag:'National 5 Design and Manufacture',sub:'Revision plan',mark:x=>`Where you are now: ${Math.round(100*x.pct)}%`};
+}
 function renderOverall(){
-  const lv=$('ovLevel').value,c=combined(lv),box=$('overallBody');
-  const set=document.querySelector('#planCard .settings');if(set)set.hidden=!c;
-  if(!c){box.innerHTML=`<p class="sub">Your plan is built from your skills check marks. Enter your first check to make it.</p><div class="row"><button class="btn" type="button" data-gotab="enter">Go to Skills checks</button></div>`;return}
-  const src={ranked:c.ranked.map(t=>Object.assign({},t)),big:c.pct+'%',small:`across ${c.st.length} check${c.st.length>1?'s':''}`,label:'Overall',tag:LEVELS[lv]+' Design and Manufacture',sub:'Overall revision plan',mark:x=>`Overall: ${Math.round(100*x.pct)}%`};
+  const box=$('overallBody'),src=liveSrc();
+  const set=document.querySelector('#planCard .settings');if(set)set.hidden=!src;
+  if(!src){box.innerHTML=`<p class="sub">Your plan appears once you’ve entered a skills check or done some practice in Learn.</p>`;return}
   const canShare=!!(navigator.share&&navigator.canShare);
-  box.innerHTML=`<p class="sub">Built from your ${c.st.length} skills check${c.st.length>1?'s':''}. Your latest check counts double. Each topic in the plan links back to its page here.</p>
+  box.innerHTML=`<p class="sub">Built from everything you’ve done: skills checks, exam practice, quizzes and the Daily 5. It changes as you work.</p>
    <div class="row noprint"><button class="btn" type="button" id="ovPdf">Download PDF</button><button class="btn ghost" type="button" id="ovImg">Save as a picture</button>${canShare?'<button class="btn ghost" type="button" id="ovShare">Share…</button>':''}<span class="status" id="ovStatus" aria-live="polite"></span></div>
    <div class="planimg noprint" id="ovImgBox" hidden></div>`;
-  $('ovPdf').addEventListener('click',()=>downloadPlanPDF($('ovStatus'),src));
-  $('ovImg').addEventListener('click',()=>showPlanImage($('ovImgBox'),$('ovStatus'),src));
-  if(canShare)$('ovShare').addEventListener('click',()=>downloadPlanPDF($('ovStatus'),src,true));
+  $('ovPdf').addEventListener('click',()=>downloadPlanPDF($('ovStatus'),liveSrc()));
+  $('ovImg').addEventListener('click',()=>showPlanImage($('ovImgBox'),$('ovStatus'),liveSrc()));
+  if(canShare)$('ovShare').addEventListener('click',()=>downloadPlanPDF($('ovStatus'),liveSrc(),true));
 }
+$('s2Pdf').addEventListener('click',()=>{const x=liveSrc();if(!x){$('s2Status').textContent='Enter your marks first.';return}downloadPlanPDF($('s2Status'),x)});
+$('s2Img').addEventListener('click',()=>{const x=liveSrc();if(!x){$('s2Status').textContent='Enter your marks first.';return}showPlanImage($('s2ImgBox'),$('s2Status'),x)});
 $('ovLevel').addEventListener('change',renderOverall);
 
 function afterDecrypt(){renderEntry();$('topics').dataset.done='';lastSig='';update()}
@@ -2615,7 +2591,7 @@ function renderLearn(){
 let LVIEW=null;
 function renderLearnList(lv){
   const list=LEARN[lv];LCUR=null;
-  $('learnBody').innerHTML=(lv==='N5'&&!S.welcomed&&!VIEW?`<div class="welcome1" id="welcomeCard"><h3>New to D&amp;M?</h3><ol><li>Rate yourself on the course checklist.</li><li>Pick a red topic and learn it.</li><li>Do the Daily 5 each day, and set a reminder there.</li></ol><div class="onedev"><b>Use one device</b><span>Always use D+M on the same phone or laptop. Your work is saved on that device only, so it won’t appear on another one.</span></div><div class="row"><button type="button" class="btn" data-welcome="ckl">Open the checklist</button><button type="button" class="btn ghost" data-welcome="skip">Skip</button></div></div>`:'')+`<p class="sub">${esc(LEVELS[lv])} · ${list.length} topics from the course specification. Pick a topic to read, then test yourself.</p>`+(lv==='N5'?`<div class="wfgrid"><button type="button" class="wfeature wf-daily" data-lt="x-daily" data-lv="N5"><span class="wf-k">Every day</span><span class="wf-t">Daily 5</span><span class="wf-s">Five quick questions, picked from your weakest topics. Wrong answers come back tomorrow.</span>${(S.streak&&S.streak.n)?`<span class="wf-badge">${S.streak.n}-day streak</span>`:''}</button><button type="button" class="wfeature" data-lt="x-words" data-lv="N5"><span class="wf-k">Exam technique</span><span class="wf-t">Question words</span><span class="wf-s">Name, outline, describe, explain: what each one needs for the marks, with 10 practice questions.</span></button><button type="button" class="wfeature wf-past" data-lt="x-past" data-lv="N5"><span class="wf-k">Exam practice</span><span class="wf-t">Past paper finder</span><span class="wf-s">Every 2025 and 2026 exam question by topic, with what earns the marks and what scored zero.</span></button><button type="button" class="wfeature wf-tools" data-lt="x-tools" data-lv="N5"><span class="wf-k">Workshop</span><span class="wf-t">Tools quick-fire</span><span class="wf-s">Name the tool from its picture. Marking out, woodwork, metalwork, drill bits.</span></button></div>`:'')+
+  $('learnBody').innerHTML=(lv==='N5'&&!S.welcomed&&!VIEW?`<div class="welcome1" id="welcomeCard"><h3>New to D&amp;M?</h3><ol><li>Pick a topic your teacher has covered and learn it.</li><li>Test yourself, then try the exam question.</li><li>Do the Daily 5 each day, and set a reminder there.</li></ol><p class="sub">Every topic starts grey and changes colour as you practise.</p><div class="row"><button type="button" class="btn" data-welcome="skip">Got it</button></div></div>`:'')+`<p class="sub">${esc(LEVELS[lv])} · ${list.length} topics from the course specification. Pick a topic to read, then test yourself.</p>`+(lv==='N5'?`<div class="wfgrid"><button type="button" class="wfeature wf-daily" data-lt="x-daily" data-lv="N5"><span class="wf-k">Every day</span><span class="wf-t">Daily 5</span><span class="wf-s">Five quick questions, picked from your weakest topics. Wrong answers come back tomorrow.</span>${(S.streak&&S.streak.n)?`<span class="wf-badge">${S.streak.n}-day streak</span>`:''}</button><button type="button" class="wfeature" data-lt="x-words" data-lv="N5"><span class="wf-k">Exam technique</span><span class="wf-t">Question words</span><span class="wf-s">Name, outline, describe, explain: what each one needs for the marks, with 10 practice questions.</span></button><button type="button" class="wfeature wf-past" data-lt="x-past" data-lv="N5"><span class="wf-k">Exam practice</span><span class="wf-t">Past paper finder</span><span class="wf-s">Every 2025 and 2026 exam question by topic, with what earns the marks and what scored zero.</span></button><button type="button" class="wfeature wf-tools" data-lt="x-tools" data-lv="N5"><span class="wf-k">Workshop</span><span class="wf-t">Tools quick-fire</span><span class="wf-s">Name the tool from its picture. Marking out, woodwork, metalwork, drill bits.</span></button></div>`:'')+
    LGROUPS.map(([a,n])=>`<h3 class="lgh ${AREAS[a].cls}">${esc(n)}</h3><div class="lgrid">${list.filter(t=>t.area===a).map(t=>`<button type="button" class="lcard ${AREAS[a].cls}" data-lt="${t.id}" data-lv="${lv}"><span class="lname">${esc(t.name)} ${ragDot(t.id)}</span><span class="lmeta">${t.mcq.length} quick questions · 1 exam question</span></button>`).join('')}</div>`).join('');
 }
 $('tab-learn').addEventListener('click',e=>{
@@ -2707,7 +2683,7 @@ function paintRag(id){
 }
 document.addEventListener('click',e=>{
   const b=e.target.closest('button[data-rag]');
-  if(b){if(VIEW){return}const id=b.dataset.rag,v=b.dataset.v;if(S.rag[id]===v)delete S.rag[id];else S.rag[id]=v;save();paintRag(id);paintLinkStatus();return}
+  if(b){if(VIEW){return}const id=b.dataset.rag,v=b.dataset.v;if(S.rag[id]===v)delete S.rag[id];else S.rag[id]=v;{const it=CKL_N5.find(i=>i.id===id);if(it)evStamp('self:'+it.l)}save();paintRag(id);paintLinkStatus();return}
   const g=e.target.closest('button[data-golearn]');
   if(g){LVIEW='N5';LCUR=g.dataset.golearn;showTab('learn');$('tab-learn').scrollIntoView({block:'start'});return}
   const k=e.target.closest('button[data-goskills]');
@@ -2816,7 +2792,7 @@ $('tab-learn').addEventListener('click',e=>{
   const o=e.target.closest('.dopt');
   if(o){const div=o.closest('.dq');if(div.dataset.done)return;div.dataset.done='1';const q=dailyQ(div.dataset.did),ok=+o.dataset.oi===0;
     div.querySelectorAll('.dopt').forEach(b=>{b.disabled=true;if(+b.dataset.oi===0)b.classList.add('right');else if(b===o)b.classList.add('wrong')});
-    if(!VIEW){const cur=S.sr[q.id]||[0,sday()];const box=ok?Math.min(cur[0]+1,SR_GAPS.length):0;S.sr[q.id]=[box,addDays(sday(),ok?SR_GAPS[Math.max(0,box-1)]:1)]}
+    if(!VIEW){d5Log(q,ok);const cur=S.sr[q.id]||[0,sday()];const box=ok?Math.min(cur[0]+1,SR_GAPS.length):0;S.sr[q.id]=[box,addDays(sday(),ok?SR_GAPS[Math.max(0,box-1)]:1)]}
     if(ok)DAILY.right++;
     const last=DAILY.i>=DAILY.qs.length-1;
     const f=div.querySelector('.fbm');f.className='fbm fb '+(ok?'good':'bad');
@@ -2874,7 +2850,7 @@ gate.addEventListener('click',e=>{
   const o=e.target.closest('.gopt');
   if(o){const div=o.closest('[data-gid]');if(div.dataset.done)return;div.dataset.done='1';const q=dailyQ(div.dataset.gid),ok=+o.dataset.oi===0;
     div.querySelectorAll('.gopt').forEach(b=>{b.disabled=true;if(+b.dataset.oi===0)b.classList.add('right');else if(b===o)b.classList.add('wrong')});
-    const cur=S.sr[q.id]||[0,sday()];const box=ok?Math.min(cur[0]+1,SR_GAPS.length):0;S.sr[q.id]=[box,addDays(sday(),ok?SR_GAPS[Math.max(0,box-1)]:1)];
+    d5Log(q,ok);const cur=S.sr[q.id]||[0,sday()];const box=ok?Math.min(cur[0]+1,SR_GAPS.length):0;S.sr[q.id]=[box,addDays(sday(),ok?SR_GAPS[Math.max(0,box-1)]:1)];
     if(ok)DAILY.right++;const last=DAILY.i>=DAILY.qs.length-1;
     if(last){const st=S.streak||{n:0,d:''},td=sday();if(st.d!==td)S.streak={n:st.d===addDays(td,-1)?st.n+1:1,d:td}}
     save();const f=div.querySelector('.fbm');f.className='fbm fb '+(ok?'good':'bad');
@@ -3039,16 +3015,33 @@ const MK={
 const SUM={'d-research':'How designers find out what a product needs, and turn it into a specification.','d-ideas':'Two techniques for coming up with lots of ideas: brainstorming and morphological analysis.','d-model':'Why designers make sketch, block, scale and computer models.','d-graphics':'How sketches, drawings and renders help designers explore and share ideas.','d-function':'What a product does, and how well it does it: maintenance, life expectancy and safety.','d-market':'Who a product is for, and how it is marketed and branded.','d-aesthetics':'How a product looks and feels, and what influences that.','d-ergo':'Making products safe, comfortable and easy to use.','d-eval':'How products are evaluated, and who influences their design.','m-woods':'Hardwoods, softwoods and manufactured boards: properties and uses.','m-metals':'Ferrous and non-ferrous metals: properties and uses.','m-plastics':'Thermoplastics and thermosetting plastics: properties and uses.','m-marking':'The tools for measuring and marking out wood and metal accurately.','m-tools':'Hand tools and machine tools, and how to set them up.','m-joining':'Joints, glue and fixings, and the tools for holding work.','m-finish':'Preparing surfaces and applying finishes to wood, metal and plastic.','m-plan':'Planning how to make a product: sequence, drawings and cutting lists.','c-processes':'How products are made in factories: moulding and casting.','c-cam':'Computer-aided manufacture, laser cutters and 3D printers.','c-standard':'Bought-in parts and knock-down fittings.','c-systems':'One-off and mass production.','c-impact':'How manufacturing affects society and the environment, and how to be more sustainable.'};
 
 /* ---------- topic status (red / amber / green) from everything the pupil has done ---------- */
-function topicStatus(id){
-  const sig=[];const its=CKL_N5.filter(i=>i.l===id);
-  const rated=its.filter(i=>S.rag[i.id]);if(rated.length)sig.push(rated.reduce((t,i)=>t+({r:0,a:.5,g:1})[S.rag[i.id]],0)/rated.length);
-  const tq=S.tq&&S.tq[id];if(tq)sig.push(tq[0]/tq[1]);
-  const ex=S.ex&&S.ex[id];if(ex)sig.push(ex[0]/ex[1]);
-  const ks=[...new Set(its.filter(i=>i.k).map(i=>i.k))];const c=ks.length&&combined('N5');
-  if(c)ks.forEach(k=>{const t=c.ranked.find(x=>x.k===k);if(t)sig.push(t.pct)});
-  if(!sig.length)return {band:'n',pct:null};
-  const pct=sig.reduce((a,b)=>a+b,0)/sig.length;return {band:pct>=.75?'g':pct>=.5?'a':'r',pct};
+/* ---------- one live score per topic ----------
+   Every piece of work is dated. Newer work counts more. A skills check or prelim
+   replaces everything before it; Get exam ready mostly does; Test yourself and
+   Daily 5 nudge the score; self-ratings nudge it lightly and never colour a topic alone. */
+const EVW={assess:1,ex:.6,pp:.6,tq:.35,d5:.15,self:.15};
+function evMig(){if(!S.evMig){S.evMig=Date.now()}return S.evMig}
+function evStamp(k){S.evd=S.evd||{};S.evd[k]=Date.now()}
+function d5Log(q,ok){if(!q||!MK[q.l])return;S.d5=S.d5||{};const a=S.d5[q.l]||(S.d5[q.l]=[]);a.push([ok?1:0,Date.now()]);if(a.length>12)a.splice(0,a.length-12)}
+const L2K={};CKL_N5.forEach(i=>{if(i.k&&i.l){(L2K[i.l]=L2K[i.l]||new Set()).add(i.k)}});
+function topicEvidence(id){
+  const ev=[],mig=evMig(),d=k=>(S.evd&&S.evd[k])||mig;
+  levelStats('N5').forEach(st=>{const rec=S.checks[st.id]||{},ts=rec.ts||(st.date?new Date(st.date+'T12:00:00').getTime():0);
+    (L2K[id]?[...L2K[id]]:[]).forEach(k=>{const o=st.topics[k];if(o&&o.max)ev.push({s:o.got/o.max,w:EVW.assess,ts,src:'check',name:st.ck.name})})});
+  const ex=S.ex&&S.ex[id];if(ex&&ex[1])ev.push({s:ex[0]/ex[1],w:EVW.ex,ts:d('ex:'+id),src:'exam'});
+  if(S.ppd)Object.keys(S.ppd).forEach(k=>{const r=ppGet(k);if(r&&r[4]===id)ev.push({s:S.ppd[k]/(r[2]||1),w:EVW.pp,ts:d('pp:'+k),src:'exam'})});
+  const tq=S.tq&&S.tq[id];if(tq&&tq[1])ev.push({s:tq[0]/tq[1],w:EVW.tq,ts:d('tq:'+id),src:'quiz'});
+  ((S.d5&&S.d5[id])||[]).forEach(([ok,ts])=>ev.push({s:ok,w:EVW.d5,ts,src:'daily'}));
+  const rated=CKL_N5.filter(i=>i.l===id&&S.rag[i.id]);
+  if(rated.length)ev.push({s:rated.reduce((t,i)=>t+({r:0,a:.5,g:1})[S.rag[i.id]],0)/rated.length,w:EVW.self,ts:d('self:'+id),src:'self'});
+  return ev.sort((a,b)=>a.ts-b.ts);
 }
+function topicStatus(id){
+  const ev=topicEvidence(id);if(!ev.some(e=>e.src!=='self'))return {band:'n',pct:null};
+  let v=null;ev.forEach(e=>{if(v===null){if(e.src!=='self')v=e.s}else v+=e.w*(e.s-v)});
+  return {band:v>=.75?'g':v>=.5?'a':'r',pct:v,last:ev[ev.length-1]};
+}
+
 const BANDTXT={g:'Secure',a:'Getting there',r:'Needs work',n:'Not started'};
 const ragDot=id=>{const s=topicStatus(id);return `<span class="tdot td-${s.band}" title="${BANDTXT[s.band]}"><span class="sr">${BANDTXT[s.band]}</span></span>`};
 
@@ -3149,7 +3142,7 @@ function paintCard(){
 }
 function paintTQ(){
   const t=curTopic(),n=t.mcq.length;
-  if(TQ.i>=n){S.tq[HUB]=S.tq[HUB]&&S.tq[HUB][0]>TQ.right?S.tq[HUB]:[TQ.right,n];save();
+  if(TQ.i>=n){S.tq[HUB]=[TQ.right,n];evStamp('tq:'+HUB);save();
     setBody(`<div class="ddone"><p class="dbig">${TQ.right} / ${n}</p><p>${TQ.right===n?'All correct. ':''}${TQ.right<n?'Questions you got wrong also come up in your Daily 5.':'Ready for an exam question?'}</p></div>`,
      `<button type="button" class="btn ghost" data-tq="retry">Try again</button><button type="button" class="btn nx-exam" data-panel="exam">Get exam ready →</button>`);return}
   const m=t.mcq[TQ.order[TQ.i]],order=m.o.map((_,i)=>i).sort(()=>Math.random()-.5);
@@ -3180,7 +3173,7 @@ tp.addEventListener('click',e=>{
   if(e.target.closest('[data-mark]')){
     const txt=$('exAns').value.trim();S.exAns=S.exAns||{};S.exAns[HUB]=txt;
     if(txt.split(/\s+/).filter(Boolean).length<4){$('exRes').innerHTML='<p class="fb bad">Write your full answer first, in sentences.</p>';save();return}
-    const r=markAnswer(HUB,txt);S.ex[HUB]=[r.score,r.max];save();
+    const r=markAnswer(HUB,txt);S.ex[HUB]=[r.score,r.max];evStamp('ex:'+HUB);save();
     $('exRes').innerHTML=`<div class="mres"><p class="mscore"><span>Estimated mark</span><b>${r.score} / ${r.max}</b></p><p class="mtip">${esc(r.tip)}</p>
      <div class="mans">${highlight(txt,r.spans)}</div>
      <p class="mkey"><mark class="mk-ok">earns a mark</mark> <mark class="mk-amb">nearly</mark> <mark class="mk-bad">scores zero</mark></p>
@@ -3368,7 +3361,7 @@ function ppCheck(){
   if(!pts||!pts.length){$('ppRes').innerHTML=`<div class="mres"><p class="mtip">Marking points for ${y} aren’t on the site yet. Compare your answer with the model answer for this topic.</p></div>`;return}
   const aw=new Set(ppWords(ans));
   const guess=pts.map(p=>{const w=[...new Set(ppWords(p))];return w.length&&w.filter(x=>aw.has(x)).length/w.length>=0.5});
-  const sc=Math.min(mk||1,guess.filter(Boolean).length),miss=pts.find((p,i)=>!guess[i]);S.ppd=S.ppd||{};S.ppd[k]=sc;save();
+  const sc=Math.min(mk||1,guess.filter(Boolean).length),miss=pts.find((p,i)=>!guess[i]);S.ppd=S.ppd||{};S.ppd[k]=sc;evStamp('pp:'+k);save();
   $('ppRes').innerHTML=`<div class="mres"><p class="mscore"><span>Estimated mark</span><b>${sc} / ${mk||1}</b></p>
    <p class="mtip">${sc>=(mk||1)?'Full marks. Nicely done.':miss?'To get another mark: '+esc(miss.charAt(0).toLowerCase()+miss.slice(1)):'Add another separate point.'}</p>
    <details class="xmore"><summary>What earns the marks</summary><ul class="pptick">${pts.map((p,i)=>`<li class="${guess[i]?'got':''}"><span aria-hidden="true">${guess[i]?'✓':'○'}</span> ${esc(p)}</li>`).join('')}</ul>
@@ -3392,9 +3385,9 @@ function renderPrio(){
   const row=x=>`<button type="button" class="prow" data-golearn="${x.t.id}">${ragDot(x.t.id)}<span>${esc(x.t.name)}</span><span class="pgo">→</span></button>`;
   const focus=[...red,...amb].slice(0,6);
   box.innerHTML=`<div class="chartcard prio"><h3>Focus on next</h3>
-   ${focus.length?`<div class="plist">${focus.map(row).join('')}</div>`:`<p class="sub">${grn.length?'No red or amber topics. Brilliant.':'Rate yourself on the checklist below, or try a topic, and your focus topics appear here.'}</p>`}
+   ${focus.length?`<div class="plist">${focus.map(row).join('')}</div>`:`<p class="sub">${grn.length?'No red or amber topics. Brilliant.':'Try a topic in Learn, or enter a skills check, and your focus topics appear here.'}</p>`}
    <p class="pkey"><span>${ragDot2('r')} ${red.length} to work on</span><span>${ragDot2('a')} ${amb.length} nearly there</span><span>${ragDot2('g')} ${grn.length} strong</span><span>${ragDot2('n')} ${none.length} not started</span></p>
-   ${grn.length?`<details class="pmore"><summary>Strong topics</summary><div class="plist">${grn.map(row).join('')}</div></details>`:''}</div>`;
+   <details class="pmore"><summary>All topics</summary>${LGROUPS.map(([a,nm])=>`<h4 class="lgh ${AREAS[a].cls}">${esc(nm)}</h4><div class="plist">${all.filter(x=>x.t.area===a).map(row).join('')}</div>`).join('')}</details></div>`;
 }
 function ragDot2(b){return `<span class="tdot td-${b}" aria-hidden="true"></span>`}
 document.addEventListener('click',e=>{
@@ -3450,7 +3443,7 @@ booting=false;autoOpen();paintNick();
   const standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone;
   let dismissed=false;try{dismissed=localStorage.getItem('dm-install-x')==='1'}catch(e){}
   const close=()=>{bar.hidden=true;try{localStorage.setItem('dm-install-x','1')}catch(e){}};
-  document.getElementById('installX').addEventListener('click',close);
+  document.getElementById('installX').addEventListener('click',close);document.getElementById('installOpen').addEventListener('click',()=>{if(window.dmInstallHelp)window.dmInstallHelp()});
   if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)){navigator.serviceWorker.register('sw.js').catch(()=>{})}
   if(standalone||dismissed)return;
   let deferred=null;
@@ -3458,7 +3451,7 @@ booting=false;autoOpen();paintNick();
   btn.addEventListener('click',async()=>{if(!deferred)return;deferred.prompt();try{await deferred.userChoice}catch(e){}deferred=null;bar.hidden=true});
   window.addEventListener('appinstalled',()=>{bar.hidden=true});
   const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
-  if(ios&&/^https?:$/.test(location.protocol)){msg.innerHTML='Install D+M as an app: tap <b>Share</b> then <b>Add to Home Screen</b>.';bar.hidden=false}
+  if(ios&&/^https?:$/.test(location.protocol)){bar.hidden=false}
 })();
 </script>
 <script>
@@ -3467,9 +3460,9 @@ booting=false;autoOpen();paintNick();
   const standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
   let seen=false;try{seen=localStorage.getItem('dm-device-ok')==='1'}catch(e){}
   let def=null;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();def=e});
-  if(standalone||seen)return;
   const done=()=>{m.hidden=true;document.body.classList.remove('devm-open');try{localStorage.setItem('dm-device-ok','1')}catch(e){}};
-  m.hidden=false;document.body.classList.add('devm-open');setTimeout(()=>{const c=m.querySelector('.devm-card');if(c){c.tabIndex=-1;c.focus({preventScroll:true})}},50);
+  const show=()=>{m.hidden=false;document.body.classList.add('devm-open');setTimeout(()=>{const c=m.querySelector('.devm-card');if(c){c.tabIndex=-1;c.focus({preventScroll:true})}},50)};
+  if(!standalone&&!seen)show();
   const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
   const phone=ios||/android|mobile/i.test(navigator.userAgent);
   const body=document.getElementById('devBody');
@@ -3480,11 +3473,16 @@ booting=false;autoOpen();paintNick();
     const url=location.origin+location.pathname,short=url.replace(/^https?:\/\//,'');
     if(pick.dataset.dev==='pc'){if(!phone){done();return}
       body.innerHTML='<h2 id="devTitle">Open this on your computer</h2><p>On your computer, go to:</p><p class="devm-url">'+short+'</p><p>Use D+M on your computer from now on.</p>'+ok;return}
-    if(def){def.prompt();try{await def.userChoice}catch(x){}def=null;done();return}
+    phoneSteps();
+  });
+  async function phoneSteps(){
+    const url=location.origin+location.pathname,short=url.replace(/^https?:\/\//,'');
+    if(def&&phone){def.prompt();try{await def.userChoice}catch(x){}def=null;done();return}
     if(ios){body.innerHTML='<h2 id="devTitle">Add D+M to your phone</h2><ol class="devm-steps"><li>Tap <b>Share</b> <span class="devm-ic">⬆︎</span> at the bottom of the screen.</li><li>Scroll down and tap <b>Add to Home Screen</b>.</li><li>Open <b>D+M</b> from your home screen. Use it there from now on.</li></ol>'+ok;return}
     if(phone){body.innerHTML='<h2 id="devTitle">Add D+M to your phone</h2><ol class="devm-steps"><li>Tap the <b>⋮</b> menu at the top of your browser.</li><li>Tap <b>Add to Home screen</b> or <b>Install app</b>.</li><li>Open <b>D+M</b> from your home screen. Use it there from now on.</li></ol>'+ok;return}
     body.innerHTML='<h2 id="devTitle">Open this on your phone</h2><p>On your phone, go to:</p><p class="devm-url">'+short+'</p><p>Then tap <b>Use my phone</b> there. Use D+M on your phone from now on.</p>'+ok;
-  });
+  }
+  window.dmInstallHelp=()=>{show();phoneSteps()};
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!m.hidden)done()});
 })();
 </script>
