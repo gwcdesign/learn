@@ -462,6 +462,10 @@ body.gated{overflow:hidden}
 .rt-b{background:#A3243A;color:#fff;border-radius:999px;padding:3px 10px;font-size:13px;font-weight:700}.rt-b.ok{background:#2E7D4F}
 .rtopic.b-start{border-left-color:#A3243A}.rtopic.b-next{border-left-color:#C98A1B}.rtopic.b-secure{border-left-color:#2E7D4F}
 .ib-open{flex:1;background:none;border:0;padding:6px 0;font:inherit;color:inherit;text-align:left;cursor:pointer;min-height:44px}.ib-open b{color:var(--claret);text-decoration:underline}
+.wgrid .wg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.wgi{background:#fff;border:1px solid var(--line,#ddd);border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:4px;align-items:center;text-align:center}
+.wgi img,.wgi svg{width:100%;height:120px;object-fit:contain}.wgc{font-size:11px;color:var(--muted)}.wgi b{font-size:15px}.wgi a{font-size:11px;color:var(--muted)}
+.wgi.noimg img{display:none}.wgi.noimg::before{content:'Picture loads online';font-size:12px;color:var(--muted);padding:40px 0}
 .tp-head{display:flex;flex-direction:row;text-align:left;align-items:center;gap:10px;color:#fff;padding:10px 8px 10px 16px}
 .tp-head h2{color:#fff;font-size:18px;flex:1;margin:0;line-height:1.25}
 .tp-x{font:inherit;font-size:30px;line-height:1;border:0;background:rgba(255,255,255,.15);color:#fff;border-radius:10px;min-width:44px;min-height:44px;cursor:pointer}
@@ -893,124 +897,122 @@ const PP_N5_LINKS={
  report:{2025:'https://www.sqa.org.uk/sqa/files_ccc/2025-n5-course-report-design-and-manufacture.pdf',2026:'https://www.sqa.org.uk/sqa/files_ccc/2026-n5-course-report-design-and-manufacture.pdf'}
 };
 const PP_N5=[
- // 2024
- [2024,'1(a)(i)',1,'Name','m-woods','A manufactured board.'],
- [2024,'1(a)(ii)',2,'Outline','m-woods','Two advantages of manufactured boards.'],
- [2024,'1(b)(i)',3,'Describe','m-marking','Marking out a tenon.'],
- [2024,'1(b)(ii)',2,'','m-tools','Making sure mortises are cut to the correct depth.'],
- [2024,'1(b)(iii)',1,'Name','m-joining','A joint that could replace the mortise and tenon.'],
- [2024,'1(c)(i)',1,'Name','m-tools','A drill bit.'],
- [2024,'1(c)(ii)',1,'Explain','m-tools','Why the thermoplastic is drilled before it is formed.'],
- [2024,'1(c)(iii)',2,'State','m-tools','Two safety checks before using a pillar drill.'],
- [2024,'1(c)(iv)',3,'Describe','m-tools','The stages in shaping acrylic.'],
- [2024,'1(d)(i)',1,'Name','m-woods','A hardwood suitable for a turned part.'],
- [2024,'1(d)(ii)',1,'Name','m-tools','A wood-turning technique.'],
- [2024,'1(d)(iii)',1,'Name','m-marking','The tool for checking a turned diameter.'],
- [2024,'1(d)(iv)',2,'Outline','m-tools','Two ways to get a high-quality finish on the wood lathe.'],
- [2024,'1(e)(i)',3,'Describe','m-marking','Marking out on metal.'],
- [2024,'1(e)(ii)',2,'Describe','m-tools','Bending a metal bracket.'],
- [2024,'1(e)(iii)',2,'State','m-finish','Two benefits of painting the metal.'],
- [2024,'1(f)',2,'Describe','m-tools','Making sure a good-quality internal thread is cut.'],
- [2024,'2',3,'Outline','d-research','Features of a ring light and stand to evaluate in a user trip.'],
- [2024,'3(a)',1,'Name','d-ideas','An idea-generation technique.'],
- [2024,'3(b)',1,'Name','d-research','Another research technique.'],
- [2024,'4(a)(i)',2,'Outline','d-graphics','Two uses of computer graphics.'],
- [2024,'4(a)(ii)',2,'Outline','d-graphics','Two uses of an assembly graphic.'],
- [2024,'4(b)(i)',2,'Explain','d-model','Two reasons for testing a design with a model.'],
- [2024,'4(b)(ii)',1,'Name','d-model','Another modelling technique.'],
- [2024,'5(a)',4,'Describe','d-function','How function influenced the design of a gaming chair.'],
- [2024,'5(b)',4,'Describe','d-ergo','How ergonomics influenced the design of a gaming wheel and pedals.'],
- [2024,'6(a)',3,'Describe','d-aesthetics','Aesthetic features of a play tent or trampoline.'],
- [2024,'6(b)',2,'Describe','d-function','Design considerations for a play tent or trampoline.'],
- [2024,'7(a)',2,'','d-market','Two marketing techniques for promoting a product.'],
- [2024,'7(b)',3,'Complete','d-eval','A table of the roles of people involved in selling a product.'],
- [2024,'8(a)(i)',2,'Outline','m-metals','Two reasons stainless steel suits a kitchen splashback.'],
- [2024,'8(a)(ii)',2,'Outline','m-plastics','Two reasons melamine formaldehyde suits the top layer of a worktop.'],
- [2024,'8(b)',2,'State','c-processes','Two features of a vacuum-formed product.'],
- [2024,'8(c)',2,'Outline','c-processes','Two reasons die casting is suitable.'],
- [2024,'9',4,'Outline','c-impact','Ways designers and manufacturers can make products more environmentally friendly.'],
- [2024,'10',3,'Outline','c-cam','Three benefits of 3D printers.'],
- [2024,'11(a)',2,'Outline','c-standard','Two benefits of standard components.'],
- [2024,'11(b)',3,'Describe','c-impact','The impact of mass manufacturing on society and workers.'],
- // 2023
- [2023,'1(a)(i)',1,'Name','m-woods','A softwood.'],
- [2023,'1(a)(ii)',1,'Name','m-tools','A drill bit for flat-bottomed holes in wood.'],
- [2023,'1(a)(iii)',1,'Name','m-tools','A plane.'],
- [2023,'1(b)(i)',4,'Describe','m-joining','Marking out and cutting a corner rebate joint.'],
- [2023,'1(b)(ii)',1,'Name','m-joining','A simple corner joint.'],
- [2023,'1(b)(iii)',2,'Outline','m-marking','Checking that a frame is square.'],
- [2023,'1(b)(iv)',1,'Name','m-joining','An adhesive for the wooden parts.'],
- [2023,'1(b)(v)',3,'Describe','m-finish','Preparing the wood surface before finishing.'],
- [2023,'1(c)(i)',2,'State','m-metals','Properties that make the metal suitable for a clock face.'],
- [2023,'1(c)(ii)',2,'Describe','m-marking','Finding and marking the centre of the clock face.'],
- [2023,'1(c)(iii)',1,'Name','m-tools','A hand tool for cutting the metal outline.'],
- [2023,'1(d)(i)',2,'State','m-tools','Two checks before using the centre lathe.'],
- [2023,'1(d)(ii)',2,'Name','m-tools','Two centre lathe operations.'],
- [2023,'1(d)(iii)',2,'Describe','m-tools','Cutting an external thread with a die.'],
- [2023,'1(d)(iv)',1,'Name','m-joining','An adhesive to fix a part to a brass bar.'],
- [2023,'1(e)(i)',1,'Outline','m-tools','Drilling plastic without damaging it.'],
- [2023,'1(e)(ii)',2,'Describe','m-tools','Forming an accurate 90° bend in plastic.'],
- [2023,'1(e)(iii)',1,'Explain','m-tools','Why the hole is drilled before the plastic is bent.'],
- [2023,'2(a)',3,'Explain','d-research','Benefits of using questionnaires.'],
- [2023,'2(b)',1,'Describe','d-research','The role of the specification.'],
- [2023,'3(a)',3,'Describe','d-ideas','The key stages of brainstorming.'],
- [2023,'3(b)',1,'Name','d-ideas','Another idea-generation technique.'],
- [2023,'4(a)',2,'Outline','d-graphics','Advantages of sketching.'],
- [2023,'4(b)',2,'Outline','m-plan','What working drawings show.'],
- [2023,'4(c)',3,'Explain','d-model','Why models are used in the design process.'],
- [2023,'5',4,'Describe','d-ergo','How ergonomics influenced the design of a kettle.'],
- [2023,'6(a)',3,'Describe','d-function','How safety influenced the design of a bicycle.'],
- [2023,'6(b)',3,'Describe','d-function','How function influenced the design of a bicycle.'],
- [2023,'7(a)',3,'Describe','d-aesthetics','Aesthetic differences between three clocks.'],
- [2023,'7(b)',2,'Describe','d-market','How a brand name benefits a manufacturer.'],
- [2023,'8(a)',2,'','m-metals','Choosing a metal for a tap, with a reason.'],
- [2023,'8(b)',2,'','m-plastics','Choosing a plastic for a tap, with a reason.'],
- [2023,'8(c)',2,'State','c-processes','Two identifying features of injection-moulded products.'],
- [2023,'8(d)',2,'Outline','c-processes','Two advantages of injection moulding for mass production.'],
- [2023,'8(e)',2,'','c-processes','Rotational moulding.'],
- [2023,'9(a)',3,'Explain','c-systems','Benefits of automated mass manufacture.'],
- [2023,'9(b)',1,'Explain','c-systems','When hand-crafted, one-off production is used.'],
- [2023,'10',3,'Outline','c-standard','Benefits of standard components to the manufacturer.'],
- // 2022
- [2022,'1(a)(i)',1,'Name','m-woods','A softwood.'],
- [2022,'1(a)(ii)',1,'State','m-woods','A benefit of MDF compared with softwood.'],
- [2022,'1(b)(i)',2,'Describe','m-marking','Marking out a dowel joint, naming the tools.'],
- [2022,'1(b)(ii)',1,'Outline','m-tools','Setting the drilling depth for dowel holes.'],
- [2022,'1(b)(iii)',1,'State','m-joining','An alternative joint to the dowel joint.'],
- [2022,'1(c)(i)',1,'Name','m-joining','The adhesive for the joint.'],
- [2022,'1(c)(ii)',1,'Describe','m-joining','Holding the glued parts while the glue dries.'],
- [2022,'1(c)(iii)',2,'Describe','m-finish','Brushing on varnish well.'],
- [2022,'1(d)(i)',1,'Name','m-tools','A saw for cutting a curved shape.'],
- [2022,'1(d)(ii)',3,'Describe','m-finish','Three stages in finishing a plastic edge.'],
- [2022,'1(e)(i)',1,'Name','m-woods','A hardwood.'],
- [2022,'1(e)(ii)',4,'Describe','m-tools','Marking out and removing the corners of a wood lathe blank.'],
- [2022,'1(e)(iii)',2,'Outline','m-tools','Two ways to improve the finish on the wood lathe.'],
- [2022,'1(f)',2,'Explain','m-joining','Why epoxy resin suits the joint.'],
- [2022,'1(g)(i)',3,'Describe','m-marking','Marking out a metal bar for holes and bends.'],
- [2022,'1(g)(ii)',2,'Describe','m-tools','Bending a metal bar.'],
- [2022,'1(g)(iii)',2,'State','m-finish','Two reasons for dip-coating the metal.'],
- [2022,'2(a)',2,'Outline','d-research','Two things a user trip of a tent could evaluate.'],
- [2022,'2(b)',3,'Describe','d-research','Three stages of creating and using a questionnaire.'],
- [2022,'3',3,'Describe','d-ideas','Morphological analysis and brainstorming.'],
- [2022,'4(a)',2,'Outline','m-plan','Two types of information shown on working drawings.'],
- [2022,'4(b)',2,'Outline','d-graphics','Two benefits of computer graphics for presenting a design.'],
- [2022,'5',2,'Describe','d-model','Two advantages of sketch modelling.'],
- [2022,'6(a)',4,'Describe','d-ergo','How ergonomics influenced the design of a sun lounger.'],
- [2022,'6(b)',2,'Describe','d-function','How function influenced the design of the sun lounger.'],
- [2022,'6(c)',2,'Describe','d-function','How the designer extended the life expectancy of the sun lounger.'],
- [2022,'7(a)',1,'Describe','d-market','Technology push.'],
- [2022,'7(b)',1,'Describe','d-market','Market pull.'],
- [2022,'7(c)',2,'','d-market','Two marketing techniques that could increase sales.'],
- [2022,'8',4,'Describe','d-aesthetics','The aesthetics of a pedal car.'],
- [2022,'9(a)(i)',2,'State','m-metals','A property of cast iron that suits a parasol base, with a reason.'],
- [2022,'9(a)(ii)',2,'State','m-plastics','A property of polypropylene that suits a parasol base, with a reason.'],
- [2022,'9(b)',2,'State','c-processes','Two identifying features of a rotationally moulded product.'],
- [2022,'9(c)(i)',1,'Name','c-processes','A casting process.'],
- [2022,'9(c)(ii)',1,'Name','c-processes','The process used to make a plastic part (injection moulding).'],
- [2022,'10(a)',4,'Describe','c-cam','Benefits or drawbacks of laser cutters.'],
- [2022,'10(b)',2,'Describe','c-impact','Two effects of manufacturing technology on society.'],
- [2022,'11(a)',2,'Outline','c-systems','Two benefits of hand-crafted products.'],
- [2022,'11(b)',4,'Describe','c-impact','Sustainable and environmental choices of materials.']
+ [2024, "1(a)(i)", 1, "Name", "m-woods", "A manufactured board.", "", ["Plywood, MDF, hardboard or veneered chipboard"], ["Flexiply", "Plain chipboard"], ""],
+ [2024, "1(a)(ii)", 2, "Outline", "m-woods", "Two advantages of manufactured boards.", "", ["Cheaper than solid timber", "Easy to work with and saw", "Available in wide boards or large sheets", "Does not warp or twist", "MDF has a smooth surface", "Plywood is strong", "Durable", "Readily available", "Can be made from recycled materials", "Takes a finish well"], ["“Easy to use” (unqualified)", "“They are smooth” or “they are strong” (not all boards are)", "“It’s sturdy”"], "Name the board when giving a property, e.g. “MDF is smooth”."],
+ [2024, "1(b)(i)", 3, "Describe", "m-marking", "Marking out a tenon.", "", ["Measure and mark the position of the joint with a rule and pencil", "Draw lines at 90 degrees with a try square", "Mark the depth of the lines with a mortise or marking gauge", "Mark the waste wood with diagonal lines"], ["“Use an engineer’s square”", "“Mark positions of lines using a ruler”"], "Marking out the mortise does not score here."],
+ [2024, "1(b)(ii)", 2, "Outline", "m-tools", "Making sure mortises are cut to the correct depth.", "", ["Set the depth stop on the mortiser or drill", "Put masking tape round the chisel as a depth guide", "Mark the depth line on the wood and line the chisel up to it"], ["“Set the depth” or “set the depth to 30 mm”", "“Set the drill”", "“Use a steel ruler”"], "One mark per method: two methods for 2 marks."],
+ [2024, "1(b)(iii)", 1, "Name", "m-joining", "A joint that could replace the mortise and tenon.", "", ["Halving, dowel, rub, butt, biscuit or dovetail halving joint"], ["“Dovetail”", "“Cross halving”", "“Mitre”", "“Lap joint”", "“Glue it”"], ""],
+ [2024, "1(c)(i)", 1, "Name", "m-tools", "A drill bit.", "", ["Twist drill, Forstner bit, step drill or jobber drill"], [], ""],
+ [2024, "1(c)(ii)", 1, "Explain", "m-tools", "Why the thermoplastic is drilled before it is formed.", "", ["Prevents it breaking or snapping, because it can be held securely when flat", "Easier to drill and hold when flat than when curved", "Plastic can become brittle once formed"], ["Unqualified “quick” or “easy”"], ""],
+ [2024, "1(c)(iii)", 2, "Outline", "m-tools", "Two safety checks before using a pillar drill.", "", ["Chuck key removed", "Drill bit secure", "Table clear", "Guard down", "Plastic clamped securely", "Table secure", "Correct speed set"], ["Goggles or other personal protection", "“The guard” on its own"], "Checks must be on the pillar drill, not the user."],
+ [2024, "1(c)(iv)", 3, "Describe", "m-tools", "The stages in shaping acrylic.", "", ["Heat the acrylic in the oven or on a strip heater", "Bend it round a former, template or piece of wood", "Clamp or hold it in place until it sets", "Leave it to cool before removing it", "Check it against a template"], ["“Heat it”", "“Bend it”"], "“Bend it round a piece of wood and clamp it in place” scores 2."],
+ [2024, "1(d)(i)", 1, "Name", "m-woods", "A hardwood suitable for a turned part.", "", ["Mahogany, oak, beech or ash"], ["Balsa (not strong enough)"], ""],
+ [2024, "1(d)(ii)", 1, "Name", "m-tools", "A wood-turning technique.", "", ["Parallel turning or step turning"], [], ""],
+ [2024, "1(d)(iii)", 1, "Name", "m-marking", "The tool for checking a turned diameter.", "", ["Outside callipers (vernier or digital callipers also accepted)"], ["“Callipers” on its own", "Steel rule", "Inside or odd-leg callipers"], ""],
+ [2024, "1(d)(iv)", 2, "Outline", "m-tools", "Two ways to get a high-quality finish on the wood lathe.", "", ["Make sure the lathe tools are sharp", "Increase the lathe speed", "Feed the tool slowly with the right pressure", "Sand from coarse to fine grades", "Raise the grain", "Burnish, or apply oil, wax or varnish"], ["“Don’t rush” or “take your time”"], "“Sand it” and “speed it up” each score."],
+ [2024, "1(e)(i)", 3, "Describe", "m-marking", "Marking out on metal.", "", ["Coat with engineer’s blue", "Set odd-leg callipers with a rule and mark the centre lines", "Centre punch the middle of the crosses", "Draw lines at 90 degrees with an engineer’s square", "Draw the lines with a scriber", "Mark the arcs with dividers", "Use a template"], ["A list of tools on its own", "“A compass”", "“A try square”"], "“Mark the lines with an engineer’s square and scriber” scores 2."],
+ [2024, "1(e)(ii)", 2, "Describe", "m-tools", "Bending a metal bracket.", "", ["Put it in bending bars or a vice with the bend line at the edge", "Bend it with a mallet", "Use a jig, former or template to check the angle", "Bend it using the box folder"], ["“Bend it”", "Any heating, e.g. “use the forge”"], "For a second box-folder mark, mention lining up or setting the angle."],
+ [2024, "1(e)(iii)", 2, "State", "m-finish", "Two benefits of painting the metal.", "", ["Prevents corrosion; protects the metal", "Looks better than unpainted metal", "Easy to apply, e.g. can be sprayed", "Durable", "Choice of matt, satin or gloss", "Textured paint adds grip", "Easy to clean"], ["“Easy” on its own", "“Gives an even coat”"], ""],
+ [2024, "1(f)", 2, "Describe", "m-tools", "Making sure a good-quality internal thread is cut.", "", ["Use a clean, sharp, undamaged tap", "Use cutting compound or lubricant", "Keep the tap square and aligned", "Half a turn forward, a quarter turn back to clear the swarf", "Use the taper tap, then the second, then the plug tap"], ["“Tap the hole”", "“Make sure the tool is sharp” (name the tap)", "Checking with a screw"], ""],
+ [2024, "2", 3, "Outline", "d-research", "Features of a ring light and stand to evaluate in a user trip.", "", ["Is the light bright enough for selfies or videos, and can the brightness be adjusted", "Is the wire long enough for the height of the light", "Is the controller easy to understand, with buttons easy to press", "Is it easy to charge or change the batteries", "Is the stand stable, easy to adjust and set up", "Is the stand portable and does it support the weight of the light", "Does the phone fit and stay secure in the holder", "Are the knobs easy to turn for an average user"], ["A list of parts", "Packaging or instructions", "“Strength of the ring light”", "“Does it work properly?”"], "Link each point to a specific part of the ring light or stand."],
+ [2024, "3(a)", 1, "Name", "d-ideas", "An idea-generation technique.", "", ["Morphological analysis"], [], ""],
+ [2024, "3(b)", 1, "Name", "d-ideas", "An alternative idea-generation technique.", "", ["Brainstorming, taking your pencil for a walk, SCAMPER, technology transfer, analogy, biomimicry, lifestyle board, mood board or lateral thinking"], [], ""],
+ [2024, "4(a)(i)", 2, "Outline", "d-graphics", "Two reasons a designer would use a rendered pictorial.", "", ["Shows colours, textures, patterns and proportion", "Shows the materials", "Can be presented to a client; easy to send to the client", "Can be used in marketing", "You can see it in 3D", "Easy to modify if made by CAD"], ["“To know what it will look like”", "“Easy to store”", "“Easy to send” on its own"], ""],
+ [2024, "4(a)(ii)", 2, "Outline", "d-graphics", "Two reasons a designer would use an exploded view.", "", ["Shows how the parts line up and fit together", "Shows the joining methods", "Shows the individual parts", "Shows how many parts there are", "Sizes can be given"], [], ""],
+ [2024, "4(b)(i)", 2, "Explain", "d-model", "Two reasons for testing a design with a model.", "", ["Test the proportion of the parts", "Explore different sizes", "Test that the product works, e.g. the top part opens easily", "Test the ergonomics, e.g. right size for the hand", "Check it fits the location it is designed for", "See it in 3D", "Alter and refine the design"], ["Unqualified “cheap”, “quick” or “easy”", "The cost of materials", "“Help visualise what it will look like”"], ""],
+ [2024, "4(b)(ii)", 1, "Name", "d-model", "Another modelling technique.", "", ["Sketch, block, computer-generated, test model or prototype"], [], ""],
+ [2024, "5(a)", 4, "Describe", "d-function", "How function influenced the design of a gaming chair.", "", ["Armrests move up and down", "The back reclines to different angles", "Wheels so the user can move the chair", "Headrest or cushioned seat for comfort over long periods", "Swivels to face other directions", "Seat height is adjustable"], ["General statements, e.g. “the arm rests are adjustable”, “the back can move”, “the chair spins”, “the seat is comfortable”"], "Describe a specific part and what it lets the user do. Use different examples from 5(b)."],
+ [2024, "5(b)", 4, "Describe", "d-ergo", "How ergonomics influenced the design of a gaming wheel and pedals.", "", ["Steering wheel diameter fits the user’s grip", "Buttons sized to the thumb", "Pedal width suits the user’s foot", "Buttons within reach of the thumb when steering", "Soft grip on the wheel for comfort", "Buttons easy to press", "Wheel easy to turn for the average user", "Pedals easy to push", "Wheel shaped like a race car so the user feels like they are racing; black and red feel exciting"], ["General statements, e.g. “gaming wheel fits user’s sizes”, “the steering wheel is comfortable”", "Percentiles on their own"], ""],
+ [2024, "6(a)", 3, "Describe", "d-aesthetics", "Aesthetic features of a play tent or trampoline.", "", ["Each mark: one aesthetic area linked to the tent or trampoline, e.g. “the tent has a star design”, “a striped pattern on the trampoline”", "The red and blue sections contrast (2 marks)"], ["“Colourful”, “it’s bright”, “nice colours”", "A list of aesthetic terms", "“It must look good”"], "Several points about the same area (e.g. colour) score 1 mark."],
+ [2024, "6(b)", 2, "Describe", "d-function", "Design considerations for a play tent or trampoline.", "", ["Ergonomics, e.g. children fit through the doorways and tunnel", "Materials that are durable, light or waterproof", "Colours that appeal to children", "Function, e.g. encourages play", "Safety regulations (BSI)"], ["“They are durable”", "“They are colourful”", "“They need to be the right size”"], "Link each point to the tent or trampoline."],
+ [2024, "7(a)", 2, "Name", "d-market", "Two marketing techniques for promoting a product.", "", ["Adverts on TV, radio, billboards or leaflets", "Websites, social media or apps", "Celebrity endorsement", "Free gifts or prizes", "Special offer or low introductory price", "Prominent position in shops", "Well-known brand name", "Try before you buy", "Door to door or niche marketing"], ["“User trip”"], ""],
+ [2024, "7(b)", 3, "Complete", "d-eval", "A table of the roles of people involved in selling a product.", "", ["Designer (or client)", "Sells or advertises products", "Consumers (buyers, shoppers, the public)"], [], ""],
+ [2024, "8(a)(i)", 2, "Outline", "m-metals", "Two reasons stainless steel suits a kitchen splashback.", "", ["Does not corrode", "Heat or flame resistant", "Scratch and stain resistant", "Resists cleaning chemicals", "Durable, resists wear", "Smooth and easy to clean", "Looks good; polishes well", "Needs no extra finish"], ["“It is cheap”", "“It is strong” (the splashback does not need strength)"], "Use different reasons from (a)(ii)."],
+ [2024, "8(a)(ii)", 2, "Outline", "m-plastics", "Two reasons melamine formaldehyde suits the top layer of a worktop.", "", ["Heat resistant", "Water or moisture resistant", "Scratch and stain resistant", "Resists cleaning chemicals", "Durable, resists wear", "Smooth and easy to clean", "Non-toxic with food", "Available in lots of colours", "Cheaper than solid timber"], ["“It is strong”", "“It is cheap”"], "Use different reasons from (a)(i)."],
+ [2024, "8(b)", 2, "State", "c-processes", "Two features of a vacuum-formed product.", "", ["Rounded corners (no sharp corners)", "Tapered sides", "Thin walls", "Material thinner where it stretched most"], ["“It is made in one piece”"], ""],
+ [2024, "8(c)", 2, "Outline", "c-processes", "Two reasons die casting is suitable.", "", ["Good surface finish", "Complex or detailed shapes", "Accurate, so parts assemble easily", "Solid metal product", "Economies of scale", "Faster than sand casting"], ["Unqualified “quick”, “cheap” or “easy”"], ""],
+ [2024, "9", 4, "Outline", "c-impact", "Ways designers and manufacturers can make products more environmentally friendly.", "", ["Use renewable energy; make manufacturing more energy efficient", "Use local materials so less pollution from transport", "Reduce packaging", "Use less material; fewer parts", "Only make enough to meet demand", "Make products last longer and easy to maintain", "Reduce waste and factory emissions", "Use sustainable or recycled materials", "Design for recycling, e.g. label parts", "Refurbish or reuse products and parts"], ["“Recycle cardboard models”", "“Use computers instead of paper”"], "Think about the final product, not the design process."],
+ [2024, "10", 3, "Outline", "c-cam", "Three benefits of 3D printers.", "", ["No craft skills needed", "No workshop or tooling needed", "Automated, runs without breaks", "Made directly from the CAD drawing", "Accurate, complex products", "Similar materials to the final product; range of colours", "Additive, so less waste", "Repeatable", "No assembly needed", "Easy to revise and reprint", "Good-quality model to show the client", "Cost-effective, faster prototyping than traditional methods"], ["Unqualified “quick”, “cheap” or “easy”", "“It’s environmentally friendly” (too vague)"], ""],
+ [2024, "11(a)", 2, "Outline", "c-standard", "Two benefits of standard components.", "", ["Bought in, so fewer stages and faster production", "Standard sizes, so easy to plan into production", "Cheaper to buy than make in-house", "Can be used on different products", "Reliable, consistent quality", "Easy to repair or maintain", "Available in large quantities, easy to source", "Fit common tools"], ["Unqualified “quick”, “cheap” or “easy”"], "“Speeds up production” scores."],
+ [2024, "11(b)", 3, "Describe", "c-impact", "The impact of mass manufacturing on society and workers.", "", ["Products are cheaper to buy", "Cheap products encourage a throwaway culture (fast fashion)", "Products readily available to meet demand", "More consistent quality", "Complex products at lower prices", "Fewer workers needed", "Workers need training in new techniques", "Changes in wages: lower-skilled jobs pay less, higher-skilled pay more", "Economic decline or deprivation in an area", "Fewer work-related injuries"], ["“Increases waste”", "“You get paid less”"], "Positive or negative impacts both score."],
+ [2023, "1(a)(i)", 1, "Name", "m-woods", "A softwood.", "", ["Red pine, spruce, cedar, Douglas fir or larch (any pine)"], [], ""],
+ [2023, "1(a)(ii)", 1, "Name", "m-tools", "A drill bit for flat-bottomed holes in wood.", "", ["Forstner bit (flat bit or spade bit also accepted)"], [], ""],
+ [2023, "1(a)(iii)", 1, "Name", "m-tools", "A plane.", "", ["Jack plane, smoothing plane or block plane"], ["Plough or rebate plane", "Any chisel"], "“Plane” on its own scores."],
+ [2023, "1(b)(i)", 4, "Describe", "m-joining", "Marking out and cutting a corner rebate joint.", "", ["Measure the thickness of the wood and mark it with a steel rule", "Draw lines at 90 degrees with a try square", "Mark the depth with a marking gauge", "Clamp a guide piece of wood next to the line, or hold the wood with a sash cramp", "Saw down to the depth with a tenon saw", "Remove the waste with a chisel", "Level the bottom of the joint with a rebate plane, chisel or router (granny’s tooth)"], ["A list of tools, e.g. “use a saw and chisel”", "“Mark the distance with a rule”", "“Mark the wood with a pencil”", "Sanding or filing the bottom of the joint", "“Clamp it in a vice” on its own"], "Describe both marking out and cutting for full marks (maximum 3 for one stage). Without tools, maximum 1 mark."],
+ [2023, "1(b)(ii)", 1, "Name", "m-joining", "A simple corner joint.", "", ["Rub, dowel, butt, dovetail, finger or biscuit joint"], ["“Lap”", "“Corner halving”"], ""],
+ [2023, "1(b)(iii)", 2, "Outline", "m-marking", "Checking that a frame is square.", "", ["Measure the diagonals: they should be equal", "Check the inside corners with a try square or engineer’s square", "Use a jig or template"], ["“Measure it”"], ""],
+ [2023, "1(b)(iv)", 1, "Name", "m-joining", "An adhesive for the wooden parts.", "", ["PVA (wood glue)"], ["“Glue” on its own", "A brand name"], ""],
+ [2023, "1(b)(v)", 3, "Describe", "m-finish", "Preparing the wood surface before finishing.", "", ["Remove pencil marks and glue with an eraser or sandpaper", "Sand with sandpaper or steel wool, coarse then fine", "Dampen the wood with a damp cloth to raise the grain, then sand again", "Wipe off the dust with a damp cloth", "Fill imperfections such as dents, chips or gaps"], [], "“Sand it, wet the wood, sand it again” scores 3."],
+ [2023, "1(c)(i)", 2, "State", "m-metals", "Properties that make the metal suitable for a clock face.", "", ["Easy to cut, shape and work with", "Attractive; polishes to a high shine", "Does not rust (non-ferrous)", "Easy to source or get; comes in sheets", "Has a gold colour; looks like gold"], ["Unqualified “quick”, “cheap” or “easy”", "“It’s gold”", "“Strong”, “durable” or its weight", "“Easy to clean”"], ""],
+ [2023, "1(c)(ii)", 2, "Describe", "m-marking", "Finding and marking the centre of the clock face.", "", ["Set odd-leg callipers to the centre and run them along the edges to draw centre lines", "Measure halfway across with a steel rule", "Mark the lines with an engineer’s square and scriber"], ["A list of tools, e.g. “use a scriber and steel rule”", "“Mark the distance with a rule”", "“Use a steel rule to draw the lines”"], "Without tools, maximum 1 mark."],
+ [2023, "1(c)(iii)", 1, "Name", "m-tools", "A hand tool for cutting the metal outline.", "", ["Tin snips, junior hacksaw, hacksaw, coping saw, Abrafile or guillotine"], ["Laser, plasma or water-jet cutter (not hand tools)"], ""],
+ [2023, "1(d)(i)", 2, "Outline", "m-tools", "Two checks before using the centre lathe.", "", ["Bar secure in the chuck (work secure in the lathe)", "Chuck key removed", "Work running true", "Cutting tool set at centre height", "Guard down"], ["Goggles or other personal protection", "“The guard” on its own"], "“Put the guard down and make sure the work is secure” scores 2."],
+ [2023, "1(d)(ii)", 2, "Name", "m-tools", "Two centre lathe operations.", "", ["Parallel turning", "Step turning", "Facing off", "Parting off"], ["Threading"], ""],
+ [2023, "1(d)(iii)", 2, "Describe", "m-tools", "Cutting an external thread with a die.", "", ["Chamfer the end of the bar", "Use a clean, sharp, undamaged die", "Secure the die in the die stock and adjust its screws", "Use cutting compound or lubricant", "Keep the die square and aligned", "Turn back every so often to clear the swarf", "Slow the lathe speed"], ["“Use a lathe”"], ""],
+ [2023, "1(d)(iv)", 1, "Name", "m-joining", "An adhesive to fix a part to a brass bar.", "", ["Epoxy resin"], ["“Gluing”", "“Metal glue”", "“Super glue”", "Soldering or welding"], ""],
+ [2023, "1(e)(i)", 1, "Outline", "m-tools", "Drilling plastic without damaging it.", "", ["Put wood underneath the plastic", "Mask the plastic before drilling", "Use a stepped bit or pilot hole", "Clamp the work securely", "Drill slowly"], [], ""],
+ [2023, "1(e)(ii)", 2, "Describe", "m-tools", "Forming an accurate 90° bend in plastic.", "", ["Heat the plastic on a strip heater (line bender)", "Bend it round a former, jig or in a vice", "Leave it to cool before removing it", "Check the angle is 90 degrees"], ["“Bend it”", "“Heat it”", "“Bend it on the strip heater”"], "“Bend it on the line bender” scores. Oven heating needs a former to score."],
+ [2023, "1(e)(iii)", 1, "Explain", "m-tools", "Why the hole is drilled before the plastic is bent.", "", ["The work is easier to hold securely when flat", "Easier to position the hole accurately", "Less likely to crack"], ["“Easier” on its own"], ""],
+ [2023, "2(a)", 3, "Explain", "d-research", "Benefits of using questionnaires.", "", ["Gathers opinions from a wide range of people", "Can be completed face to face or by email, giving flexibility", "Can be anonymous", "Results can be collated quickly", "Specific questions can be asked, e.g. on aesthetics or ergonomics", "Helps find the target market", "Can use a rating system", "Results are easy to show as graphs or charts"], ["Unqualified “quick”, “cheap” or “easy”", "“They are quick to do”"], "“You can get lots of opinions and they are easy to collate” scores 2."],
+ [2023, "2(b)", 1, "Describe", "d-research", "The role of the specification.", "", ["Tells the designer what the design must achieve", "A checklist to check the design can do everything in the specification", "Used as a checklist", "Helps develop and refine the proposal", "Used to evaluate ideas against the brief throughout the design process"], ["A definition of a specification"], ""],
+ [2023, "3(a)", 3, "Describe", "d-ideas", "The key stages of brainstorming.", "", ["Share the purpose or topic", "A group activity: people shout out ideas and someone writes them all down", "Lots of ideas in a set time", "Record all ideas; no idea is too silly", "Ideas spark off each other", "Select the most promising ideas to develop"], ["“Think of lots of ideas”"], "“People think of lots of ideas” scores 1 because it means a group."],
+ [2023, "3(b)", 1, "Name", "d-ideas", "Another idea-generation technique.", "", ["Morphological analysis, technology transfer, analogy, biomimicry, lateral thinking, SCAMPER, mood board, lifestyle board, taking your pencil for a walk"], ["Existing products", "Mind maps"], ""],
+ [2023, "4(a)", 2, "Outline", "d-graphics", "Advantages of sketching.", "", ["Quick, so lots of ideas in a short time (quick accepted here)", "Gives a rough idea of what it will look like", "Communicates the idea visually to other people", "Ideas can be explored and evolved", "Not limited by computer software", "Mistakes are easy to change or discard", "No specialist equipment needed"], ["Unqualified “cheap” or “easy”"], "“Easy to change” and “gives a rough idea of what it will look like” each score."],
+ [2023, "4(b)", 2, "Outline", "m-plan", "What working drawings show.", "", ["Dimensions (sizes of parts)", "How the parts go together (exploded or assembly views)", "Identifies each part and how many are needed", "Materials of each part", "Orthographic views and scaled-up details", "Allows it to be manufactured"], ["“To see how it works”", "“To see what it looks like”", "“To show the client”"], ""],
+ [2023, "4(c)", 3, "Explain", "d-model", "Why models are used in the design process.", "", ["To generate and explore ideas", "To refine ideas", "To check and test the design before production, e.g. how big it is", "Better understanding of the 3D form", "Lets the user interact with the design", "To check ergonomics, e.g. it fits the hand or where buttons go", "To communicate with the client", "To see what the final product will look like", "Cheaper than making the product repeatedly"], ["“To check it”", "Computer-generated models"], ""],
+ [2023, "5", 4, "Describe", "d-ergo", "How ergonomics influenced the design of a kettle.", "", ["Handle length or gap suits the width of the hand", "Handle diameter suits the grip", "Size and position of switches suit fingers and thumbs", "Weight of the kettle is easy to lift", "Force needed to press the switch", "Comfortable, non-slip grip", "Easy to lift off the base and open the lid", "Colour shows the safe part to hold or makes the switch stand out", "Sound when it has boiled; water level easy to see"], ["Percentiles on their own", "“The handle must be the correct size to be lifted by everyone”"], "Link each part of the kettle to a body measurement or ability."],
+ [2023, "6(a)", 3, "Describe", "d-function", "How safety influenced the design of a bicycle.", "", ["Reflectors or lights so the rider can be seen", "Chain guard stops clothes catching", "Brakes, easy to pull, to stop safely", "Basket or rack carries items safely without upsetting balance", "Grips so hands don’t slip off the bars", "Seat height adjusts to a safe height for different users", "Bell alerts others", "Tyres suit different conditions"], ["“It has a basket”", "“No sharp corners”", "Mudguards", "Comfort points, e.g. a soft seat"], "“It’s got brakes and they have to be easy to pull” scores 2."],
+ [2023, "6(b)", 3, "Describe", "d-function", "How function influenced the design of a bicycle.", "", ["Adjustable seat post for different users", "Basket or rack for carrying things", "Brakes control the speed", "Soft grips on the handlebars", "Mudguards keep the rider clean", "Bike stand", "Pedals are easy to push"], ["A list of parts, e.g. “It’s got brakes”"], "Don’t repeat answers from 6(a)."],
+ [2023, "7(a)", 3, "Describe", "d-aesthetics", "Aesthetic differences between three clocks.", "", ["Each mark: one aesthetic comparison between two clocks, e.g. colour, shape, style, symmetry, texture, proportion"], ["A list of aesthetic terms", "A point about one clock only, e.g. “Clock A is modern”"], "Each point must compare at least two clocks."],
+ [2023, "7(b)", 2, "Describe", "d-market", "How a brand name benefits a manufacturer.", "", ["People trust a well-known brand, so they are more likely to buy", "Guaranteed sales for the manufacturer", "The brand advertises itself", "Premium pricing", "Customer loyalty", "Seen as high quality, so customers buy more from that brand"], [], ""],
+ [2023, "8(a)", 2, "Name", "m-metals", "The most suitable metal for the tap, and why it is suitable.", "", ["Copper", "Strong", "Durable, hardwearing", "Resists corrosion, weatherproof", "Suitable for die casting", "Readily available", "Needs no finish", "Looks good"], [], "1 mark for copper, 1 for a reason."],
+ [2023, "8(b)", 2, "Name", "m-plastics", "The most suitable plastic for the tap, and why it is suitable.", "", ["ABS", "Strong, durable, resists wear and scratches", "Waterproof", "Suitable for injection moulding, easy to mould", "Readily available", "Colour built in", "Easy to clean"], [], "1 mark for ABS, 1 for a reason."],
+ [2023, "8(c)", 2, "State", "c-processes", "Two identifying features of injection-moulded products.", "", ["Injection point mark", "Ejector pin marks (small flat circles)", "Split lines from the mould", "Good surface finish", "Complex or detailed shapes, webs or bosses", "Accuracy"], ["“Made from plastic”"], ""],
+ [2023, "8(d)", 2, "Outline", "c-processes", "Two reasons die casting is suitable for mass manufacturing the metal tap.", "", ["Fully automated", "Accurate, consistent, identical products", "High-quality finish", "Quicker than sand casting", "The mould can be reused", "Complex shapes such as threads", "Less waste", "Economies of scale"], ["Unqualified “quick”, “cheap” or “easy”", "“Suitable for mass production”"], ""],
+ [2023, "8(e)", 2, "Name", "c-processes", "A process to make the thermoplastic water tank, and why it is suitable.", "", ["Rotational moulding (blow moulding also accepted)", "Hollow or closed shapes, including large hollow items", "Good surface finish", "Consistent wall thickness", "Little waste", "Repeatable"], ["Unqualified “quick”, “cheap” or “easy”"], "1 mark for the process, 1 for a reason."],
+ [2023, "9(a)", 3, "Explain", "c-cam", "The benefits of CAM to the manufacturer.", "", ["Faster production rate than traditional methods", "Fewer human errors or mistakes", "Less labour intensive", "Fewer workers needed, saving money on wages", "Fewer work-related injuries", "Made directly from the CAD drawing", "Complex products are possible", "Large volumes (mass amounts) can be produced", "Accurate, consistent identical parts", "Less waste", "More efficient; machines run 24 hours a day"], [], ""],
+ [2023, "9(b)", 1, "Explain", "c-systems", "Why some products are not suitable for mass manufacture.", "", ["Needs specialist hand-crafting skills or equipment", "Very large items", "Bespoke or personalised products", "Only a small number are needed"], [], ""],
+ [2023, "10", 3, "Outline", "c-standard", "Benefits of standard components to the manufacturer.", "", ["Made in standard sizes, so easy to plan into production", "Fewer workers needed to assemble products", "Cheaper and easier to buy than to make from scratch in-house", "Can be used on different products", "Consistent quality", "Available in large quantities, easy to source or buy in bulk", "Fewer stages, speeding up production", "Fit common tools"], ["Unqualified “quick”, “cheap” or “easy”", "Benefits to the consumer, e.g. “easy to take apart and move house”"], ""],
+ [2023, "11", 3, "Outline", "c-impact", "Three steps manufacturers could take to extend the life expectancy of products.", "", ["Replacement parts easy to get", "Suitable finishes", "Better quality, durable or strong materials and parts", "Limit production to meet demand", "Better manufacturing and assembly quality", "Quality checks or testing before it is sold", "Fewer parts"], [], ""],
+ [2022, "1(a)(i)", 1, "Name", "m-woods", "A softwood.", "", ["Red pine, spruce, cedar, Douglas fir or larch (any pine)"], [], ""],
+ [2022, "1(a)(ii)", 1, "State", "m-woods", "A benefit of MDF compared with softwood.", "", ["Easily available", "Large flat sheets", "Good surface finish, easy to paint", "Does not warp or twist", "Cheaper than softwood", "Easier to cut and shape", "Uses waste wood, so more environmentally friendly"], ["“Cheap” on its own", "“Stronger” on its own"], "“Cheaper” scores because it makes a comparison."],
+ [2022, "1(b)(i)", 2, "Describe", "m-marking", "Marking out a dowel joint, naming the tools.", "", ["Set a marking gauge to half the thickness and mark the centre line on the end", "Measure 12 mm from the top and bottom with a rule and pencil for the dowel positions", "Use a try square to draw a line across the end at 90 degrees", "Use a bradawl or centre punch to mark each dowel centre"], ["A list of tools, e.g. “use a try square and pencil”", "“Mark the lines with a ruler”"], "Each step must name a suitable tool. Without tools, maximum 1 mark."],
+ [2022, "1(b)(ii)", 1, "Outline", "m-tools", "Setting the drilling depth for dowel holes.", "", ["Set a depth stop on the pillar drill, or wrap masking tape round the drill bit at the depth"], [], ""],
+ [2022, "1(b)(iii)", 1, "Name", "m-joining", "An alternative joint to the dowel joint.", "", ["Rebate, lap or butt joint"], ["“Glue it”", "“Corner halving”"], "You must name a joint."],
+ [2022, "1(c)(i)", 1, "Name", "m-joining", "The adhesive for the joint.", "", ["PVA (wood glue)"], ["“Glue” on its own", "A brand name"], ""],
+ [2022, "1(c)(ii)", 1, "Outline", "m-joining", "Holding the glued parts while the glue dries.", "", ["Cramp the glued pieces together with sash cramps, or hold them in the bench vice until dry"], ["“Glue it”"], "“Clamp it” or “sash clamp” scores the mark."],
+ [2022, "1(c)(iii)", 2, "Describe", "m-finish", "Brushing on varnish well.", "", ["Apply thin coats", "Apply an even coat", "Cover all surfaces", "Remove loose bristles from the surface", "Wipe excess varnish off the brush first", "Brush with the grain", "Apply several coats, sanding between coats"], ["“Apply it with a brush” (already in the question)"], ""],
+ [2022, "1(d)(i)", 1, "Name", "m-tools", "A saw for cutting a curved shape.", "", ["Coping saw, junior hacksaw, scroll saw, fret saw, band saw or Abrafile"], ["“Hacksaw” unless the teeth per inch are given"], ""],
+ [2022, "1(d)(ii)", 3, "Describe", "m-finish", "Three stages in finishing a plastic edge.", "", ["File or scrape the edge", "Smooth with wet and dry paper, abrasive cloth or wire wool", "Polish or buff the edge"], ["“Sandpaper” or “glass paper” on its own", "Machine sanders"], "Name the tools. Several types of filing only count once."],
+ [2022, "1(e)(i)", 1, "Name", "m-woods", "A hardwood.", "", ["Beech, ash, mahogany, oak (balsa accepted)"], [], ""],
+ [2022, "1(e)(ii)", 4, "Describe", "m-tools", "Marking out and removing the corners of a wood lathe blank.", "", ["Draw diagonals with a rule and pencil to find the centre of each end", "Draw a circle or octagon with compasses", "Mark the corners to remove with a marking gauge, or pencil and steel rule", "Hold the blank in the bench vice", "Plane off the corners", "Mark the centres with a centre punch or bradawl", "Saw cuts in the ends with a tenon saw for the lathe centres"], ["“Saw the diagonals” (the saw must be named)"], "Except for the diagonals, each stage must name the tool used."],
+ [2022, "1(e)(iii)", 2, "Outline", "m-tools", "Two ways to improve the finish on the wood lathe.", "", ["Make sure the lathe tools are sharp", "Increase the speed", "Feed the tool slowly", "Sand from coarse to fine grades", "Burnish the wood, or apply oil, wax or varnish"], ["“Don’t rush” or “take your time”"], "“Sand it” and “speed it up” each score."],
+ [2022, "1(f)", 2, "Outline", "m-joining", "Why epoxy resin suits the joint.", "", ["Glues different materials together, e.g. metal and wood", "Gives a strong, durable or tough joint"], ["“Very waterproof” (true but not relevant)"], ""],
+ [2022, "1(g)(i)", 3, "Describe", "m-marking", "Marking out a metal bar for holes and bends.", "", ["Coat the metal with engineer’s blue", "Measure with a steel rule and mark with a scriber", "Draw lines across the bar at 90 degrees with an engineer’s square and scriber", "Mark the centre line with odd-leg callipers", "Centre punch the hole centres with a ball-pein hammer", "Draw the semicircles with spring dividers"], ["A list of tools on its own", "“A compass”", "“A try square”"], "Without tools, maximum 1 mark."],
+ [2022, "1(g)(ii)", 2, "Describe", "m-tools", "Bending a metal bar.", "", ["Hold the bar in an engineer’s vice or bending bars with the bend line at the edge, or use a box folder", "Bend the bar with a hammer or mallet", "Use a jig, former or template"], ["“Bend it”", "“Heat it”"], "“Heat it in the forge” scores. For a second box-folder mark, mention setting the guard or angle."],
+ [2022, "1(g)(iii)", 2, "Explain", "m-finish", "Why the stand support was dip coated.", "", ["Prevents corrosion", "For its appearance", "Easy to apply compared with painting coats", "Durable"], ["“Easy” on its own", "Texture or grip", "“Gives an even coat”"], ""],
+ [2022, "2(a)", 2, "Outline", "d-research", "Two things a user trip of a tent could evaluate.", "", ["How easy the tent is to put up or take down", "How easy it is to use", "How well it works, e.g. whether it is waterproof", "Important design features, e.g. height to stand up", "Areas for improvement"], ["“Strength of the tent”", "“How durable the tent is”", "“The size of the tent”"], "Generic points like strength or size must be linked to a specific part of the tent."],
+ [2022, "2(b)", 3, "Describe", "d-research", "Three stages of creating and using a questionnaire.", "", ["Decide on the questions", "Identify the target audience", "Test the questionnaire for length and clarity", "Hand out the questionnaire or ask the questions", "Collect the results", "Analyse the results"], [], "“Hand out the questionnaire to the target audience” scores 2."],
+ [2022, "3", 3, "Describe", "d-ideas", "Morphological analysis and brainstorming.", "", ["Morphological analysis: choose parameters for the table headings", "Fill the columns with options", "Pick one option from each column at random", "Sketch ideas from the combination", "Brainstorming: share the purpose of the activity", "A group activity: people shout out ideas and someone writes them all down", "Lots of ideas in a set time; no idea is too silly; ideas spark off each other"], ["“Think of lots of ideas”"], "You don’t need all the stages. Other techniques (analogy, lateral thinking, mood boards) can also score."],
+ [2022, "4(a)", 2, "Outline", "m-plan", "Two types of information shown on working drawings.", "", ["Dimensions of the parts", "How the parts join together (assembly)", "Number of parts", "Internal detail", "Materials"], ["“To see how it works”"], "“Shows you how to make it” scores."],
+ [2022, "4(b)", 2, "Outline", "d-graphics", "Two benefits of computer graphics for presenting a design.", "", ["Shows colours, textures, patterns and proportion", "Shows the materials", "Can be presented to a client", "Can be used in marketing", "Easy and faster to modify", "Easy to share electronically", "Can be rotated to see it from different angles", "Realistic representation of the final product"], ["“To know what it will look like”", "“You can see it in 3D” on its own", "“Faster than sketching”"], ""],
+ [2022, "5", 2, "Describe", "d-model", "Two advantages of sketch modelling.", "", ["Quicker to make than other models", "Designer sees ideas in 3D", "Part of idea generation", "Materials such as card and paper are easy to get and low cost", "Can make forms that are difficult to sketch", "Needs little skill", "Can be shown to others for feedback", "Can be altered and refined"], ["Unqualified “quick”, “cheap” or “easy”"], "“Quicker to make than scale models” scores."],
+ [2022, "6(a)", 4, "Describe", "d-ergo", "How ergonomics influenced the design of a sun lounger.", "", ["A part of the lounger linked to a body measurement, e.g. width suits the user’s shoulder width", "Arm rests wide enough for the forearm", "Strong enough to hold the weight of an adult", "Light enough for the user to carry", "Easy to fold or adjust the back and leg rest", "Comfortable to lie on, e.g. cushioned head rest", "Colour makes the user feel warm"], ["General statements about ergonomics", "Percentiles on their own"], "Do not repeat points between 6(a) and 6(b)."],
+ [2022, "6(b)", 2, "Describe", "d-function", "How function influenced the design of the sun lounger.", "", ["Folds up for easy storage", "Materials are easy to clean", "Light so it is easy to carry", "Comfortable to sit in for a long time"], ["General statements"], ""],
+ [2022, "6(c)", 2, "Describe", "d-function", "How the designer extended the life expectancy of the sun lounger.", "", ["Use durable, strong or suitable materials", "Apply a suitable finish", "Use standard components that can be replaced if they break", "Easy to maintain and clean", "Assembly considerations"], [], "“Materials need to be strong and durable” scores 2."],
+ [2022, "7(a)", 1, "Describe", "d-market", "Technology push.", "", ["New technology, materials or production methods lead to new products being developed, not based on market research"], [], ""],
+ [2022, "7(b)", 1, "Describe", "d-market", "Market pull.", "", ["Products are developed because consumers want them or society’s needs change"], [], ""],
+ [2022, "7(c)", 2, "Outline", "d-market", "Two marketing techniques that could increase sales.", "", ["Adverts on TV, radio, billboards or leaflets", "Websites, social media or apps", "Celebrity endorsement", "Free gifts or prizes", "Special offers or a low introductory price", "Prominent position in shops", "Sell under a well-known brand name", "Try before you buy"], [], ""],
+ [2022, "8", 4, "Describe", "d-aesthetics", "The aesthetics of a pedal car.", "", ["Each mark: one aesthetic area linked to the pedal car, e.g. “the car is yellow”, “the checkerboard pattern”", "The black and white colours contrast (2 marks)"], ["A list of aesthetic terms", "“Colourful” on its own", "“It must look good”"], "Link each aesthetic area to a part of the pedal car."],
+ [2022, "9(a)(i)", 2, "State", "m-metals", "A property of cast iron that suits a parasol base, with a reason.", "", ["Cast iron", "Heavy, so it holds the parasol down", "Strong or durable", "Does not rust"], ["“Suitable for casting”"], "1 mark for the material, 1 for a suitable reason."],
+ [2022, "9(a)(ii)", 2, "State", "m-plastics", "A property of polypropylene that suits a parasol base, with a reason.", "", ["Polypropylene", "Strong and impact resistant when moved around", "Waterproof for the weather", "Colour built in, so no extra finish needed", "Lightweight to carry home", "Durable screw thread"], ["“Suitable for rotational moulding”", "“It is heavy” (plastics are not heavy)"], "1 mark for the material, 1 for a suitable reason."],
+ [2022, "9(b)", 2, "State", "c-processes", "Two identifying features of a rotationally moulded product.", "", ["Mould split lines", "Ejector pin marks", "Hollow", "Even wall thickness", "Made from plastic"], [], ""],
+ [2022, "9(c)(i)", 1, "Name", "c-processes", "A casting process.", "", ["Sand casting or die casting"], [], "“Casting” scores."],
+ [2022, "9(c)(ii)", 1, "Name", "c-processes", "The process used to make a plastic part (injection moulding).", "", ["Injection moulding"], [], ""],
+ [2022, "10(a)", 4, "Describe", "c-cam", "Benefits or drawbacks of laser cutters.", "", ["Repeatable, consistent identical parts", "Accurate", "Very detailed or complex shapes, including internal shapes", "Faster production, high volumes", "Less waste material", "Can etch and engrave", "Lower labour costs", "Shorter lead time because less tooling is needed", "Made directly from the CAD drawing; files easy to email", "Runs 24 hours a day, more efficient"], ["Unqualified “cheap” or “easy”"], "“Fast”, “more efficient” and “more reliable” each score."],
+ [2022, "10(b)", 2, "Describe", "c-impact", "Two effects of manufacturing technology on society.", "", ["Fewer workers needed", "Workers need new skills", "Local economic decline or factory closures from outsourcing", "More jobs in training or repairing technology", "Products cheaper than traditional manufacture", "Wider range of products available", "Throwaway society", "Safer workplace, fewer people injured"], ["Unqualified “quick”, “cheap” or “easy”"], ""],
+ [2022, "11(a)", 2, "Explain", "c-systems", "Two benefits of one-off production.", "", ["Better quality, made by a skilled craftsperson", "Personalised or made to measure", "Made locally from local materials", "Unique product, satisfaction of owning one", "Less storage needed when made to order", "Skilled workers keep their jobs", "Can charge a higher price", "Lasts longer than mass-produced products", "No expensive moulds needed"], ["“Gives people jobs”"], ""],
+ [2022, "11(b)", 4, "Describe", "c-impact", "Sustainable and environmental choices of materials.", "", ["Use locally sourced materials", "Transporting materials from overseas causes air pollution", "Deforestation destroys wildlife habitat", "Use FSC-certified wood", "Use recycled or recyclable materials", "Reduce material waste; design to use less material", "Replant trees for sustainable forestry", "Apply a finish to extend the lifespan", "Design for disassembly", "Upcycle or repurpose materials"], [], ""]
 ];
 
 /* N5 D&M 2025 and 2026 question papers: every part. Questions and marking points are paraphrased from the
@@ -1136,7 +1138,7 @@ const PP_RECENT=[
   ['“Set the depth.”','“Set the drill.”','“Use a steel ruler.”']],
  [2025,'1(d)(i)',2,'Name','m-joining','Two alternative joints for the corners, instead of a finger joint.','Most candidates answered this well.',
   ['Lap or rebate; halving; rub; dowel','Also accepted: dovetail, biscuit, mitre, butt'],
-  ['“Lap or rebate joint” counts as one type, so 1 mark','Screws, pins or glue']],
+  ['Screws, pins or glue'],'“Lap or rebate joint” counts as one type, so 1 mark.'],
  [2025,'1(d)(ii)',2,'Outline','m-marking','Two methods of checking the main body is square.','',
   ['Measure the diagonals: they should be equal (with a rule, a strip of wood, string or a trammel)','Check the corners with a try square (engineer’s or combination square also accepted)','Use a template'],
   ['“Use a ruler.”','“Measure it.”','“Corner to corner.”','“Draw the diagonals.”']],
@@ -1224,7 +1226,9 @@ const PP_RECENT=[
   ['Recycled materials (in the question)','Anything about manufacture or distribution','“Sustainable materials” or “environmentally friendly materials”','Locally sourced materials; renewable energy; replanting trees']]
 ];
 
-const PP_ALL=PP_RECENT.concat(PP_N5);
+/* questions withdrawn from the site (marking unclear) */
+const PP_HIDE=new Set([]);const ppShow=r=>!PP_HIDE.has(r[0]+'|'+r[1]);
+const PP_ALL=PP_RECENT.concat(PP_N5).filter(ppShow);
 /* ---------- state ---------- */
 const KEY='dm-n5-oct-skills-v1';
 const fresh=()=>({rag:{},checks:{},mc:{},w:{},self:{},f:{},weeks:6,per:2,cur:'n5-oct',unlocked:{},cel:{},tab:'learn'});
@@ -2362,7 +2366,7 @@ const LEARN_N5_MM=[
  area:'w',
  name:'Joining, holding, formers and jigs',
  spec:'Assembling: joining methods (PVA and epoxy resin adhesives; screws, nails, nuts and bolts; mortise and tenon, lap, rub, halving, dowel, rebate and housing joints; pop-riveting; welding); holding and clamping tools (machine, bench, hand and engineer’s vices and guards; G clamp; sash cramps); formers and jigs.',
- body:[['h','Woodwork joints'],['fig','svg:joints','Common woodwork joints'],['ul',['Mortise and tenon: a strong frame joint, used for tables and chairs.','Housing: a shelf sits in a groove across a side panel.','Halving: both pieces are cut to half thickness where they cross.','Lap: one piece overlaps a recess in the other, for example at a corner.','Rebate: a step cut along an edge, for example for a cabinet back.','Dowel: wooden pins glued into matching holes.','Rub joint: two edges glued together, for example to make a wider board.']],['h','Adhesives and fixings'],['ul',['Wood glue (PVA): wood to wood.','Epoxy resin: two-part adhesive for joining different materials, such as metal to wood.','Screws: a countersunk screw sits flush when the hole is countersunk, so it doesn’t stick out or scratch.','Nuts and bolts: a strong joint that can be taken apart.','Pop rivets: join sheet materials from one side. Welding: a permanent joint between metals.']],['h','Holding, formers and jigs'],['ul',['Bench vice (wood), engineer’s vice (metal), machine vice (on the pillar drill), hand vice (small items).','G clamps hold parts while glue sets; sash cramps hold wide frames and boards.','A former is a shape that material is pressed over or around, so every part has the same accurate 3D form.','A jig holds the work or guides the tool, so the same operation is repeated accurately without marking out each part.']]],
+ body:[['h','Woodwork joints'],['fig','wikis:j_mortise,j_housing,j_halving,j_rebate,j_dowel','Common woodwork joints. Tap a credit to see where a diagram is from.'],['ul',['Mortise and tenon: a strong frame joint, used for tables and chairs.','Housing: a shelf sits in a groove across a side panel.','Halving: both pieces are cut to half thickness where they cross.','Lap: one piece overlaps a recess in the other, for example at a corner.','Rebate: a step cut along an edge, for example for a cabinet back.','Dowel: wooden pins glued into matching holes.','Rub joint: two edges glued together, for example to make a wider board.']],['h','Adhesives and fixings'],['ul',['Wood glue (PVA): wood to wood.','Epoxy resin: two-part adhesive for joining different materials, such as metal to wood.','Screws: a countersunk screw sits flush when the hole is countersunk, so it doesn’t stick out or scratch.','Nuts and bolts: a strong joint that can be taken apart.','Pop rivets: join sheet materials from one side. Welding: a permanent joint between metals.']],['h','Holding, formers and jigs'],['ul',['Bench vice (wood), engineer’s vice (metal), machine vice (on the pillar drill), hand vice (small items).','G clamps hold parts while glue sets; sash cramps hold wide frames and boards.','A former is a shape that material is pressed over or around, so every part has the same accurate 3D form.','A jig holds the work or guides the tool, so the same operation is repeated accurately without marking out each part.']]],
  tip:'When describing how to join parts, name a tool in every step (“apply wood glue with a brush”, “clamp with sash cramps”). In 2025, answers about the housing joint that named no tools scored 1 mark at most. Countersinking was found demanding in 2025.',
  mcq:[{q:'Which adhesive would join a brass rod to a beech base?',
  o:['Epoxy resin','Wood glue (PVA)','Wood stain','Wax'],
@@ -2523,7 +2527,12 @@ const WIKI={
  lathe:{f:'Myford_ML7_metalworking_lathe.jpg',c:'Photo: Francois Cau, CC BY-SA 2.0'},
  sandcast:{f:'Casting.jpg',c:'Photo: Ab5602, CC BY-SA 3.0'},
  laser:{f:'Laser_cutter_at_work_(8504235333).jpg',c:'Photo: stevefaeembra (Glasgow MAKLab), CC BY 2.0'},
- print3d:{f:'Prusa_i3_-_RepRap_3D_printer_printing.jpg',c:'Photo: John Abella, CC BY 2.0'}
+ print3d:{f:'Prusa_i3_-_RepRap_3D_printer_printing.jpg',c:'Photo: John Abella, CC BY 2.0'},
+ j_mortise:{f:'Mortise_tenon.png',n:'Mortise and tenon',c:'Jim Thomas, CC BY-SA 3.0'},
+ j_housing:{f:'Woodworking-joint-dado.svg',n:'Housing (through and stopped)',c:'SilentC, CC BY-SA 3.0'},
+ j_halving:{f:'Cassells_Carpentry.180_Angle_Halved_Joint,_Apart.png',n:'Corner halving',c:'Cassell’s Carpentry (1907), public domain'},
+ j_rebate:{svg:`<svg viewBox="244 106 460 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Exploded view of a corner rebate joint"><polygon points="671.5,111.9 694.4,125.1 532.4,218.6 509.6,205.4" fill="#FCE6D3" stroke="#2B1A12" stroke-width="2.2" stroke-linejoin="round"/><polygon points="694.4,182.3 532.4,275.8 532.4,218.6 694.4,125.1" fill="#F0CBAE" stroke="#2B1A12" stroke-width="2.2" stroke-linejoin="round"/><polygon points="509.6,262.6 532.4,275.8 532.4,218.6 509.6,205.4" fill="#F6D8C1" stroke="#2B1A12" stroke-width="2.2" stroke-linejoin="round"/><line x1="509.6" y1="205.4" x2="444.8" y2="242.8" stroke="#9A8F88" stroke-width="2" stroke-dasharray="2 5" stroke-linecap="round"/><line x1="532.4" y1="218.6" x2="467.7" y2="256.0" stroke="#9A8F88" stroke-width="2" stroke-dasharray="2 5" stroke-linecap="round"/><line x1="532.4" y1="275.8" x2="467.7" y2="313.2" stroke="#9A8F88" stroke-width="2" stroke-dasharray="2 5" stroke-linecap="round"/><polygon points="467.7,286.8 444.8,300.0 444.8,242.8 467.7,229.6" fill="#E9B994" stroke="#2B1A12" stroke-width="2.2" stroke-linejoin="round"/><polygon points="300.0,132.8 467.7,229.6 444.8,242.8 467.7,256.0 444.8,269.2 254.3,159.2" fill="#FCE6D3" stroke="#2B1A12" stroke-width="2.2" stroke-linejoin="round"/><polygon points="254.3,216.4 444.8,326.4 444.8,269.2 254.3,159.2" fill="#F0CBAE" stroke="#2B1A12" stroke-width="2.2" stroke-linejoin="round"/><polygon points="467.7,313.2 444.8,326.4 444.8,269.2 467.7,256.0" fill="#F6D8C1" stroke="#2B1A12" stroke-width="2.2" stroke-linejoin="round"/></svg>`,n:'Rebate (lap) joint',c:'Drawing: GWC D&T'},
+ j_dowel:{f:'Woodworking-joint-butt-dowel.gif',n:'Dowel joint',c:'SilentC, CC BY-SA 3.0'}
 };
 const L_C='#5A1A2E',L_R='#C9557A',L_P='#6B3A5E',L_T='#2B141D',L_F='#F3D9E0',L_CR='#F4ECDD';
 const svgWrap=(w,h,inner,label)=>`<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="${label}" font-family="Public Sans, Arial, sans-serif" font-size="13" fill="none" stroke="${L_T}" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">${inner}</svg>`;
@@ -2578,6 +2587,8 @@ const SVGS={
   return svgWrap(660,200,s,'Morphological chart for a desk lamp')}
 };
 function figHTML(ref,cap){
+  if(ref.startsWith('wikis:')){const ws=ref.slice(6).split(',').map(k=>WIKI[k]).filter(Boolean);
+    return `<figure class="lfig wgrid"><div class="wg">${ws.map(w=>w.svg?`<div class="wgi">${w.svg}<b>${esc(w.n)}</b><span class="wgc">${esc(w.c)}</span></div>`:`<div class="wgi"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(w.f)}?width=480" alt="${esc(w.n)}" loading="lazy" onerror="this.parentNode.classList.add('noimg')"><b>${esc(w.n)}</b><a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(w.f)}" target="_blank" rel="noopener">${esc(w.c)}</a></div>`).join('')}</div><figcaption>${esc(cap)}</figcaption></figure>`}
   if(ref.startsWith('svg:')){const f=SVGS[ref.slice(4)];return f?`<figure class="lfig">${f()}<figcaption>${esc(cap)}</figcaption></figure>`:''}
   const w=WIKI[ref.slice(5)];if(!w)return '';
   const src='https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(w.f)+'?width=640';
@@ -2597,7 +2608,7 @@ function renderLearn(){
 let LVIEW=null;
 function renderLearnList(lv){
   const list=LEARN[lv];LCUR=null;
-  $('learnBody').innerHTML=(lv==='N5'&&!S.welcomed&&!VIEW?`<div class="welcome1" id="welcomeCard"><h3>New to D&amp;M?</h3><ol><li>Pick a topic your teacher has covered and learn it.</li><li>Test yourself, then try the exam question.</li><li>Do the Daily 5 each day, and set a reminder there.</li></ol><p class="sub">Every topic starts grey and changes colour as you practise.</p><div class="row"><button type="button" class="btn" data-welcome="skip">Got it</button></div></div>`:'')+`<p class="sub">${esc(LEVELS[lv])} · ${list.length} topics from the course specification. Pick a topic to read, then test yourself.</p>`+(lv==='N5'?`<div class="wfgrid"><button type="button" class="wfeature wf-daily" data-lt="x-daily" data-lv="N5"><span class="wf-k">Every day</span><span class="wf-t">Daily 5</span><span class="wf-s">Five quick questions, picked from your weakest topics. Wrong answers come back tomorrow.</span>${(S.streak&&S.streak.n)?`<span class="wf-badge">${S.streak.n}-day streak</span>`:''}</button><button type="button" class="wfeature" data-lt="x-words" data-lv="N5"><span class="wf-k">Exam technique</span><span class="wf-t">Question words</span><span class="wf-s">Name, outline, describe, explain: what each one needs for the marks, with 10 practice questions.</span></button><button type="button" class="wfeature wf-past" data-lt="x-past" data-lv="N5"><span class="wf-k">Exam practice</span><span class="wf-t">Past paper finder</span><span class="wf-s">Every 2025 and 2026 exam question by topic, with what earns the marks and what scored zero.</span></button><button type="button" class="wfeature wf-tools" data-lt="x-tools" data-lv="N5"><span class="wf-k">Workshop</span><span class="wf-t">Tools quick-fire</span><span class="wf-s">Name the tool from its picture. Marking out, woodwork, metalwork, drill bits.</span></button></div>`:'')+
+  $('learnBody').innerHTML=(lv==='N5'&&!S.welcomed&&!VIEW?`<div class="welcome1" id="welcomeCard"><h3>New to D&amp;M?</h3><ol><li>Pick a topic your teacher has covered and learn it.</li><li>Test yourself, then try the exam question.</li><li>Do the Daily 5 each day, and set a reminder there.</li></ol><p class="sub">Every topic starts grey and changes colour as you practise.</p><div class="row"><button type="button" class="btn" data-welcome="skip">Got it</button></div></div>`:'')+`<p class="sub">${esc(LEVELS[lv])} · ${list.length} topics from the course specification. Pick a topic to read, then test yourself.</p>`+(lv==='N5'?`<div class="wfgrid"><button type="button" class="wfeature wf-daily" data-lt="x-daily" data-lv="N5"><span class="wf-k">Every day</span><span class="wf-t">Daily 5</span><span class="wf-s">Five quick questions, picked from your weakest topics. Wrong answers come back tomorrow.</span>${(S.streak&&S.streak.n)?`<span class="wf-badge">${S.streak.n}-day streak</span>`:''}</button><button type="button" class="wfeature" data-lt="x-words" data-lv="N5"><span class="wf-k">Exam technique</span><span class="wf-t">Question words</span><span class="wf-s">Name, outline, describe, explain: what each one needs for the marks, with 10 practice questions.</span></button><button type="button" class="wfeature wf-past" data-lt="x-past" data-lv="N5"><span class="wf-k">Exam practice</span><span class="wf-t">Past paper finder</span><span class="wf-s">Every exam question from 2022 to 2026 by topic, with what earns the marks and what scored zero.</span></button><button type="button" class="wfeature wf-tools" data-lt="x-tools" data-lv="N5"><span class="wf-k">Workshop</span><span class="wf-t">Tools quick-fire</span><span class="wf-s">Name the tool from its picture. Marking out, woodwork, metalwork, drill bits.</span></button></div>`:'')+
    LGROUPS.map(([a,n])=>`<h3 class="lgh ${AREAS[a].cls}">${esc(n)}</h3><div class="lgrid">${list.filter(t=>t.area===a).map(t=>`<button type="button" class="lcard ${AREAS[a].cls}" data-lt="${t.id}" data-lv="${lv}"><span class="lname">${esc(t.name)} ${ragDot(t.id)}</span><span class="lmeta">${t.mcq.length} quick questions · 1 exam question</span></button>`).join('')}</div>`).join('');
 }
 $('tab-learn').addEventListener('click',e=>{
@@ -2720,7 +2731,7 @@ function renderPast(){
   const tops=LEARN.N5,nR=PP_RECENT.length;
   let h=`<div class="row"><button type="button" class="btn ghost" data-lback="1">← All topics</button></div>
    <article class="ltopic past"><p class="eyebrow">National 5 · Exam practice</p><h2 class="ltitle">Past paper finder</h2>
-   <p>Every question from the <b>2025 and 2026</b> exams (${nR} questions, 160 marks), sorted by topic. Each one shows what the marking instructions gave marks for, the kinds of answer that scored zero, and what the course report said. Older papers (2022 to 2024) are there for extra practice.</p>
+   <p>Every question from the <b>2022 to 2026</b> exams (${PP_ALL.length} questions), sorted by topic. Each one shows what the marking instructions gave marks for and the kinds of answer that scored zero. The 2025 and 2026 questions also show what the course report said.</p>
    <p class="sub">Questions are summarised in our own words. Open the paper to see the full question and pictures.</p>
    <p class="row"><a class="btn" href="${PP_N5_LINKS.finder}" target="_blank" rel="noopener">Past papers and marking instructions ↗</a></p>
    <div class="ppfilters">
@@ -2744,7 +2755,7 @@ function fillPast(){
   $('ppCount').textContent=rows.length?`${rows.length} question${rows.length>1?'s':''} · ${mk} marks`:(PPF.m&&!weak.size?'Rate some checklist points as “not yet” or “nearly” first.':'No questions match. Try fewer filters.');
   $('ppList').innerHTML=rows.map(r=>ppRow(r,true)).join('');
 }
-function pastForTopic(id){const rec=PP_RECENT.filter(r=>r[4]===id),old=PP_N5.filter(r=>r[4]===id);if(!rec.length&&!old.length)return '';
+function pastForTopic(id){const rec=PP_RECENT.filter(r=>r[4]===id),old=PP_N5.filter(r=>r[4]===id&&ppShow(r));if(!rec.length&&!old.length)return '';
   return `<div class="blk"><h4>Exam questions on this topic</h4>${rec.length?`<ul class="pplist">${rec.map(r=>ppRow(r,false)).join('')}</ul>`:'<p class="sub">Not asked in 2025 or 2026.</p>'}
    ${old.length?`<details class="ppolder"><summary>${old.length} older question${old.length>1?'s':''} (2022 to 2024)</summary><ul class="pplist">${old.map(r=>ppRow(r,false)).join('')}</ul></details>`:''}
    <p class="pplinks"><a href="${PP_N5_LINKS.finder}" target="_blank" rel="noopener">Past papers and marking instructions ↗</a></p></div>`}
@@ -3035,7 +3046,7 @@ function topicEvidence(id){
   levelStats('N5').forEach(st=>{const rec=S.checks[st.id]||{},ts=rec.ts||(st.date?new Date(st.date+'T12:00:00').getTime():0);
     (L2K[id]?[...L2K[id]]:[]).forEach(k=>{const o=st.topics[k];if(o&&o.max)ev.push({s:o.got/o.max,w:EVW.assess,ts,src:'check',name:st.ck.name})})});
   const ex=S.ex&&S.ex[id];if(ex&&ex[1])ev.push({s:ex[0]/ex[1],w:EVW.ex,ts:d('ex:'+id),src:'exam'});
-  if(S.ppd)Object.keys(S.ppd).forEach(k=>{const r=ppGet(k);if(r&&r[4]===id)ev.push({s:S.ppd[k]/(r[2]||1),w:EVW.pp,ts:d('pp:'+k),src:'exam'})});
+  if(S.ppd)Object.keys(S.ppd).forEach(k=>{const r=ppGet(k);if(r&&r[4]===id&&ppShow(r))ev.push({s:S.ppd[k]/(r[2]||1),w:EVW.pp,ts:d('pp:'+k),src:'exam'})});
   const tq=S.tq&&S.tq[id];if(tq&&tq[1])ev.push({s:tq[0]/tq[1],w:EVW.tq,ts:d('tq:'+id),src:'quiz'});
   ((S.d5&&S.d5[id])||[]).forEach(([ok,ts])=>ev.push({s:ok,w:EVW.d5,ts,src:'daily'}));
   const rated=CKL_N5.filter(i=>i.l===id&&S.rag[i.id]);
@@ -3159,7 +3170,7 @@ function paintExam(){
   const t=curTopic(),w=t.exam,cmd=(w.q.match(/^(Describe|Explain|Give|State|Name|Outline)/)||[])[1],prev=(S.exAns&&S.exAns[HUB])||'';
   const rec=PP_RECENT.filter(r=>r[4]===HUB).length;
   setBody(`<p class="qtext">${esc(w.q)} <span class="marks">(${w.max} marks)</span> ${cmd?`<button type="button" class="ppc cw" data-cw="${cmd}">${cmd}</button>`:''}</p>
-   <label for="exAns" class="sr">Your answer</label><textarea id="exAns" placeholder="Write your answer in full sentences…">${esc(prev)}</textarea>
+   <label for="exAns" class="sr">Your answer</label><textarea id="exAns" placeholder="${MK[HUB]&&MK[HUB].type==='state'?'A short phrase for each point is enough…':'Write your answer in full sentences…'}">${esc(prev)}</textarea>
    <div class="row"><button class="btn" type="button" data-mark="1">Mark my answer</button></div><div id="exRes" aria-live="polite"></div>
    <details class="xmore"><summary>Show model answer</summary><div class="model"><p>${esc(w.model)}</p></div></details>
    ${ppChips(HUB)}
@@ -3178,7 +3189,7 @@ tp.addEventListener('click',e=>{
   const q=e.target.closest('[data-tq]');if(q){if(q.dataset.tq==='retry')TQ={i:0,right:0,order:curTopic().mcq.map((_,i)=>i).sort(()=>Math.random()-.5)};else TQ.i++;paintTQ();tp.querySelector('.tp-body').scrollTop=0;return}
   if(e.target.closest('[data-mark]')){
     const txt=$('exAns').value.trim();S.exAns=S.exAns||{};S.exAns[HUB]=txt;
-    if(txt.split(/\s+/).filter(Boolean).length<4){$('exRes').innerHTML='<p class="fb bad">Write your full answer first, in sentences.</p>';save();return}
+    {const st=MK[HUB]&&MK[HUB].type==='state',n=txt.split(/\s+/).filter(Boolean).length;if(n<(st?1:4)){$('exRes').innerHTML=`<p class="fb bad">${st?'Write your answer first.':'Write your full answer first, in sentences.'}</p>`;save();return}}
     const r=markAnswer(HUB,txt);S.ex[HUB]=[r.score,r.max];evStamp('ex:'+HUB);save();
     $('exRes').innerHTML=`<div class="mres"><p class="mscore"><span>Estimated mark</span><b>${r.score} / ${r.max}</b></p><p class="mtip">${esc(r.tip)}</p>
      <div class="mans">${highlight(txt,r.spans)}</div>
@@ -3344,33 +3355,75 @@ $('tab-learn').addEventListener('click',e=>{
 
 /* ---------- real exam questions as chips -> answer in the panel ---------- */
 function ppChips(id){
-  const rec=PP_RECENT.map((r,i)=>[r,'R'+i]).filter(x=>x[0][4]===id),old=PP_N5.map((r,i)=>[r,'O'+i]).filter(x=>x[0][4]===id);
+  const rec=PP_RECENT.map((r,i)=>[r,'R'+i]).filter(x=>x[0][4]===id),old=PP_N5.map((r,i)=>[r,'O'+i]).filter(x=>x[0][4]===id&&ppShow(x[0]));
   if(!rec.length&&!old.length)return '';
   const chip=([r,k])=>`<button type="button" class="ppchip${r[0]<2025?' old':''}" data-ppq="${k}"><b>${r[0]}</b> Q${esc(r[1])}${S.ppd&&S.ppd[k]!=null?` <span class="ppdone">${S.ppd[k]}/${r[2]||'?'}</span>`:''}</button>`;
   return `<div class="ppchips"><h3>Real exam questions</h3><div class="ppcrow">${rec.map(chip).join('')}${old.map(chip).join('')}</div></div>`;
 }
-const PPSTOP=new Set('about above after again their there these those which while would could should other using being because through where when with that this from into have will your what them they then than also more most such each some very just only make made used uses like over under does done much many must need'.split(' '));
-const ppWords=t=>(t.toLowerCase().match(/[a-z’']{4,}/g)||[]).filter(w=>!PPSTOP.has(w)).map(w=>w.slice(0,5));
+const PPSTOP=new Set('the and for are was its can use you not but has had all any one two how why who way get got put out off too our own per via let lot see may also into from that this with have will your what them they then than more most such each some very just only make made used uses like over under does done much many must need about above after again their there these those which while would could should other using being because through where when it is'.split(' '));
+const PPSYN={grease:'lubricant',oil:'lubricant',lube:'lubricant',visor:'guard',shield:'guard',chizel:'chisel',chisle:'chisel',scribber:'scriber',identicle:'identical',same:'identical',paided:'paid',wages:'paid',salary:'paid',cramp:'clamp',cramps:'clamp',clamps:'clamp',vice:'clamp',secure:'clamp',secured:'clamp',tight:'clamp',tighten:'clamp',hold:'clamp',holding:'clamp',fitted:'fit',fits:'fit',opinion:'opinions',views:'opinions',feedback:'opinions',quicker:'faster',speed:'faster',speeds:'faster',quickly:'faster',twist:'turn',turns:'turn',rotate:'turn',sandpaper:'sand',sanding:'sand',sanded:'sand',abrasive:'sand',wet:'damp',dampen:'damp',water:'damp',heater:'heat',heating:'heat',heated:'heat',warm:'heat',cracking:'crack',cracks:'crack',snap:'crack',break:'crack',breaking:'crack',shatter:'crack',less:'fewer',wider:'wide',bigger:'large',biggest:'large',lots:'many',lot:'many',loads:'many',wide:'many',everyone:'people',others:'people',public:'people',customers:'people',consumers:'people',buyers:'people',checklist:'evaluate',check:'evaluate',test:'evaluate',testing:'evaluate',tested:'evaluate',compare:'evaluate',hands:'hand',fingers:'finger',thumbs:'thumb',lift:'weight',heavy:'weight',heavier:'weight',strength:'strong',stronger:'strong',sturdy:'strong',robust:'strong',rust:'corrosion',rusting:'corrosion',corrode:'corrosion',accurately:'accurate',accuracy:'accurate',precise:'accurate',error:'mistakes',errors:'mistakes',mistake:'mistakes',efficiency:'efficient',automatic:'automated',automation:'automated',robots:'automated',machines:'automated'};
+Object.assign(PPSYN,{bascet:'basket',handel:'handle',bounce:'spark',bouncing:'spark',labor:'labour',workers:'labour',worker:'labour',workforce:'labour',staff:'labour',audience:'market',customer:'market',button:'switch',buttons:'switch',switches:'switch',mass:'large',amounts:'volumes',amount:'volumes',bulk:'large',stocked:'available',buy:'source',bought:'source',speeding:'faster',protractor:'square',opion:'opinions',option:'opinions',skribble:'record',scribble:'record',write:'record',written:'record',jot:'record'});
+const PPWEAK=new Set(['produ','desig','item','thing','fewer','likel','easie','bette','more','good']);
+const PPGEN=new Set(['saw','plane','drill','bit','joint','glue','file','gauge','squar','chise','punch','board','metal','plast','calli','mould','cast','tool','machi','paint','finis']);
+const ppStem=w=>{w=PPSYN[w]||w;if(w.length>4)w=w.replace(/(ing|ed|es|s|ly)$/,'');return (PPSYN[w]||w).slice(0,5)};
+const ppWords=t=>(t.toLowerCase().replace(/[’']/g,'').match(/[a-z]{3,}|[0-9]{2,}/g)||[]).filter(w=>!PPSTOP.has(w)).map(ppStem);
+const PPVAGUE=/\b(quick|quicker|cheap|cheaper|easy|easier)\b(?!\s+(to|than|because|so|for|as)\b)/gi;
+function ppAlts(p){const a=p.split(/,|;|\/|\(|\)|\bor\b|\be\.g\.?/i).map(x=>x.trim()).filter(x=>ppWords(x).length);return a.length?a.concat([p]):[p]}
+function ppHit(unit,p){const uw=new Set(ppWords(unit));return ppAlts(p).some(a=>{let w=[...new Set(ppWords(a).filter(x=>!PPWEAK.has(x)))];if(!w.length)w=[...new Set(ppWords(a))];if(!w.length)return false;
+  const spec=w.filter(x=>!PPGEN.has(x));if(spec.length&&!spec.some(x=>uw.has(x)))return false;
+  const need=w.length<=2?1:2;return w.filter(x=>uw.has(x)).length>=need})}
+/* an answer the marking instructions list as scoring zero blocks the credit */
+function ppZero(unit,zero){const uw=[...new Set(ppWords(unit).filter(x=>!PPWEAK.has(x)))];if(!uw.length)return false;
+  return (zero||[]).some(z=>{const zc=z.replace(/[“”"]/g,'').replace(/\b(on (its|their) own|unless.*|unqualified|e\.g\..*)\b/gi,' ');
+    return ppAlts(zc).some(a=>{const w=new Set(ppWords(a).filter(x=>!PPWEAK.has(x)));return w.size&&uw.every(x=>w.has(x))&&[...w].every(x=>uw.includes(x))})})}
 let PPK=null;
 function ppGet(k){return k[0]==='R'?PP_RECENT[+k.slice(1)]:PP_N5[+k.slice(1)]}
 function paintPPQ(k){
   PPK=k;const [y,q,mk,cmd,l,txt]=ppGet(k);S.ppa=S.ppa||{};
   setBody(`<p class="pphead"><span class="ppy">${y}</span> <b>Q${esc(q)}</b>${mk?` · ${mk} mark${mk>1?'s':''}`:''} ${cmd?`<button type="button" class="ppc cw" data-cw="${esc(cmd)}">${esc(cmd)}</button>`:''}</p>
    <p class="qtext">${esc(cmd?cmd+' '+txt.charAt(0).toLowerCase()+txt.slice(1):txt)}</p>
-   <label for="ppAns" class="sr">Your answer</label><textarea id="ppAns" placeholder="Write your answer in full sentences…">${esc(S.ppa[k]||'')}</textarea>
+   <label for="ppAns" class="sr">Your answer</label><textarea id="ppAns" placeholder="${/^(Describe|Explain)$/i.test(cmd||'')?'Write your answer in full sentences…':'A word or short phrase is enough…'}">${esc(S.ppa[k]||'')}</textarea>
    <div class="row"><button class="btn" type="button" data-ppcheck="1">Check my answer</button></div><div id="ppRes" aria-live="polite"></div>`,
    `<button type="button" class="btn ghost" data-panel="exam">← Exam questions</button><button type="button" class="btn ghost" data-pclose="1">Done</button>`);
 }
 function ppCheck(){
   const k=PPK,[y,q,mk,cmd,l,txt,rep,pts,zero,note]=ppGet(k),ans=$('ppAns').value.trim();S.ppa[k]=ans;save();
-  if(ans.split(/\s+/).filter(Boolean).length<4){$('ppRes').innerHTML='<p class="fb bad">Write your full answer first, in sentences.</p>';return}
+  const kind=/^(Describe)$/i.test(cmd||'')?'describe':/^(Explain)$/i.test(cmd||'')?'explain':'short';
+  const nw=ans.split(/\s+/).filter(Boolean).length,max=mk||1;
+  if(!nw||(kind!=='short'&&nw<3)){$('ppRes').innerHTML=`<p class="fb bad">${kind==='short'?'Write your answer first.':'Write your full answer first, in sentences.'}</p>`;return}
   if(!pts||!pts.length){$('ppRes').innerHTML=`<div class="mres"><p class="mtip">Marking points for ${y} aren’t on the site yet. Compare your answer with the model answer for this topic.</p></div>`;return}
-  const aw=new Set(ppWords(ans));
-  const guess=pts.map(p=>{const w=[...new Set(ppWords(p))];return w.length&&w.filter(x=>aw.has(x)).length/w.length>=0.5});
-  const sc=Math.min(mk||1,guess.filter(Boolean).length),miss=pts.find((p,i)=>!guess[i]);S.ppd=S.ppd||{};S.ppd[k]=sc;evStamp('pp:'+k);save();
-  $('ppRes').innerHTML=`<div class="mres"><p class="mscore"><span>Estimated mark</span><b>${sc} / ${mk||1}</b></p>
-   <p class="mtip">${sc>=(mk||1)?'Full marks. Nicely done.':miss?'To get another mark: '+esc(miss.charAt(0).toLowerCase()+miss.slice(1)):'Add another separate point.'}</p>
-   <details class="xmore"><summary>What earns the marks</summary><ul class="pptick">${pts.map((p,i)=>`<li class="${guess[i]?'got':''}"><span aria-hidden="true">${guess[i]?'✓':'○'}</span> ${esc(p)}</li>`).join('')}</ul>
+  let vague=false;const okQuick=pts.some(x=>/quick accepted/i.test(x));const clean=okQuick?ans:ans.replace(PPVAGUE,()=>{vague=true;return ' '});
+  const units=kind==='short'?clean.split(/[\n,;.]+|\band\b/i).map(x=>x.trim()).filter(Boolean):(clean.match(/[^.!?\n]+[.!?]*/g)||[]).map(x=>x.trim()).filter(Boolean);
+  const got=pts.map(()=>false);let shortish=false,why=false;
+  const clauses=kind==='short'?units:units.flatMap(u=>u.split(/,|;|\band\b|\bthen\b|\balso\b/i).map(x=>x.trim()).filter(Boolean));
+  let extraShort=0;const usedAlt=new Set();
+  clauses.forEach(u=>{const w=u.split(/\s+/).length;let used=false;if(ppZero(u,zero))return;
+    pts.forEach((p,i)=>{if(used)return;
+      if(kind==='short'&&got[i]&&pts.length<max){const a=ppAlts(p).find(a=>ppHit(u,a)&&!usedAlt.has(a));if(a){usedAlt.add(a);extraShort++;used=true}return}
+      if(got[i])return;if(!ppHit(u,p))return;
+      if(kind!=='short'&&w<2){shortish=true;return}
+      if(kind==='short'){const a=ppAlts(p).find(a=>ppHit(u,a));if(a)usedAlt.add(a)}
+      got[i]=true;used=true})});
+  const chunks=ans.split(/[,\n;]+/).map(x=>x.trim()).filter(Boolean);
+  const listy=kind!=='short'&&chunks.length>=3&&chunks.reduce((t,x)=>t+x.split(/\s+/).length,0)/chunks.length<=2.5;
+  if(listy)got.fill(false);
+  let extra=0;const aes=pts.some(x=>/^each mark:.*aesthetic/i.test(x));
+  if(aes&&!listy){const A={style:/style|modern|retro|traditional|classic|futuristic|old.fashioned/i,colour:/colou?r|red|blue|green|yellow|pink|orange|purple|black|white|grey|bright|pastel/i,shape:/shape|curv|round|square|rectangular|circular|organic|geometric|angular/i,form:/\bform\b|3d|chunky|slim|bulky/i,texture:/textur|smooth|rough|bumpy|grain|matt|gloss|shiny/i,pattern:/pattern|stripe|spot|repeat|motif/i,line:/\blines?\b/i,proportion:/proportion|scale|size/i,contrast:/contrast/i,harmony:/harmon/i,symmetry:/symmetr|balance/i};
+    const found=new Set();units.forEach(u=>{if(kind!=='short'&&u.split(/\s+/).length<3){shortish=true;return}Object.keys(A).forEach(a=>{if(A[a].test(u))found.add(a)})});
+    extra=found.size;pts.forEach((x,i)=>{if(/^each mark:/i.test(x))got[i]=extra>0})}
+  const sc=Math.min(max,aes?extra:got.filter(Boolean).length+extraShort),miss=pts.find((p,i)=>!got[i]);S.ppd=S.ppd||{};S.ppd[k]=sc;evStamp('pp:'+k);save();
+  const tip=sc>=max?'Full marks. Nicely done.'
+    :aes?'To get another mark: describe a different aesthetic area, e.g. colour, shape, texture, pattern or proportion.'
+    :kind==='short'?(sc?'One more for the next mark.':(vague?'“Quick”, “cheap” or “easy” on their own score zero.':'Not one that scores this time. Open “What earns the marks” to see answers that do.'))
+    :listy?'Write each point as a full sentence: one clear point for each mark.'
+    :vague?'“Quick”, “cheap” or “easy” on their own score zero: say why, or compared with what.'
+    :why?'Add the reason: use “so” or “because” to show what it leads to.'
+    :shortish?'Some points are too short to count: write them as full sentences.'
+    :aes?'To get another mark: describe a different aesthetic area, e.g. colour, shape, texture, pattern or proportion.'
+    :miss?'To get another mark: '+esc(miss.charAt(0).toLowerCase()+miss.slice(1)):'Add another separate point.';
+  $('ppRes').innerHTML=`<div class="mres"><p class="mscore"><span>Estimated mark</span><b>${sc} / ${max}</b></p>
+   <p class="mtip">${tip}</p>
+   <details class="xmore"><summary>What earns the marks</summary><ul class="pptick">${pts.map((p,i)=>`<li class="${got[i]?'got':''}"><span aria-hidden="true">${got[i]?'✓':'○'}</span> ${esc(p)}</li>`).join('')}</ul>
    ${note?`<p class="ppnote">${esc(note)}</p>`:''}
    ${zero&&zero.length?`<p class="ppzh">Scored zero</p><ul class="ppzero">${zero.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
    ${rep?`<p class="pprep"><b>${y} course report:</b> ${esc(rep)}</p>`:''}</details>
