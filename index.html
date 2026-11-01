@@ -5,6 +5,14 @@
 <meta name="color-scheme" content="light">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GWC Design+Manufacture</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#5A1A2E">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="D+M">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;600;700&display=swap">
@@ -289,7 +297,7 @@ details.topic[open]>.tbody{background:var(--card);border-top:1px solid var(--lin
  .tb-save{font-size:15px;padding:10px 16px;min-height:44px;white-space:nowrap;position:relative;flex:none}
  .tb-status{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;padding:0}
  .tb-inner:has(.tb-status.unsaved:not([hidden])) .tb-save::after{content:"";position:absolute;top:-3px;right:-3px;width:14px;height:14px;border-radius:50%;background:#E8547A;border:2px solid var(--claret)}
- .tabs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:3px}
+ .tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px}
  .tabs button{flex-direction:column;justify-content:center;gap:3px;padding:8px 2px 7px;font-size:12.5px;line-height:1.15;text-align:center;min-height:58px;border-radius:9px 9px 0 0}
  .tabs button .ti{width:20px;height:20px}
 }
@@ -375,6 +383,93 @@ button.ppc:focus-visible{outline:2px solid #5B3E91;outline-offset:2px}
 .cwtip{position:absolute;z-index:60;max-width:300px;background:#fff;color:var(--text);border:2px solid #5B3E91;border-radius:12px;padding:10px 12px;box-shadow:0 8px 24px rgba(43,20,29,.18);font-size:14.5px;line-height:1.45}
 .cwtip b:first-child{color:#5B3E91;font-size:15.5px}
 .cwtip p{margin:4px 0 0}.cwtip .cww{color:var(--muted)}
+
+.d5gate{position:fixed;inset:0;z-index:80;background:rgba(43,20,29,.86);overflow-y:auto;padding:max(16px,env(safe-area-inset-top)) 14px 24px;display:flex;justify-content:center;align-items:flex-start}
+.d5gate[hidden]{display:none}
+.gcard{background:var(--card);border-radius:16px;border-top:8px solid #9A5B00;max-width:640px;width:100%;margin-top:4vh;padding:20px 20px 22px;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.gcard h2{color:#9A5B00;margin:4px 0 6px}
+body.gated{overflow:hidden}
+
+/* topic hub + panels */
+.hub .ltitle{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hsum{font-size:17px;margin:4px 0 10px}
+.hspec{margin:0 0 16px;color:var(--muted)}.hspec summary{cursor:pointer;font-weight:700;min-height:40px;display:flex;align-items:center}.hspec summary::before{content:'▸';margin-right:8px;transition:transform .15s}.hspec[open] summary::before{transform:rotate(90deg)}.hspec summary::-webkit-details-marker{display:none}
+.htiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:640px){.htiles{grid-template-columns:1fr}}
+.htile{font:inherit;cursor:pointer;text-align:left;border:0;border-radius:16px;padding:16px;color:#fff;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:12px;align-items:center;min-height:84px;box-shadow:0 3px 0 rgba(0,0,0,.18)}
+.htile:hover{filter:brightness(1.07)}.htile:focus-visible{outline:3px solid #F2C14E;outline-offset:2px}
+.hti{grid-row:1/3;width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center}
+.hti svg,.tp-ic svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.htt{font-family:var(--display);font-size:21px;line-height:1.1}.hts{font-size:14px;opacity:.9}
+.ht-learn,.tp-learn .tp-head{background:#245E8A}.ht-test,.tp-test .tp-head{background:#9A5B00}.ht-exam,.tp-exam .tp-head{background:#5A1A2E}
+.tdot{display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid rgba(0,0,0,.15);vertical-align:middle;flex:none}
+.td-g{background:#2E7D4F}.td-a{background:#D68A00}.td-r{background:#B3261E}.td-n{background:#fff}
+.tpanel{position:fixed;inset:0;z-index:70;background:rgba(43,20,29,.55);display:flex;align-items:center;justify-content:center;padding:16px}
+.tpanel[hidden]{display:none}
+.tp-sheet{background:var(--card);width:100%;max-width:680px;max-height:calc(100dvh - 32px);border-radius:18px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.tsvg{display:block;width:100%;height:auto;max-width:200px;margin:0 auto}.tsvg.big{max-width:300px}
+.tsvg .tw{fill:#E2B27A;stroke:#8A5A2B}.tsvg .tm{fill:#D5DAE1;stroke:#4A5563}.tsvg .th{fill:#3D3D46;stroke:#1f1f25}.tsvg .tb{fill:#D9B44A;stroke:#8A6D1E}.tsvg .tr{fill:#B8323A;stroke:#6d1a1f}
+.tsvg .tw,.tsvg .tm,.tsvg .th,.tsvg .tb,.tsvg .tr{stroke-width:1.5;stroke-linejoin:round}.tsvg .lo{fill:none;stroke:#4A5563;stroke-linecap:round}.tsvg .li{fill:none;stroke:#D5DAE1;stroke-linecap:round}.tsvg .ri{fill:none;stroke:#B8323A;stroke-linecap:round}.tsvg .hl{stroke:#4A5563;stroke-width:1}
+.tsets{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.tset{background:#fff;border:2px solid var(--line,#ddd);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:10px}
+.tset-pic{display:flex;gap:6px;background:#F4F1EA;border-radius:10px;padding:8px;min-height:84px;align-items:center}.tset-pic .tsvg{max-width:120px}
+.tset-t b{display:block;font-size:18px}.tset-t span{color:var(--muted);font-size:14px}.tset-b{display:flex;gap:8px;flex-wrap:wrap}
+.ts-mark{border-color:#245E8A}.ts-wood{border-color:#8A5A2B}.ts-metal{border-color:#4A5563}.ts-drill{border-color:#9A5B00}.ts-diff{border-color:#5A1A2E}
+.tgal{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));margin:10px 0}
+.tcard{background:#fff;border:1px solid var(--line,#ddd);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:4px}.tcard .tsvg{background:#F4F1EA;border-radius:8px;max-width:none;margin-bottom:4px}.tcard span{font-size:14px}
+.talt{color:var(--muted);font-size:13px!important;font-style:italic}
+.tdots{display:flex;gap:6px;margin-left:auto;align-items:center}.tdots span{width:10px;height:10px;border-radius:50%;background:#ddd}.tdots .d-done{background:#9aa}.tdots .d-now{background:#5A1A2E}
+.tq{background:#fff;border-radius:14px;padding:14px;margin:8px 0}.tq>.tsvg{background:#F4F1EA;border-radius:10px;padding:6px}
+.tq-q{font-size:20px;font-weight:700;margin:12px 0;text-align:center}
+.topts{display:grid;gap:10px;grid-template-columns:1fr 1fr}.topts.names .topt{min-height:56px;font-size:17px}
+.topt{background:#fff;border:2px solid var(--line,#ccc);border-radius:12px;padding:10px;font:inherit;font-weight:600;cursor:pointer;color:inherit;display:flex;flex-direction:column;align-items:center;gap:6px;justify-content:center}
+.topt .tsvg{max-width:150px}.topt:hover:not(:disabled){border-color:#5A1A2E}.topt.right{border-color:#2E7D4F;background:#E3F3E9}.topt.wrong{border-color:#B3261E;background:#FBE6E4}.topt:disabled{cursor:default}
+.tfb{border-radius:12px;padding:10px 14px;margin:8px 0}.tfb.ok{background:#E3F3E9}.tfb.no{background:#FFF3DC}.tfb p{margin:4px 0 0}
+.tdone{text-align:center;background:#fff;border-radius:14px;padding:20px}.tdone .tq-q{font-size:40px}.tdone .row{justify-content:center}
+.wf-tools{border-color:#4A5563}
+.prio .plist{display:flex;flex-direction:column;gap:8px;margin:8px 0}
+.prow{display:flex;align-items:center;gap:10px;min-height:48px;padding:8px 14px;background:#fff;border:2px solid var(--line,#ddd);border-radius:12px;font:inherit;font-weight:600;color:inherit;text-align:left;cursor:pointer}
+.prow span:nth-child(2){flex:1}.prow .pgo{color:var(--muted)}.prow:hover{border-color:#5A1A2E}
+.pkey{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;color:var(--muted);margin:10px 0 4px}.pkey .tdot{width:12px;height:12px;margin-right:4px}
+.pmore summary{cursor:pointer;font-weight:700;min-height:40px;display:flex;align-items:center}.pmore summary::before{content:'▸';margin-right:8px;transition:transform .15s}.pmore[open] summary::before{transform:rotate(90deg)}
+.swbox{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:12px 0}
+.sw-col{border-radius:12px;padding:12px;display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}.sw-col h3{width:100%;margin:0 0 4px;font-size:17px}
+.sw-weak{background:#FBE6E4}.sw-strong{background:#E3F3E9}
+.swchip{text-align:left;background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:12px;padding:8px 14px;font:inherit;font-weight:600;color:inherit;cursor:pointer;min-height:40px}.swchip span{color:var(--muted);font-weight:400;margin-left:4px}
+.gnote summary{cursor:pointer;color:var(--muted);min-height:40px;display:flex;align-items:center}.gnote summary::before{content:'▸';margin-right:8px;transition:transform .15s}.gnote[open] summary::before{transform:rotate(90deg)}.gnote summary::-webkit-details-marker{display:none}.status:empty{display:none}.welcome1{background:#FFF8E6;border:2px solid #E7C66A;border-radius:14px;padding:14px 16px;margin:0 0 16px}.welcome1 h3{margin:0 0 6px}.welcome1 ol{margin:0 0 10px;padding-left:22px}.welcome1 li{margin:3px 0}
+.planCard .settings{margin:6px 0 10px}
+.ppchips h3{font-size:16px;margin:18px 0 8px}.ppcrow{display:flex;flex-wrap:wrap;gap:8px}
+.ppchip{background:#A3243A;color:#fff;border:0;border-radius:10px;padding:8px 12px;min-height:44px;font:inherit;font-weight:600;cursor:pointer}.ppchip b{font-weight:800}
+.ppchip.old{background:#fff;color:#A3243A;border:2px solid #A3243A}.ppdone{background:rgba(255,255,255,.25);border-radius:6px;padding:1px 6px;margin-left:4px;font-size:13px}.ppchip.old .ppdone{background:#FBE6E4}
+.pphead .ppy{background:#A3243A;color:#fff;border-radius:8px;padding:2px 10px;font-weight:700}
+.pptick{list-style:none;padding:0;margin:8px 0}.pptick li{margin:6px 0}.pptick li{display:flex;gap:10px;color:var(--muted)}.pptick li.got{color:inherit;font-weight:600}.pptick li span{flex:none;width:18px;color:var(--muted)}.pptick li.got span{color:#2E7D4F}
+.onedev{font-size:15px;color:var(--muted);margin:8px 0 0}.remind{background:#fff;border:2px solid var(--line,#ddd);border-radius:12px;padding:12px 14px;margin:12px 0;display:flex;flex-direction:column;gap:4px}.remind span{color:var(--muted);font-size:14px}.remind .row{margin:6px 0 0}
+.tp-head{display:flex;flex-direction:row;text-align:left;align-items:center;gap:10px;color:#fff;padding:10px 8px 10px 16px}
+.tp-head h2{color:#fff;font-size:18px;flex:1;margin:0;line-height:1.25}
+.tp-x{font:inherit;font-size:30px;line-height:1;border:0;background:rgba(255,255,255,.15);color:#fff;border-radius:10px;min-width:44px;min-height:44px;cursor:pointer}
+.tp-body{padding:18px 18px 8px;overflow-y:auto;flex:1;font-size:17px;line-height:1.55}
+.tp-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-top:1px solid var(--line);flex-wrap:wrap}
+.tp-foot:empty{display:none}
+@media (max-width:640px){.tpanel{align-items:flex-end;padding:0}.tp-sheet{max-height:92dvh;border-radius:18px 18px 0 0;animation:sheetUp .22s ease-out}}
+@keyframes sheetUp{from{transform:translateY(40px);opacity:.6}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.tp-sheet{animation:none}}
+.card h3{margin:0 0 10px;color:#245E8A}.card-tip h3{color:#5A1A2E}
+.card-tip{background:#FBEEF2;border-radius:12px;padding:14px}
+.card ul,.card ol{padding-left:22px}.card li{margin:6px 0}
+.cdots{display:flex;gap:6px;flex:1;justify-content:center}.cdots i{width:9px;height:9px;border-radius:50%;background:#E3D9DD}.cdots i.on{background:#245E8A}.cdots i.dn{background:#9DBAD2}
+.tp-test .cdots i.on{background:#9A5B00}.tp-test .cdots i.dn{background:#E8C98A}
+.nx-test{background:#9A5B00;border-color:#9A5B00}.nx-exam{background:#5A1A2E}
+#exAns{width:100%;min-height:140px;font:inherit;font-size:17px;padding:12px;border:2px solid var(--line);border-radius:12px;margin:8px 0}
+.mres{border:2px solid #5A1A2E;border-radius:14px;padding:14px;margin:10px 0}
+.mscore{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 6px}.mscore span{font-weight:700;color:var(--muted)}.mscore b{font-family:var(--display);font-size:34px;color:#5A1A2E}
+.mtip{font-weight:700;margin:0 0 10px}
+.mans{background:#fff;border-radius:10px;padding:10px 12px;border:1px solid var(--line);line-height:1.7}
+mark.mk-ok{background:#D4EDDC;color:inherit;border-bottom:2px solid #2E7D4F;border-radius:3px}
+mark.mk-amb{background:#FCEBC6;color:inherit;border-bottom:2px dashed #C77700;border-radius:3px}
+mark.mk-bad{background:#F8D7D4;color:inherit;border-bottom:2px solid #B3261E;border-radius:3px}
+.mkey{font-size:13.5px;margin:8px 0 0;display:flex;gap:8px;flex-wrap:wrap}.msmall{font-size:13.5px;color:var(--muted);margin:6px 0 0}
+.xmore{margin-top:12px;border-top:1px solid var(--line);padding-top:4px}.xmore summary{cursor:pointer;font-weight:700;min-height:44px;display:flex;align-items:center;color:#5A1A2E}
+.lname .tdot{margin-left:4px}
 /* question words */
 .wfeature{font:inherit;display:block;width:100%;text-align:left;cursor:pointer;border:2px solid #245E8A;border-radius:14px;padding:16px 18px;margin:6px 0 16px;color:#fff;background:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px) 0 0/14px 14px,linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px) 0 0/14px 14px,#245E8A}
 .wfeature:hover{filter:brightness(1.06)}
@@ -411,10 +506,16 @@ section.step[class*="tp-"] h2{color:var(--tc)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
 @media (max-width:460px){
- nav.tabs{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;border-bottom:0}
+ nav.tabs{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;border-bottom:0}
  nav.tabs button{flex-direction:row;gap:6px;min-height:46px;font-size:14px;border-radius:10px;border-bottom:2px solid var(--tc);padding:6px 4px}
  nav.tabs button[aria-selected="true"]{border-bottom:2px solid var(--tc);box-shadow:none}
 }
+
+.installbar{position:relative;z-index:25;display:flex;align-items:center;gap:10px;max-width:820px;margin:-12px auto 16px;background:#fff;border:2px solid var(--claret);border-radius:12px;padding:8px 10px 8px 12px;box-shadow:0 4px 14px rgba(43,20,29,.12)}
+.installbar img{border-radius:8px;flex:none}
+.installbar p{margin:0;flex:1;font-size:14.5px;line-height:1.35}
+.ib-x{font:inherit;font-size:26px;line-height:1;border:0;background:none;color:var(--muted);min-width:40px;min-height:40px;cursor:pointer}
+@media (display-mode:standalone){.installbar{display:none!important}}
 </style>
 </head>
 <body>
@@ -465,6 +566,12 @@ section.step[class*="tp-"] h2{color:var(--tc)}
     <button class="tb-save" type="button" id="saveLinkBtn" aria-expanded="false" aria-controls="savePanel">Save <span class="tb-long">progress </span>link</button>
   </div>
 </div>
+<div class="installbar noprint" id="installBar" hidden>
+  <img src="apple-touch-icon.png" alt="" width="36" height="36">
+  <p id="installMsg">Install D+M as an app: it opens full screen and works offline.</p>
+  <button class="btn sm" type="button" id="installBtn" hidden>Install</button>
+  <button class="ib-x" type="button" id="installX" aria-label="Close">×</button>
+</div>
 <div class="savepanel noprint" id="savePanel" hidden role="dialog" aria-labelledby="saveTitle">
   <h3 id="saveTitle">Your progress link</h3>
   <p>This link holds all your skills check marks. Open it on any phone, tablet or laptop to get everything back.</p>
@@ -489,6 +596,7 @@ section.step[class*="tp-"] h2{color:var(--tc)}
   <p class="eyebrow">Design and Manufacture</p>
   <h1>Welcome</h1>
   <p class="lede">Enter your skills check marks, get a revision plan, and watch your progress grow over the year. Start by choosing your level.</p>
+  <p class="onedev">📱 Use D+M on one device. Your progress stays on that device.</p>
   <div class="levels">
     <button type="button" class="lvl s1" data-level="N5"><span class="lvl-big">N5</span><span class="lvl-name">National 5</span></button>
     <button type="button" class="lvl s3" data-level="H"><span class="lvl-big">H</span><span class="lvl-name">Higher</span></button>
@@ -504,10 +612,8 @@ section.step[class*="tp-"] h2{color:var(--tc)}
 
 <nav class="tabs noprint" role="tablist" aria-label="Sections">
   <button role="tab" type="button" id="tabbtn-learn" data-tab="learn" aria-controls="tab-learn" class="tb-learn"><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></svg><span>Learn</span></button>
-  <button role="tab" type="button" id="tabbtn-overall" data-tab="overall" aria-controls="tab-overall" class="tb-overall"><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6l2 2 3-3M4 13l2 2 3-3M4 20l2 2 3-3"/><path d="M12 7h8M12 14h8M12 21h8"/></svg><span>Plan</span></button>
-  <button role="tab" type="button" id="tabbtn-profile" data-tab="profile" aria-controls="tab-profile" class="tb-profile"><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 6-3 10H7L4 9z"/><path d="M12 8l4 3-1.5 5h-5L8 11z"/></svg><span>Skills</span></button>
-  <button role="tab" type="button" id="tabbtn-history" data-tab="history" aria-controls="tab-history" class="tb-history"><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v4M9 20h6"/></svg><span>Results</span></button>
-  <button role="tab" type="button" id="tabbtn-enter" data-tab="enter" aria-controls="tab-enter" class="tb-enter"><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4-1L19 8l-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg><span>Enter Marks</span></button>
+  <button role="tab" type="button" id="tabbtn-progress" data-tab="progress" aria-controls="tab-progress" class="tb-overall"><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 6-3 10H7L4 9z"/><path d="M12 8l4 3-1.5 5h-5L8 11z"/></svg><span>My progress</span></button>
+  <button role="tab" type="button" id="tabbtn-enter" data-tab="enter" aria-controls="tab-enter" class="tb-enter"><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4-1L19 8l-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg><span>Skills checks</span></button>
   <button role="tab" type="button" id="tabbtn-cad" data-tab="cad" aria-controls="tab-cad" class="tb-cad"><svg class="ti" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg><span>CAD</span></button>
 </nav>
 
@@ -536,16 +642,15 @@ section.step[class*="tp-"] h2{color:var(--tc)}
 <section class="step s2" id="results-step">
   <div class="stephead"><h2><span class="num">2</span>Your results</h2></div>
   <div class="tiles" id="tiles"></div>
-  <p class="note">Grades and bands use the average of the 2025 and 2026 National 5 D&amp;M grade boundaries: A from 70.3%, B from 60.0%, C from 49.7%, D from 39.4%. Within each grade, the top half is the higher band: A1 from 85.2%, B3 from 65.2%, C5 from 54.9%. They’re a guide: real boundaries cover the whole course, coursework included. In the final exam the question paper is worth 80 marks: 30 for workshop manufacture (always question 1), 30 for design and 20 for commercial manufacture. Your weakest area is where to start.</p>
+  <details class="gnote"><summary>How grades are worked out</summary><p class="note">Grades and bands use the average of the 2025 and 2026 National 5 D&amp;M grade boundaries: A from 70.3%, B from 60.0%, C from 49.7%, D from 39.4%. Within each grade, the top half is the higher band: A1 from 85.2%, B3 from 65.2%, C5 from 54.9%. They’re a guide: real boundaries cover the whole course, coursework included. In the final exam the question paper is worth 80 marks: 30 for workshop manufacture (always question 1), 30 for design and 20 for commercial manufacture. Your weakest area is where to start.</p></details>
+  <div id="swBody"></div>
+  <div class="row noprint"><button class="btn" type="button" id="goPlan">Make my revision plan →</button><button class="btn ghost" type="button" id="copyBtn">Copy my results</button></div>
+  <p class="status" id="copyStatus" aria-live="polite"></p><div id="copyFallback" hidden></div>
 </section>
 
-<section class="step s3" id="plan">
+<section class="step s3" id="plan" hidden>
   <div class="stephead"><h2><span class="num">3</span>Your revision plan</h2></div>
   <p>Topics are ranked by <b>marks you lost × how many marks the topic is usually worth in the exam</b>. A topic you scored badly on that comes up a lot goes to the top.</p>
-  <div class="settings noprint">
-    <div><label for="weeks">Weeks until prelim/final exam</label><select id="weeks"></select></div>
-    <div><label for="per">Revision sessions a week</label><select id="per"><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div>
-  </div>
   <div id="schedule"></div>
   <div class="row noprint"><button class="btn" type="button" id="planPdfBtn2">Download my revision plan (PDF)</button><button class="btn ghost" type="button" id="planImgBtn2">Save as a picture</button><span class="status" id="pdfStatus2" aria-live="polite"></span></div>
   <div class="planimg noprint" id="planImgBox2" hidden></div>
@@ -553,13 +658,13 @@ section.step[class*="tp-"] h2{color:var(--tc)}
   <div class="topics" id="topics"></div>
 </section>
 
-<section class="step s4" id="also">
+<section class="step s4" id="also" hidden>
   <div class="stephead"><h2><span class="num">4</span>Also on the exam</h2><span class="sub">Not in this skills check</span></div>
   <p>The skills check samples the course. These parts of the course specification weren’t tested, but they come up in the final exam. They’re ordered by how many marks they’re usually worth.</p>
   <div class="extra" id="extra"></div>
 </section>
 
-<section class="step s5" id="technique">
+<section class="step s5" id="technique" hidden>
   <div class="stephead"><h2><span class="num">5</span>Exam technique</h2></div>
   <p>The course reports say the same things every year. These rules apply to every question.</p>
   <dl class="cmd">
@@ -571,36 +676,33 @@ section.step[class*="tp-"] h2{color:var(--tc)}
   </dl>
 </section>
 
-<section id="results" class="s6">
+<section id="results" class="s6" hidden>
   <div class="stephead"><h2>Results card</h2><span class="sub" id="rdate"></span></div>
   <div id="rbody"></div>
   <div class="row noprint">
     <button class="btn" type="button" id="planPdfBtn">Download my revision plan (PDF)</button>
     <button class="btn ghost" type="button" id="planImgBtn">Save as a picture</button>
-    <button class="btn ghost" type="button" id="copyBtn">Copy my results</button>
   </div>
-  <p class="status" id="copyStatus" aria-live="polite"></p>
   <div class="planimg noprint" id="planImgBox" hidden></div>
-  <div id="copyFallback" hidden></div>
   <p class="note" id="howto">To hand in: download your plan, take a screenshot of this card, or press <b>Copy my results</b> and paste them into your Teams assignment. Your marks save on this device as you go: use <b>Save progress link</b> at the top to keep them safe.</p>
 </section>
 </div>
 </div>
 
-<div class="tabpanel" role="tabpanel" id="tab-history" aria-labelledby="tabbtn-history" hidden>
-<section class="step tp-history"><div class="stephead"><h2>Results</h2></div><div id="historyList"></div></section>
-</div>
-
-<div class="tabpanel" role="tabpanel" id="tab-profile" aria-labelledby="tabbtn-profile" hidden>
-<section class="step tp-profile"><div class="stephead"><h2>Skills</h2><span class="sub" id="profLevelNote"></span></div>
-<div class="row noprint" hidden><label for="profLevel" style="margin:0">Level</label><select id="profLevel"><option value="N5">National 5</option><option value="H">Higher</option></select></div>
-<div id="profileBody"></div><div id="checklistBody"></div></section>
-</div>
-
-<div class="tabpanel" role="tabpanel" id="tab-overall" aria-labelledby="tabbtn-overall" hidden>
-<section class="step tp-overall"><div class="stephead"><h2>Plan</h2><span class="sub">From all your checks</span></div>
-<div class="row noprint" hidden><label for="ovLevel" style="margin:0">Level</label><select id="ovLevel"><option value="N5">National 5</option><option value="H">Higher</option></select></div>
-<div id="overallBody"></div></section>
+<div class="tabpanel" role="tabpanel" id="tab-progress" aria-labelledby="tabbtn-progress" hidden>
+<section class="step tp-overall"><div class="stephead"><h2>My progress</h2><span class="sub" id="profLevelNote"></span></div>
+<div hidden><select id="profLevel"><option value="N5">National 5</option><option value="H">Higher</option></select><select id="ovLevel"><option value="N5">National 5</option><option value="H">Higher</option></select></div>
+<div id="prioBody"></div>
+<div id="profileBody"></div>
+<div class="chartcard"><h3>My skills checks</h3><div id="historyList"></div></div>
+<div id="checklistBody"></div>
+<div class="chartcard planCard" id="planCard"><h3>Make my revision plan</h3>
+  <div class="settings noprint">
+    <div><label for="weeks">Weeks until prelim/final exam</label><select id="weeks"></select></div>
+    <div><label for="per">Revision sessions a week</label><select id="per"><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div>
+  </div>
+<div id="overallBody"></div></div>
+</section>
 </div>
 <div class="tabpanel" role="tabpanel" id="tab-learn" aria-labelledby="tabbtn-learn" hidden>
 <section class="step tp-learn"><div class="stephead"><h2>Learn</h2><span class="sub">Revision for the whole course</span></div><div id="learnBody"></div></section>
@@ -701,7 +803,7 @@ const CKL_N5=[
  {id:'t10',l:'m-tools',k:'W4',t:'I can describe wood lathe work: setting up, preparing material, parallel turning, parting off and finishing.'},
  {id:'t11',l:'m-tools',k:'W4',t:'I can describe setting up a mortise machine, including the depth stop.'},
  {id:'t12',l:'m-tools',k:'W4',t:'I can describe using a fluidiser, an oven and a strip heater.'},
- {id:'j1',l:'m-joining',k:'W5',t:'I can choose between PVA and epoxy resin adhesives.'},
+ {id:'j1',l:'m-joining',k:'W5',t:'I can choose between wood glue (PVA) and epoxy resin.'},
  {id:'j2',l:'m-joining',k:'W5',t:'I can describe joining with screws, nails, and nuts and bolts.'},
  {id:'j3',l:'m-joining',k:'W5',t:'I can identify and choose mortise and tenon, lap, rub, halving, dowel, rebate and housing joints.'},
  {id:'j4',l:'m-joining',k:'W5',t:'I can describe pop-riveting and welding.'},
@@ -922,7 +1024,7 @@ const PP_RECENT=[
   ['Set the depth stop on the pillar drill','Measure and wrap masking tape round the drill bit at the depth (or mark it with a pen)'],
   ['“Set the depth.”','“Depth stop.” (no action: an outline needs a verb)','“Use masking tape.” (doesn’t say where)','“Use a steel ruler.”']],
  [2026,'1(a)(v)',3,'Describe','m-finish','Three stages in preparing the wood before applying a finish.','',
-  ['Remove pencil marks or excess glue (eraser or abrasive paper)','Fix imperfections such as dents, chips or gaps, e.g. with wood filler','Sand with abrasive paper, working from coarse to fine grades','Dampen the wood to raise the grain, then sand again','Remove the dust with a damp cloth or white spirit'],
+  ['Remove pencil marks or excess glue (eraser or sandpaper)','Fix imperfections such as dents, chips or gaps, e.g. with wood filler','Sand with sandpaper, working from coarse to fine','Wipe with a damp cloth to raise the grain, then sand again','Remove the dust with a damp cloth or white spirit'],
   [],'“Sand it, wet the wood, sand it again” earns 2 marks: it shows more understanding than just naming grades of paper.'],
  [2026,'1(a)(vi)',2,'State','m-finish','Two reasons wood stain is a suitable finish for the base.','Most gained 1 mark for a point about appearance but struggled to give a second reason.',
   ['Quicker to apply with a cloth than varnish (a comparison)','Dries more quickly','Changes the colour, e.g. makes a light softwood look like a darker wood','Creates a contrast','The grain can still be seen through the colour'],
@@ -935,7 +1037,7 @@ const PP_RECENT=[
   ['“Strong” or “durable” (already in the question)']],
  [2026,'1(b)(ii)',2,'Outline','m-finish','Two stages in finishing the edges of the aluminium rail before bending.','',
   ['Cross file','Draw file','Rub with abrasive: emery cloth, wet and dry paper or steel wool','Polish or buff'],
-  ['“Sand” or “glass paper” on its own (that’s for wood)','“Paint it.”'],'Sketches can earn marks.'],
+  ['“Sandpaper” on its own (that’s for wood)','“Paint it.”'],'Sketches can earn marks.'],
  [2026,'1(b)(iii)',2,'Describe','m-tools','How the aluminium rail could be bent accurately to a right angle, naming tools.','',
   ['Hold the bar in a vice or bending bars with the bend line at the edge of the jaws, or use a box folder','Bend it over with a hammer or mallet','Use a former, jig or template','Check the angle with an engineer’s square'],
   []],
@@ -945,7 +1047,7 @@ const PP_RECENT=[
   ['Find the centre of each end by drawing the diagonals with a rule','Draw a circle on the ends','Saw down the diagonals on one end with a tenon saw (for the driving centre)','Mark the centres with a centre punch, bradawl or small drill hole','Plane the corners off to make it roughly octagonal'],
   ['“Saw the X.” or “Saw diagonals.” (name the saw)','“Use a punch.” (which punch?)','“Mark the waste.”','A list of tools']],
  [2026,'1(c)(iii)',2,'Outline','m-tools','Two ways of getting a high-quality finish on the peg on the wood lathe.','',
-  ['Use sharp lathe tools','Take fine cuts and move the tool slowly with steady pressure','Increase the lathe speed for finishing','Sand through the grades of abrasive paper, coarse to fine','Burnish with wood shavings','Apply wax or polish while it turns: thin, even coats over all surfaces'],[]],
+  ['Use sharp lathe tools','Take fine cuts and move the tool slowly with steady pressure','Increase the lathe speed for finishing','Sand through the grades of sandpaper, coarse to fine','Burnish with wood shavings','Apply wax or polish while it turns: thin, even coats over all surfaces'],[]],
  [2026,'1(d)(i)',3,'Describe','m-marking','Three stages in marking out the mild steel spoon holder (centres and corners), naming tools.','',
   ['Coat the steel with engineer’s blue','Set odd-leg callipers to each size and mark the lines for the centres','Centre punch where the lines cross','Draw lines at 90° with an engineer’s square and scriber','Measure with a steel rule'],
   ['“A try square.” (that’s for wood)','A list of tools'],'You must cover both the centres and the corners: marking the centres alone earns 2 marks at most.'],
@@ -1002,7 +1104,7 @@ const PP_RECENT=[
   ['Stops the plastic stretching too thin and tearing at the corners'],[]],
  [2026,'8(a)',4,'Describe','c-cam','The benefits of CAM to the manufacturer.','Most candidates answered this well.',
   ['Fast production rate; large volumes','Fewer workers needed, so lower labour costs','Automated; can run 24 hours a day without breaks','Made directly from the CAD drawing','Complex products are possible','Accurate, identical and consistent parts','Less waste; more efficient; fewer work-related injuries'],
-  ['“Cheap” or “easy” unqualified','“High quality.”'],'Points that link cause and effect can earn 2 marks: “automation means fewer workers, which saves money on wages.”'],
+  ['“Cheap” or “easy” unqualified','“High quality.”'],'Each separate point earns a mark. “Automation means fewer workers, which saves money on wages” scored 2 because it makes two points: fewer workers, and lower wage costs.'],
  [2026,'8(b)',2,'Describe','c-impact','The impact of mass manufacture on society.','',
   ['Products are cheaper, so more people can afford them','Encourages a throwaway society','A wider range of products is available, meeting demand','Fewer jobs; areas can decline','Some workers become deskilled; others need higher skills','Fewer work-related injuries'],[],'Answers must be linked to society.'],
  [2026,'9',3,'Outline','c-standard','Three benefits of using standard components in products.','',
@@ -1035,7 +1137,7 @@ const PP_RECENT=[
  [2025,'1(e)(i)',2,'Outline','m-finish','Two benefits of varnishing the picnic caddy.','Most candidates answered this well.',
   ['Protects from moisture, stains and weather','Lets the grain show','Improves the appearance; shows the contrasting timbers','Easier to wipe clean','More durable; more resistant to scratches'],[]],
  [2025,'1(e)(ii)',3,'Describe','m-finish','How to get a high-quality brushed varnish finish, after sanding and preparing.','Most candidates answered this well.',
-  ['Apply thin, even coats','Cover all surfaces','Brush with the grain','Remove stray bristles','Wipe excess varnish off the brush first','Apply several coats, rubbing down lightly (e.g. steel wool) between coats','Remove the dust after rubbing down'],
+  ['Apply thin, even coats','Cover all surfaces','Brush with the grain','Remove stray bristles','Wipe excess varnish off the brush first','Apply several thin coats, with a quick pass of very fine sandpaper (or steel wool) between coats','Remove the dust after rubbing down'],
   ['“Apply with a brush.” (in the question)','“Sand it.”']],
  [2025,'1(f)(i)',1,'Name','m-metals','A silver, non-ferrous metal for the handle.','',
   ['Aluminium (zinc also accepted)'],['“Tin.”','“Silver.”']],
@@ -1050,7 +1152,7 @@ const PP_RECENT=[
   ['The screw heads sit flush, so napkins don’t catch on them'],[]],
  [2025,'1(g)(iii)',2,'Describe','m-finish','Stages in getting a good finish on the acrylic edges before bending, naming tools.','Most candidates answered this well.',
   ['Cross file','Draw file','Scrape the edge','Rub with wet and dry paper','Polish (or rub with steel wool and soap)'],
-  ['“Sand” or “glass paper” on its own']],
+  ['“Sandpaper” on its own (use wet and dry paper on acrylic)']],
  [2025,'1(g)(iv)',2,'Describe','m-tools','How fold A in the acrylic could be made, naming equipment.','',
   ['Heat along the fold line on a strip heater (line bender)','Bend it around a former to 90°','Hold it in place until it sets; leave to cool'],
   ['“Heat it.”','“Heat it in the oven.” (heats the whole sheet)','“Bend it.”']],
@@ -1091,7 +1193,7 @@ const PP_RECENT=[
   ['Percentiles on their own','Linking attachments to the size of the head']],
  [2025,'6(b)',2,'Describe','d-market','Two benefits of a strong brand image.','Most candidates answered this well.',
   ['Trust in the brand’s reputation','Customer loyalty and repeat sales','Can charge a premium price','Self-promoting; people see it as high quality'],[],
-  '“If customers believe the brand makes high-quality products, they are more likely to buy another product from it” earns 2 marks.'],
+  '“If customers believe the brand makes high-quality products, they are more likely to buy another product from it” scored 2 because it makes two points: the brand is seen as high quality, and customers buy again.'],
  [2025,'7(a)(i)',2,'Outline','m-plastics','Two reasons polypropylene suits the rotationally moulded rocking horse.','',
   ['Strong; tough; durable','Waterproof or weatherproof','Resists wear and scratches','Suits rotational moulding; easy to mould','Colour built in','Easy to clean; chemical resistant'],
   ['“Cheap” unqualified']],
@@ -1112,7 +1214,7 @@ const PP_RECENT=[
   ['Identical, consistent parts','Accurate','Very detailed or complex shapes, including internal shapes','Fast; high volumes','Less waste','Can etch and engrave','Lower labour costs; automated; runs 24 hours a day','Made and edited directly from the CAD drawing; files easy to send','Good-quality finish'],
   ['“Cheap” or “easy” unqualified','“Looks good.”']],
  [2025,'10',4,'Describe','c-impact','Four methods, other than recycled materials, a designer could use to make products more sustainable.','Many described what a manufacturer would do instead of a designer.',
-  ['Design for recycling, e.g. label parts so they’re easier to recycle','Reduce materials or packaging','Reuse parts or materials','Rethink the design','Extend the lifespan, e.g. better-quality materials (can earn 2 marks)','Biodegradable materials','Use computer models to save materials'],
+  ['Design for recycling, e.g. label parts so they’re easier to recycle','Reduce materials or packaging','Reuse parts or materials','Rethink the design','Extend the lifespan, e.g. better-quality materials','Biodegradable materials','Use computer models to save materials'],
   ['Recycled materials (in the question)','Anything about manufacture or distribution','“Sustainable materials” or “environmentally friendly materials”','Locally sourced materials; renewable energy; replanting trees']]
 ];
 
@@ -1176,7 +1278,7 @@ const GROUPS=[
 ];
 const Q=[
  {id:'1ai',g:'1',l:'1(a)(i)',t:'Name an alternative softwood to red pine',max:1,tp:'W1',mi:'Spruce, cedar, Douglas fir or larch. “Pine” on its own scores zero because red pine is in the question; Scots pine scores.'},
- {id:'1aii',g:'1',l:'1(a)(ii)',t:'Describe how to join the two pieces of softwood, using workshop tools',max:2,tp:'W5',mi:'One mark per step, e.g. drill holes for dowels, apply PVA to the edges with a brush, clamp in sash cramps. “Glue it” alone scores zero. Without tools named, maximum one mark; marking out is worth one mark at most.'},
+ {id:'1aii',g:'1',l:'1(a)(ii)',t:'Describe how to join the two pieces of softwood, using workshop tools',max:2,tp:'W5',mi:'One mark per step, e.g. drill holes for dowels, apply wood glue (PVA) to the edges with a brush, clamp in sash cramps. “Glue it” alone scores zero. Without tools named, maximum one mark; marking out is worth one mark at most.'},
  {id:'1bi',g:'1',l:'1(b)(i)',t:'Name the drill bit for the flat-bottomed hole at A',max:1,tp:'W3',mi:'Forstner bit. Flat bit and hole saw score zero.'},
  {id:'1bii',g:'1',l:'1(b)(ii)',t:'Name the drill bit for the hole at B',max:1,tp:'W3',mi:'Twist drill (jobber drill also scores). “Pilot drill” scores zero: it isn’t a type of bit.'},
  {id:'1biii',g:'1',l:'1(b)(iii)',t:'Name a machine to form the curve at C',max:1,tp:'W4',mi:'Disc sander, belt sander or scroll saw; band saw, jigsaw or orbital sander also accepted.'},
@@ -1187,7 +1289,7 @@ const Q=[
  {id:'1di',g:'1',l:'1(d)(i)',t:'Explain why a former would be used to create the acrylic bowls',max:2,tp:'W5',mi:'Two of: creates an accurate 3D form; makes every bowl identical; quicker when making more than one. “Quicker” with no reason scores zero.'},
  {id:'1dii',g:'1',l:'1(d)(ii)',t:'Name the equipment to heat the acrylic before forming',max:1,tp:'W4',mi:'Oven (thermoforming centre or vacuum former also accepted). Strip heater or heat gun scores zero: they only heat a line, not the whole sheet.'},
  {id:'1diii',g:'1',l:'1(d)(iii)',t:'Name a machine tool to cut out the circle',max:1,tp:'W4',mi:'Scroll saw (fret saw, band saw, jigsaw or Hegner saw also accepted). Commercial processes score zero.'},
- {id:'1div',g:'1',l:'1(d)(iv)',t:'Describe how the edge of the acrylic would be finished after sawing',max:2,tp:'W6',mi:'Stages in order: file or scrape; wet and dry (or emery) paper; polish or buff. Glasspaper or sandpaper scores zero on acrylic. Filing earns one mark at most, however many filing methods you give.'},
+ {id:'1div',g:'1',l:'1(d)(iv)',t:'Describe how the edge of the acrylic would be finished after sawing',max:2,tp:'W6',mi:'Stages in order: file or scrape; wet and dry (or emery) paper; polish or buff. Sandpaper on its own scores zero on acrylic. Filing earns one mark at most, however many filing methods you give.'},
  {id:'1ei',g:'1',l:'1(e)(i)',t:'Name a silver-coloured non-ferrous metal for the pointer',max:1,tp:'W1',mi:'Aluminium (tin or zinc also accepted).'},
  {id:'1eii',g:'1',l:'1(e)(ii)',t:'Name the tool to mark the two parallel lines at A',max:1,tp:'W2',mi:'Odd-leg callipers (Jenny callipers also accepted).'},
  {id:'1eiii',g:'1',l:'1(e)(iii)',t:'Name the tool used with a scriber to mark line B at 90°',max:1,tp:'W2',mi:'Engineer’s square. Try square scores zero: it’s for wood.'},
@@ -1248,10 +1350,10 @@ const T={
  W5:{name:'Joining, holding and formers',area:'w',weight:4,
   spec:'Assembling components: adhesives (PVA, epoxy), screws, nails, nuts and bolts, woodwork joints (mortise and tenon, lap, halving, dowel, rebate, housing), pop-riveting; holding with vices, G clamps, sash cramps, formers and jigs.',
   asked:'“Describe how to join…” (name the tools in every step) and “explain why a former or jig is used”.',
-  learn:['PVA: wood to wood. Epoxy resin: mixed materials, e.g. metal to wood.','Countersinking lets the screw head sit flush, so it doesn’t stick out or scratch.','Edge joint: drill dowel holes using a dowel jig, glue with PVA, clamp with sash cramps, wipe off excess glue.','Formers give an accurate 3D shape and make every part identical.','Jigs hold work or guide a tool so every part is the same without marking out each one.','When asked for two different joints, name two different types: in 2025 “lap or rebate joint” counted as one.'],
+  learn:['Wood glue (PVA): wood to wood. Epoxy resin: mixed materials, e.g. metal to wood.','Countersinking lets the screw head sit flush, so it doesn’t stick out or scratch.','Edge joint: drill dowel holes using a dowel jig, apply wood glue, clamp with sash cramps, wipe off the excess glue with a damp cloth.','Formers give an accurate 3D shape and make every part identical.','Jigs hold work or guide a tool so every part is the same without marking out each one.','When asked for two different joints, name two different types: in 2025 “lap or rebate joint” counted as one.'],
   quiz:[
    {q:'Why are screw holes countersunk?',o:['So the screw head sits flush and doesn’t stick out','So the screw is easier to buy','To make the wood stronger','To stop the wood rotting'],a:0,e:'Flush screw heads don’t catch or scratch. The 2025 report says many candidates didn’t know this.'},
-   {q:'Which adhesive would join a brass rod to a beech base?',o:['Epoxy resin','PVA','Wood stain','Wax'],a:0,e:'Epoxy resin joins different materials. PVA is for wood.'}],
+   {q:'Which adhesive would join a brass rod to a beech base?',o:['Epoxy resin','Wood glue (PVA)','Wood stain','Wax'],a:0,e:'Epoxy resin joins different materials. Wood glue (PVA) is for wood to wood.'}],
   written:{id:'w5',q:'A school makes 30 identical bases. A jig is used to drill the holes in the same place on each one. Explain two benefits of using the jig.',max:2,
    points:[['Every base is identical or consistent',/identical|same|consisten|uniform|repeat/i],['Holes are accurate',/accura|precise|exact|correct (place|position)/i],['No need to mark out each base, so time is saved',/mark(ing)? out|measur|time|quicker|faster/i],['Fewer mistakes or wasted parts',/mistake|error|waste|scrap/i]],
    connect:true,
@@ -1260,14 +1362,14 @@ const T={
  W6:{name:'Finishing wood, metal and plastic',area:'w',weight:8,
   spec:'Finishing: preparing surfaces and applying finishes, including sanding, polishing, varnishing, oiling, staining, waxing, painting or lacquering, and dip coating.',
   asked:'“Explain why this finish…” and “describe how to finish…” in order. Varnish and acrylic edges both came up in 2025.',
-  learn:['Prepare wood: sand with the grain, working through finer grades of glasspaper, and remove the dust.','Varnish: thin coats with a brush along the grain; let each dry; rub down lightly between coats.','Wax: applied with a cloth and buffed; dries instantly; no brush to clean; natural look but less protection.','Acrylic edges, in order: file (cross file then draw file) or scrape, wet and dry paper used wet, then polish with a buffing wheel or polish.','Never glasspaper on acrylic: it scores zero.','Metal edges: cross file, draw file, emery cloth or wet and dry, then polish. Mild steel needs paint or dip-coating to stop rust: polish alone scored zero in 2026.'],
+  learn:['Prepare wood: sand with the grain using coarse sandpaper, working down to fine. Wipe with a damp cloth to raise the grain, then sand again with fine sandpaper. Repeat two or three times.','Varnish: a very thin coat with a brush along the grain. When dry, a quick pass with ultra-fine sandpaper, wipe off the dust with a damp cloth, then the next thin coat.','Wax: applied with a cloth and buffed; dries instantly; no brush to clean; natural look but less protection.','Acrylic edges, in order: file (cross file then draw file) or scrape, wet and dry paper used wet, then polish with a buffing wheel or polish.','Acrylic edges need wet and dry paper: sandpaper on its own scored zero in 2025.','Metal edges: cross file, draw file, emery cloth or wet and dry, then polish. Mild steel needs paint or dip-coating to stop rust: polish alone scored zero in 2026.'],
   quiz:[
-   {q:'Which abrasive should you use on the edge of acrylic?',o:['Wet and dry paper','Glasspaper','Sandpaper','A belt sander'],a:0,e:'Wet and dry paper. Glass paper or sandpaper on its own scored zero in 2025.'}],
+   {q:'Which abrasive should you use on the edge of acrylic?',o:['Wet and dry paper','Sandpaper','A wood rasp','A belt sander'],a:0,e:'Wet and dry paper. Sandpaper on its own scored zero for acrylic in 2025.'}],
   written:{id:'w6',q:'Describe how to apply a high-quality varnish finish to a pine base.',max:3,
-   points:[['Sand the surface, working through finer grades, with the grain',/sand|glass ?paper|abrasive/i],['Remove the dust (tack cloth or damp cloth)',/dust|tack|wipe|clean/i],['Apply a thin coat with a brush along the grain',/brush|thin|along the grain|with the grain|coat/i],['Let it dry, then rub down lightly between coats',/dry|rub down|wire wool|denib|between coats|flat/i],['Apply further coats',/second|another|further|more coats|repeat/i]],
+   points:[['Sand the surface, working through finer grades, with the grain',/sand|glass ?paper|abrasive/i],['Wipe off the dust with a damp cloth',/dust|damp|wipe|clean|cloth/i],['Apply a thin coat with a brush along the grain',/brush|thin|along the grain|with the grain|coat/i],['Let it dry, then rub down lightly between coats',/dry|rub down|wire wool|denib|between coats|flat/i],['Apply further coats',/second|another|further|more coats|repeat/i]],
    connect:false,
-   model:'First sand the pine along the grain, starting with a coarse glasspaper and working through to a fine one. Remove all the dust with a tack cloth. Brush on a thin coat of varnish along the grain and leave it to dry fully. Rub it down lightly with fine wire wool, remove the dust, then apply a second thin coat.',
-   tip:'Describe = steps in order. Name the tools (glasspaper, tack cloth, brush, wire wool) to make each step precise.'}},
+   model:'Sand the pine along the grain with coarse sandpaper, working down to fine. Wipe it with a damp cloth to raise the grain, then sand again with fine sandpaper. Brush on a very thin coat of varnish along the grain and let it dry. Give it a quick pass with ultra-fine sandpaper, wipe off the dust with a damp cloth, then apply the next thin coat.',
+   tip:'Describe = steps in order. Name the tool in each step (sandpaper, damp cloth, brush) to make it precise.'}},
  D1:{name:'Research and the specification',area:'d',weight:6,
   spec:'Analysis of a brief: research methods (including questionnaires and user trips), reasons for choosing them, and the purpose of a product specification.',
   asked:'“Describe the key stages of…”, “name an alternative research technique” and “explain why a specification is used”.',
@@ -1557,6 +1659,11 @@ function renderResults(){
   </div>
   <p><b style="color:var(--ink)">Start with:</b> ${pri.length?pri.map(esc).join('; '):'enter your marks to see your priorities'}.</p>
   <p class="sub">Practice done: ${p.mcR} of ${p.mcT} quick questions right · ${p.wr} written answers</p>`;
+  const done=s.ranked.filter(t=>t.max&&t.got!=null&&t.band!=='none');
+  const strong=done.filter(t=>t.got/t.max>=0.8).sort((a,b)=>b.got/b.max-a.got/a.max),weak=done.filter(t=>t.band==='start');
+  const chip=t=>{const l=K2L(t.k);return `<button type="button" class="swchip" ${l?`data-golearn="${l}"`:''}>${esc(T[t.k].name)} <span>${t.got}/${t.max}</span></button>`};
+  $('swBody').innerHTML=s.n?`<div class="swbox"><div class="sw-col sw-weak"><h3>Work on first</h3>${weak.length?weak.map(chip).join(''):'<p class="sub">Nothing yet.</p>'}</div>
+   <div class="sw-col sw-strong"><h3>Strong</h3>${strong.length?strong.map(chip).join(''):'<p class="sub">None at 80% yet. Keep going.</p>'}</div></div>`:'';
 }
 function plainResults(){
   const s=score(),v=id=>($(id).value||'').trim(),p=practiceDone();
@@ -1634,7 +1741,7 @@ async function showPlanImage(box,st,src){
   box.scrollIntoView({block:'start'});
 }
 
-async function downloadPlanPDF(st,src){
+async function downloadPlanPDF(st,src,share){
   st.style.color='';st.textContent='';
   if(!src&&!score().n){st.style.color='var(--bad)';st.textContent='Enter your marks first.';return}
   if(!window.jspdf){st.style.color='var(--bad)';st.textContent='The PDF tool didn’t load. Check your connection and reload, or use Save as a picture.';return}
@@ -1642,7 +1749,10 @@ async function downloadPlanPDF(st,src){
   const {jsPDF}=window.jspdf;const doc=new jsPDF({unit:'mm',format:'a4'});
   drawPlan(src).forEach((pcv,i)=>{if(i)doc.addPage();doc.addImage(pcv.toDataURL('image/jpeg',0.92),'JPEG',0,0,210,297);
   (pcv.links||[]).forEach(l=>{try{doc.link(l.x,l.y,l.w,l.h,{url:l.url})}catch(e){}})});
-  try{doc.save(src?'Overall revision plan.pdf':'Revision plan - '+plain(CK(S.cur).name)+'.pdf');st.textContent='Downloaded. Open it to print your plan.'}
+  if(share){try{const f=new File([doc.output('blob')],'My revision plan.pdf',{type:'application/pdf'});
+    if(navigator.canShare({files:[f]})){await navigator.share({files:[f],title:'My revision plan'});st.textContent='';return}}catch(e){if(e&&e.name==='AbortError')return}
+    st.textContent='Sharing isn’t available here, so it has downloaded instead.'}
+  try{doc.save(src?'Overall revision plan.pdf':'Revision plan - '+plain(CK(S.cur).name)+'.pdf');if(!share)st.textContent='Downloaded. Open it to print your plan.'}
   catch(e){const w=window.open(doc.output('bloburl'),'_blank');st.textContent=w?'Your plan opened in a new tab.':'Your browser blocked the download. Use Save as a picture instead.'}
 }
 $('planPdfBtn').addEventListener('click',()=>downloadPlanPDF($('copyStatus')));
@@ -1771,9 +1881,10 @@ $('exitView').addEventListener('click',()=>{location.reload()});
 
 /* ---------- tabs ---------- */
 function showTab(t){
-  ['enter','history','profile','overall','learn','cad'].forEach(x=>{const on=x===t;$('tab-'+x).hidden=!on;const b=$('tabbtn-'+x);b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1});
+  t=({history:'progress',profile:'progress',overall:'progress'})[t]||t;if(!$('tab-'+t))t='learn';
+  ['enter','progress','learn','cad'].forEach(x=>{const on=x===t;$('tab-'+x).hidden=!on;const b=$('tabbtn-'+x);b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1});
   S.tab=t;save();
-  if(t==='history')renderHistory();if(t==='profile'){renderProfile();renderChecklist()}if(t==='overall')renderOverall();if(t==='learn')renderLearn();
+  if(t==='progress'){renderPrio();renderProfile();renderHistory();renderChecklist();renderOverall()}if(t==='learn')renderLearn();
 }
 document.querySelector('.tabs').addEventListener('click',e=>{const b=e.target.closest('button[data-tab]');if(b)showTab(b.dataset.tab)});
 document.querySelector('.tabs').addEventListener('keydown',e=>{const bs=[...document.querySelectorAll('.tabs button')];const i=bs.indexOf(document.activeElement);if(i<0)return;
@@ -1815,7 +1926,7 @@ function renderHistory(){
   $('historyList').innerHTML=all.length?`<div class="hist">${all.map(x=>`<div class="hrow"><div><div class="hn">${esc(LEVELS[x.ck.level])} · ${esc(x.ck.name)}</div><div class="hd">${fmtDate(x.date)}${x.n<x.nq?` · ${x.n} of ${x.nq} parts entered`:''}</div></div>
      <div class="hs">${x.got} / ${x.tot} <span class="gchip">${gradeTxt(x.pct,x.ck.level)}</span><div class="hd">${x.pct}%</div></div>
      <button class="btn ghost" type="button" data-open="${x.id}">Open</button></div>`).join('')}</div>`
-   :'<div class="empty">No checks yet. Go to <b>Enter Marks</b>, choose your check and enter your marks.</div>';
+   :'<div class="empty">No checks yet. Go to <b>Skills checks</b>, choose your check and enter your marks.</div>';
 }
 $('historyList').addEventListener('click',e=>{const b=e.target.closest('button[data-open]');if(!b)return;S.cur=b.dataset.open;applyLevel(CK(S.cur).level);save();showTab('enter')});
 
@@ -1829,10 +1940,10 @@ function combined(lv){
   return {st,ranked,pct:Math.round(100*sg/stt)};
 }
 
-let PHLAST=window.innerWidth<560;window.addEventListener('resize',()=>{const ph=window.innerWidth<560;if(ph!==PHLAST){PHLAST=ph;const pnl=$('tab-profile');if(pnl&&!pnl.hidden)renderProfile()}});
+let PHLAST=window.innerWidth<560;window.addEventListener('resize',()=>{const ph=window.innerWidth<560;if(ph!==PHLAST){PHLAST=ph;const pnl=$('tab-progress');if(pnl&&!pnl.hidden)renderProfile()}});
 function renderProfile(){
   const lv=$('profLevel').value,st=levelStats(lv),box=$('profileBody');
-  if(!st.length){box.innerHTML=`<div class="empty">No ${esc(LEVELS[lv])} checks entered yet. Your Skills tab fills in after your first check.</div>`;return}
+  if(!st.length){box.innerHTML=`<div class="empty">No ${esc(LEVELS[lv])} checks entered yet. Your charts appear after your first skills check.</div>`;return}
   const keys=Object.keys(T).filter(k=>st.some(x=>x.topics[k]));
   const last=st[st.length-1],prev=st.length>1?st[st.length-2]:null;
   const N=keys.length,cx=260,cy=215,R=150;const PH=window.innerWidth<560,FS=PH?27:19,SF=PH?1.8:1;
@@ -1859,25 +1970,22 @@ function renderProfile(){
   line+='</svg>';
   box.innerHTML=`<div class="chartcard"><h3>Topics</h3><div class="legend"><span><i class="sw" style="background:#A3243A"></i>${esc(last.ck.name)}</span>${prev?`<span><i class="sw" style="background:#8257B5"></i>${esc(prev.ck.name)} (dashed)</span>`:''}</div>${svg}
    <p class="sub">Further out means a stronger topic. Hover or tap a point for its score.</p></div>
-   <div class="chartcard"><h3>Score over time</h3>${line}</div>
-   <div class="chartcard"><h3>Topic scores</h3><div class="hist">${keys.map(k=>{const o=last.topics[k],p2=prev&&prev.topics[k];const v=o?Math.round(100*o.got/o.max):null;const pv=p2?Math.round(100*p2.got/p2.max):null;
-     return `<div class="hrow" style="grid-template-columns:1fr auto"><div class="hn">${esc(T[k].name)}</div><div class="hs" style="font-size:18px">${v===null?'–':v+'%'}${pv!==null&&v!==null?` <span class="hd">${v>=pv?'up':'down'} from ${pv}%</span>`:''}</div></div>`}).join('')}</div></div>`;
+   <div class="chartcard"><h3>Score over time</h3>${line}</div>`;
 }
 $('profLevel').addEventListener('change',renderProfile);
 
 function renderOverall(){
   const lv=$('ovLevel').value,c=combined(lv),box=$('overallBody');
-  if(!c){box.innerHTML=`<div class="empty">No ${esc(LEVELS[lv])} skills checks entered yet. Your marks will rank topics here.</div>`+checklistPlanHTML();return}
+  const set=document.querySelector('#planCard .settings');if(set)set.hidden=!c;
+  if(!c){box.innerHTML=`<p class="sub">Your plan is built from your skills check marks. Enter your first check to make it.</p><div class="row"><button class="btn" type="button" data-gotab="enter">Go to Skills checks</button></div>`;return}
   const src={ranked:c.ranked.map(t=>Object.assign({},t)),big:c.pct+'%',small:`across ${c.st.length} check${c.st.length>1?'s':''}`,label:'Overall',tag:LEVELS[lv]+' Design and Manufacture',sub:'Overall revision plan',mark:x=>`Overall: ${Math.round(100*x.pct)}%`};
-  box.innerHTML=`<p>Built from all your ${esc(LEVELS[lv])} checks (${c.st.map(x=>esc(x.ck.name)).join(', ')}). Your most recent check counts double, so the plan follows how you’re doing now.</p>
-   <div class="row noprint"><button class="btn" type="button" id="ovPdf">Download my revision plan (PDF)</button><button class="btn ghost" type="button" id="ovImg">Save as a picture</button><span class="status" id="ovStatus" aria-live="polite"></span></div>
-   <div class="planimg noprint" id="ovImgBox" hidden></div>
-   <div class="topics" id="ovTopics">${c.ranked.map(t=>{const P=T[t.k],A=AREAS[P.area];return `<details class="topic ${A.cls} b-${t.band}" data-k="${t.k}"><summary><span class="tname">${esc(P.name)}</span><span class="tscore">${Math.round(100*t.pct)}%<small>overall</small></span><span class="tmeta"><span class="band ${t.band}">${BANDS[t.band]}</span><span class="chip">${A.name}</span>${(()=>{const r=CKL_N5.filter(i=>i.k===t.k&&S.rag[i.id]==='r').length;return r?`<span class="chip ragchip">${r} rated not yet</span>`:''})()}<span>About ${P.weight} marks per exam (2025–26)</span></span></summary>
-     <div class="tbody"><div class="blk"><h4>Learn</h4><ul class="learn">${P.learn.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div class="blk"><h4>Practise</h4><div class="prac" data-k="${t.k}"></div></div><div class="blk"><h4>Past papers</h4><p class="past">${esc(PAST[t.k])}</p></div></div></details>`}).join('')}</div>`+checklistPlanHTML();
-  box.querySelectorAll('.prac').forEach(p=>renderPractice(p,p.dataset.k,true));
-  $('ovTopics').addEventListener('click',pracClick);
+  const canShare=!!(navigator.share&&navigator.canShare);
+  box.innerHTML=`<p class="sub">Built from your ${c.st.length} skills check${c.st.length>1?'s':''}. Your latest check counts double. Each topic in the plan links back to its page here.</p>
+   <div class="row noprint"><button class="btn" type="button" id="ovPdf">Download PDF</button><button class="btn ghost" type="button" id="ovImg">Save as a picture</button>${canShare?'<button class="btn ghost" type="button" id="ovShare">Share…</button>':''}<span class="status" id="ovStatus" aria-live="polite"></span></div>
+   <div class="planimg noprint" id="ovImgBox" hidden></div>`;
   $('ovPdf').addEventListener('click',()=>downloadPlanPDF($('ovStatus'),src));
   $('ovImg').addEventListener('click',()=>showPlanImage($('ovImgBox'),$('ovStatus'),src));
+  if(canShare)$('ovShare').addEventListener('click',()=>downloadPlanPDF($('ovStatus'),src,true));
 }
 $('ovLevel').addEventListener('change',renderOverall);
 
@@ -1896,14 +2004,14 @@ function applyLevel(lv){
   fillChecks();renderGate();
 }
 function showWelcome(on){$('welcome').hidden=!on;$('app').hidden=on;if(on){const f=document.querySelector('.lvl');if(f)f.focus()}}
-document.querySelector('.levels').addEventListener('click',e=>{const b=e.target.closest('button[data-level]');if(!b)return;applyLevel(b.dataset.level);save();showWelcome(false);showTab(S.tab||'learn');window.scrollTo(0,0)});
+document.querySelector('.levels').addEventListener('click',e=>{const b=e.target.closest('button[data-level]');if(!b)return;applyLevel(b.dataset.level);save();showWelcome(false);showTab(S.tab||'learn');maybeGate();window.scrollTo(0,0)});
 $('changeLevel').addEventListener('click',()=>{showWelcome(true);window.scrollTo(0,0)});
 
 
 /* ---------- nickname, class, and sending results to the teacher ---------- */
 const TEACHER_FEATURES=false; /* set to true (and upload the functions folder) to turn on nicknames, sending and the Teachers view */
 const ADJ=['Swift','Bold','Bright','Steady','Keen','Clever','Brave','Calm','Sharp','Nimble','Mighty','Quiet','Lucky','Rapid','Solid','Golden','Gentle','Clear','Proud','Sunny'];
-const NOUN=['Dovetail','Lathe','Chisel','Mortise','Tenon','Rivet','Router','Acrylic','Plywood','Oak','Beech','Spruce','Brass','Copper','Bradawl','Mallet','Jigsaw','Dowel','Hinge','Caliper','Scriber','Vice','Former','Template'];
+const NOUN=['Dovetail','Lathe','Chisel','Mortise','Tenon','Rivet','Router','Acrylic','Plywood','Oak','Beech','Spruce','Brass','Copper','Bradawl','Mallet','Jigsaw','Dowel','Hinge','Calliper','Scriber','Vice','Former','Template'];
 function newNick(){const r=a=>a[Math.floor(Math.random()*a.length)];return `${r(ADJ)} ${r(NOUN)} ${String(10+Math.floor(Math.random()*90))}`}
 if(!VIEW&&!S.nick){S.nick=newNick();save()}
 function paintNick(){if(!TEACHER_FEATURES){$('nickChip').textContent='';return}$('nickChip').textContent=S.nick?(VIEW?'Viewing: ':'You: ')+S.nick:''}
@@ -2252,11 +2360,11 @@ const LEARN_N5_MM=[
  area:'w',
  name:'Joining, holding, formers and jigs',
  spec:'Assembling: joining methods (PVA and epoxy resin adhesives; screws, nails, nuts and bolts; mortise and tenon, lap, rub, halving, dowel, rebate and housing joints; pop-riveting; welding); holding and clamping tools (machine, bench, hand and engineer’s vices and guards; G clamp; sash cramps); formers and jigs.',
- body:[['h','Woodwork joints'],['fig','svg:joints','Common woodwork joints'],['ul',['Mortise and tenon: a strong frame joint, used for tables and chairs.','Housing: a shelf sits in a groove across a side panel.','Halving: both pieces are cut to half thickness where they cross.','Lap: one piece overlaps a recess in the other, for example at a corner.','Rebate: a step cut along an edge, for example for a cabinet back.','Dowel: wooden pins glued into matching holes.','Rub joint: two edges glued together, for example to make a wider board.']],['h','Adhesives and fixings'],['ul',['PVA: wood to wood.','Epoxy resin: two-part adhesive for joining different materials, such as metal to wood.','Screws: a countersunk screw sits flush when the hole is countersunk, so it doesn’t stick out or scratch.','Nuts and bolts: a strong joint that can be taken apart.','Pop rivets: join sheet materials from one side. Welding: a permanent joint between metals.']],['h','Holding, formers and jigs'],['ul',['Bench vice (wood), engineer’s vice (metal), machine vice (on the pillar drill), hand vice (small items).','G clamps hold parts while glue sets; sash cramps hold wide frames and boards.','A former is a shape that material is pressed over or around, so every part has the same accurate 3D form.','A jig holds the work or guides the tool, so the same operation is repeated accurately without marking out each part.']]],
- tip:'When describing how to join parts, name a tool in every step (“apply PVA with a brush”, “clamp with sash cramps”). In 2025, answers about the housing joint that named no tools scored 1 mark at most. Countersinking was found demanding in 2025.',
+ body:[['h','Woodwork joints'],['fig','svg:joints','Common woodwork joints'],['ul',['Mortise and tenon: a strong frame joint, used for tables and chairs.','Housing: a shelf sits in a groove across a side panel.','Halving: both pieces are cut to half thickness where they cross.','Lap: one piece overlaps a recess in the other, for example at a corner.','Rebate: a step cut along an edge, for example for a cabinet back.','Dowel: wooden pins glued into matching holes.','Rub joint: two edges glued together, for example to make a wider board.']],['h','Adhesives and fixings'],['ul',['Wood glue (PVA): wood to wood.','Epoxy resin: two-part adhesive for joining different materials, such as metal to wood.','Screws: a countersunk screw sits flush when the hole is countersunk, so it doesn’t stick out or scratch.','Nuts and bolts: a strong joint that can be taken apart.','Pop rivets: join sheet materials from one side. Welding: a permanent joint between metals.']],['h','Holding, formers and jigs'],['ul',['Bench vice (wood), engineer’s vice (metal), machine vice (on the pillar drill), hand vice (small items).','G clamps hold parts while glue sets; sash cramps hold wide frames and boards.','A former is a shape that material is pressed over or around, so every part has the same accurate 3D form.','A jig holds the work or guides the tool, so the same operation is repeated accurately without marking out each part.']]],
+ tip:'When describing how to join parts, name a tool in every step (“apply wood glue with a brush”, “clamp with sash cramps”). In 2025, answers about the housing joint that named no tools scored 1 mark at most. Countersinking was found demanding in 2025.',
  mcq:[{q:'Which adhesive would join a brass rod to a beech base?',
- o:['Epoxy resin','PVA','Wood stain','Wax'],
- e:'Epoxy resin joins different materials. PVA is for wood to wood.'},{q:'Why are screw holes countersunk?',
+ o:['Epoxy resin','Wood glue (PVA)','Wood stain','Wax'],
+ e:'Epoxy resin joins different materials. Wood glue (PVA) is for wood to wood.'},{q:'Why are screw holes countersunk?',
  o:['So the screw head sits flush and doesn’t stick out','To make the screw stronger','So no glue is needed','To stop the wood rotting'],
  e:'Flush heads don’t catch or scratch. “To look attractive” scored zero for an underside.'},{q:'Why use a former to make several acrylic bowls?',
  o:['Every bowl gets the same accurate 3D shape','Formers make the acrylic transparent','No heating is needed','It is the only way to cut acrylic'],
@@ -2265,18 +2373,18 @@ const LEARN_N5_MM=[
  e:'Sash cramps are long, for wide boards and frames.'}],
  exam:{q:'Two pieces of softwood are joined edge to edge to make a wider board. Describe how to join them, referring to workshop tools.',
  max:2,
- pts:[['Mark out and drill holes for dowels (dowel jig)',/dowel|drill|biscuit|jig/i],['Apply PVA with a brush',/pva|glue|adhesive|brush/i],['Clamp with sash cramps or G clamps',/cramp|clamp|vice/i],['Wipe off excess glue',/wipe|excess|damp cloth/i]],
- model:'Use a dowel jig to drill matching holes in both edges and insert dowels. Apply PVA glue to the edges and dowels with a brush, then clamp the pieces together with sash cramps until the glue has set.',
+ pts:[['Mark out and drill holes for dowels (dowel jig)',/dowel|drill|biscuit|jig/i],['Apply wood glue with a brush',/pva|glue|adhesive|brush/i],['Clamp with sash cramps or G clamps',/cramp|clamp|vice/i],['Wipe off excess glue',/wipe|excess|damp cloth/i]],
+ model:'Use a dowel jig to drill matching holes in both edges and insert dowels. Apply wood glue to the edges and dowels with a brush, then clamp the pieces together with sash cramps until the glue has set.',
  mi:['1 mark for each valid description, up to 2.','Name a tool or piece of equipment in each step: a list of tools on its own scores zero.']}},
 {id:'m-finish',
  area:'w',
  name:'Finishing',
  spec:'Surface finishing techniques: sanding/abrading, polishing, varnishing, oiling, staining, waxing, painting/lacquering and dip-coating.',
- body:[['h','Preparing wood'],['p','Remove pencil marks and excess glue, and fill any dents or gaps. Sand along the grain, working from coarse to fine abrasive paper. Dampen the wood to raise the grain and sand again, then remove the dust with a damp cloth.'],['h','Finishes for wood'],['ul',['Varnish: tough, protective and waterproof. Brush on thin coats along the grain, let each dry, and rub down lightly with fine wire wool or paper between coats.','Wax: applied with a cloth and buffed; dries instantly, no brush to clean, no runs, natural look, but gives less protection.','Oil: soaks into the wood, brings out the grain, easy to reapply.','Stain: applied with a cloth; changes the colour (for example to make a light wood look darker) while the grain still shows. It doesn’t protect the wood.','Paint: colour and protection; needs a primer first.']],['h','Acrylic edges'],['p','In order: file (cross file then draw file) or scrape; rub with wet and dry paper used wet; then polish with a buffing wheel or polish. Glasspaper or sandpaper scores zero on acrylic.'],['h','Metal'],['ul',['Edges: cross file, then draw file, then rub with emery cloth or wet and dry paper, then polish.','Mild steel rusts, so it needs a protective finish: paint or dip-coating. Polish alone scored zero in 2026.']],['ul',['Dip-coating: heat the metal and dip it in plastic powder in a fluidiser, giving a thick, protective coating (for example on tool handles).']]],
+ body:[['h','Preparing wood'],['ol',['Remove pencil marks and excess glue, and fill any dents or gaps.','Sand along the grain with coarse sandpaper, working down to fine.','Wipe with a damp cloth to raise the grain, let it dry, then sand again with fine sandpaper.','Repeat the damp cloth and fine sanding two or three times.','Wipe off the dust with a damp cloth.']],['h','Finishes for wood'],['ul',['Varnish: tough, protective and waterproof. Brush on a very thin coat along the grain. When it is dry, give it a quick pass with ultra-fine sandpaper, wipe off the dust with a damp cloth, then apply the next thin coat.','Wax: applied with a cloth and buffed; dries instantly, no brush to clean, no runs, natural look, but gives less protection.','Oil: soaks into the wood, brings out the grain, easy to reapply.','Stain: applied with a cloth; changes the colour (for example to make a light wood look darker) while the grain still shows. It doesn’t protect the wood.','Paint: colour and protection; needs a primer first.']],['h','Acrylic edges'],['p','In order: file (cross file then draw file) or scrape; rub with wet and dry paper used wet; then polish with a buffing wheel or polish. Sandpaper on its own scores zero on acrylic.'],['h','Metal'],['ul',['Edges: cross file, then draw file, then rub with emery cloth or wet and dry paper, then polish.','Mild steel rusts, so it needs a protective finish: paint or dip-coating. Polish alone scored zero in 2026.']],['ul',['Dip-coating: heat the metal and dip it in plastic powder in a fluidiser, giving a thick, protective coating (for example on tool handles).']]],
  tip:'Explain finish choices with a consequence. “Wax is quicker” on its own scores zero; “wax is applied with a cloth, so there is no brush to clean” scores. Varnish and acrylic edge finishing both came up in 2025. In 2026 many didn’t know a finish for mild steel (paint or dip coating: polish scores zero), and claims that wood stain protects the wood scored zero.',
  mcq:[{q:'Which abrasive should be used on the edge of acrylic?',
- o:['Wet and dry paper','Glasspaper','Sandpaper','A belt sander'],
- e:'Wet and dry paper smooths acrylic. Glass paper or sandpaper on its own scored zero in 2025.'},{q:'What is the correct order for finishing a sawn acrylic edge?',
+ o:['Wet and dry paper','Sandpaper','A wood rasp','A belt sander'],
+ e:'Wet and dry paper smooths acrylic. Sandpaper on its own scored zero for acrylic in 2025.'},{q:'What is the correct order for finishing a sawn acrylic edge?',
  o:['File, wet and dry, polish','Polish, file, wet and dry','Wet and dry, polish, file','Paint, file, polish'],
  e:'Remove saw marks first, then smooth, then polish.'},{q:'Which finish dries instantly and needs no brush?',
  o:['Wax','Varnish','Paint','Lacquer'],
@@ -2396,14 +2504,14 @@ const LEARN_N5_COM=[
  o:['Designs it to come apart easily for recycling','Runs the factory on solar power','Recycles offcuts in the factory','Uses electric delivery vans'],
  e:'Designers make decisions at the design stage.'},{q:'Which is an impact of automated manufacturing on society?',
  o:['Fewer workers are needed','Products always cost more','No new skills are needed','Pollution is removed completely'],
- e:'Automation reduces jobs and changes the skills needed.'},{q:'“Extending the lifespan by using better-quality materials.” How many marks did this score in 2025?',
- o:['Two','Zero','One','Four'],
- e:'It gives a method (extend the lifespan) and how, so the 2025 marking instructions gave it two marks.'}],
+ e:'Automation reduces jobs and changes the skills needed.'},{q:'“Designers could label parts to make products easier to recycle.” How many marks did this score in 2025?',
+ o:['One','Zero','Two','Three'],
+ e:'One valid point, even with its reason, earns one mark. For more marks, make more separate points.'}],
  exam:{q:'Describe the steps designers and manufacturers can take to make products more sustainable.',
  max:3,
  pts:[['Reduce: less material, fewer parts or less energy',/reduc|less material|fewer parts|less energy/i],['Reuse',/reus/i],['Recycle: recyclable materials or label parts',/recycl|label/i],['Rethink',/rethink|refill/i],['Extend lifespan: durable, repairable, protective coating',/lifespan|last|durab|repair|coat|replac/i],['Renewable energy or less waste in the factory',/renewable|solar|wind|waste|offcut/i]],
  model:'Designers can choose recyclable materials and label each part so it is easy to recycle. They can extend the lifespan by making products repairable, for example by giving steel parts a plastic coating so they don’t rust. Manufacturers can reduce waste by recycling offcuts and use renewable energy in the factory.',
- mi:['1 mark for each valid point leading to a clear description, up to 3.','A method and how it is done can earn two marks: “extending the lifespan by using better-quality materials” scored two in 2025.','“Designers could label parts to make products easier to recycle” scored one in 2025.','“Increasing thickness” scored zero; “increasing thickness to increase strength” scored one.']}}
+ mi:['1 mark for each valid point leading to a clear description, up to 3.','One valid point with its reason earns one mark. For more marks, make more separate points.','“Designers could label parts to make products easier to recycle” scored one in 2025.','“Increasing thickness” scored zero; “increasing thickness to increase strength” scored one.']}}
 ];
 
 /* ---------- Learn tab: whole-course revision; nothing here is saved ---------- */
@@ -2487,10 +2595,11 @@ function renderLearn(){
 let LVIEW=null;
 function renderLearnList(lv){
   const list=LEARN[lv];LCUR=null;
-  $('learnBody').innerHTML=`<p class="sub">${esc(LEVELS[lv])} · ${list.length} topics from the course specification. Pick a topic to read, then test yourself.</p>`+(lv==='N5'?`<div class="wfgrid"><button type="button" class="wfeature wf-daily" data-lt="x-daily" data-lv="N5"><span class="wf-k">Every day</span><span class="wf-t">Daily 5</span><span class="wf-s">Five quick questions, picked from your weakest topics. Wrong answers come back tomorrow.</span>${(S.streak&&S.streak.n)?`<span class="wf-badge">${S.streak.n}-day streak</span>`:''}</button><button type="button" class="wfeature" data-lt="x-words" data-lv="N5"><span class="wf-k">Exam technique</span><span class="wf-t">Question words</span><span class="wf-s">Name, outline, describe, explain: what each one needs for the marks, with 10 practice questions.</span></button><button type="button" class="wfeature wf-past" data-lt="x-past" data-lv="N5"><span class="wf-k">Exam practice</span><span class="wf-t">Past paper finder</span><span class="wf-s">Every 2025 and 2026 exam question by topic, with what earns the marks and what scored zero.</span></button></div>`:'')+
-   LGROUPS.map(([a,n])=>`<h3 class="lgh ${AREAS[a].cls}">${esc(n)}</h3><div class="lgrid">${list.filter(t=>t.area===a).map(t=>`<button type="button" class="lcard ${AREAS[a].cls}" data-lt="${t.id}" data-lv="${lv}"><span class="lname">${esc(t.name)}</span><span class="lmeta">${t.mcq.length} quick questions · 1 exam question</span></button>`).join('')}</div>`).join('');
+  $('learnBody').innerHTML=(lv==='N5'&&!S.welcomed&&!VIEW?`<div class="welcome1" id="welcomeCard"><h3>New to D&amp;M?</h3><ol><li>Rate yourself on the course checklist.</li><li>Pick a red topic and learn it.</li><li>Do the Daily 5 each day, and set a reminder there.</li></ol><p class="onedev">📱 Use D+M on one device. Your progress stays on that device.</p><div class="row"><button type="button" class="btn" data-welcome="ckl">Open the checklist</button><button type="button" class="btn ghost" data-welcome="skip">Skip</button></div></div>`:'')+`<p class="sub">${esc(LEVELS[lv])} · ${list.length} topics from the course specification. Pick a topic to read, then test yourself.</p>`+(lv==='N5'?`<div class="wfgrid"><button type="button" class="wfeature wf-daily" data-lt="x-daily" data-lv="N5"><span class="wf-k">Every day</span><span class="wf-t">Daily 5</span><span class="wf-s">Five quick questions, picked from your weakest topics. Wrong answers come back tomorrow.</span>${(S.streak&&S.streak.n)?`<span class="wf-badge">${S.streak.n}-day streak</span>`:''}</button><button type="button" class="wfeature" data-lt="x-words" data-lv="N5"><span class="wf-k">Exam technique</span><span class="wf-t">Question words</span><span class="wf-s">Name, outline, describe, explain: what each one needs for the marks, with 10 practice questions.</span></button><button type="button" class="wfeature wf-past" data-lt="x-past" data-lv="N5"><span class="wf-k">Exam practice</span><span class="wf-t">Past paper finder</span><span class="wf-s">Every 2025 and 2026 exam question by topic, with what earns the marks and what scored zero.</span></button><button type="button" class="wfeature wf-tools" data-lt="x-tools" data-lv="N5"><span class="wf-k">Workshop</span><span class="wf-t">Tools quick-fire</span><span class="wf-s">Name the tool from its picture. Marking out, woodwork, metalwork, drill bits.</span></button></div>`:'')+
+   LGROUPS.map(([a,n])=>`<h3 class="lgh ${AREAS[a].cls}">${esc(n)}</h3><div class="lgrid">${list.filter(t=>t.area===a).map(t=>`<button type="button" class="lcard ${AREAS[a].cls}" data-lt="${t.id}" data-lv="${lv}"><span class="lname">${esc(t.name)} ${ragDot(t.id)}</span><span class="lmeta">${t.mcq.length} quick questions · 1 exam question</span></button>`).join('')}</div>`).join('');
 }
 $('tab-learn').addEventListener('click',e=>{
+  const hp=e.target.closest('#learnBody [data-panel]');if(hp){openPanel(hp.dataset.panel);return}
   const c=e.target.closest('button[data-lt]');if(c){LVIEW=c.dataset.lv;renderLearnTopic(c.dataset.lt);return}
   const b=e.target.closest('button[data-lback]');if(b){LCUR=null;renderLearnList(LVIEW||S.level||'N5');$('tab-learn').scrollIntoView({block:'start'});return}
   const o=e.target.closest('.lopt');if(o){answerLearnMC(o);return}
@@ -2501,6 +2610,8 @@ function renderLearnTopic(id){
   if(id==='x-words'){renderWords();return}
   if(id==='x-past'){renderPast();return}
   if(id==='x-daily'){renderDaily();return}
+  if(id==='x-tools'){LCUR=id;renderTools();return}
+  if(MK[id]){renderHub(id);return}
   const lv=LVIEW||S.level||'N5',t=LEARN[lv].find(x=>x.id===id)||LEARN.N5.find(x=>x.id===id);if(!t)return;LCUR=id;
   const A=AREAS[t.area];let h=`<div class="row"><button type="button" class="btn ghost" data-lback="1">← All topics</button></div>
    <article class="ltopic ${A.cls}"><p class="eyebrow">${esc(LEVELS[lv])} · ${esc(A.name)}</p><h2 class="ltitle">${esc(t.name)}</h2>
@@ -2561,7 +2672,7 @@ function renderChecklist(){
   if(lv!=='N5'){box.innerHTML=`<div class="chartcard"><h3>Course checklist</h3><div class="empty">The Higher checklist is coming soon.</div></div>`;return}
   const n=ragCounts(CKL_N5);
   box.innerHTML=`<div class="chartcard ckl"><h3>Course checklist</h3>
-   <p class="sub">Every point in the National 5 course specification. Rate each one honestly: your Plan uses these alongside your marks, and they’re saved in your progress link. Tap a rating again to clear it.</p>
+   <p class="sub">Every point in the National 5 course specification. Rate each one honestly. Your focus topics use these alongside your marks. Tap a rating again to clear it.</p>
    <div id="cklSum">${ragBar(n,CKL_N5.length)}</div>
    ${LGROUPS.map(([a,nm])=>{const tops=LEARN.N5.filter(t=>t.area===a&&CKL_N5.some(i=>i.l===t.id));return `<h4 class="lgh ${AREAS[a].cls}">${esc(nm)}</h4>`+tops.map(t=>{const its=CKL_N5.filter(i=>i.l===t.id),c=ragCounts(its);
      return `<details class="cktopic ${AREAS[a].cls}" data-ctop="${t.id}"><summary><span class="ckn">${esc(t.name)}</span><span class="ckdots" data-cdots="${t.id}">${dots(its)}</span></summary>
@@ -2580,7 +2691,7 @@ document.addEventListener('click',e=>{
   const g=e.target.closest('button[data-golearn]');
   if(g){LVIEW='N5';LCUR=g.dataset.golearn;showTab('learn');$('tab-learn').scrollIntoView({block:'start'});return}
   const k=e.target.closest('button[data-goskills]');
-  if(k){showTab('profile');setTimeout(()=>{const c=document.querySelector('.ckl');if(c)c.scrollIntoView({block:'start'})},30);return}
+  if(k){showTab('progress');setTimeout(()=>{const c=document.querySelector('.ckl');if(c)c.scrollIntoView({block:'start'})},30);return}
 });
 function checklistPlanHTML(){
   if((S.level||'N5')!=='N5')return '';
@@ -2641,7 +2752,7 @@ const SR_GAPS=[1,2,4,7,14,30];
 const sday=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
 const addDays=(d,n)=>{const x=new Date(d+'T12:00:00');x.setDate(x.getDate()+n);return x.toISOString().slice(0,10)};
 function srPool(){const p=[];LEARN.N5.forEach(t=>t.mcq.forEach((m,i)=>p.push({id:t.id+'.'+i,l:t.id,m})));WORDS_N5.practice.forEach((m,i)=>p.push({id:'w.'+i,l:'x-words',m}));return p}
-function topicWeight(l){if(l==='x-words')return 1.5;let w=1;CKL_N5.filter(i=>i.l===l).forEach(i=>{const v=S.rag[i.id];if(v==='r')w+=1.5;else if(v==='a')w+=.7;else if(v==='g')w-=.15});
+function topicWeight(l){if(l==='x-words')return 1.5;let w=1;{const st=topicStatus(l);if(st.pct!==null)w+=(1-st.pct)*2}CKL_N5.filter(i=>i.l===l).forEach(i=>{const v=S.rag[i.id];if(v==='r')w+=1.5;else if(v==='a')w+=.7;else if(v==='g')w-=.15});
   const c=combined('N5');if(c){const ks=new Set(CKL_N5.filter(i=>i.l===l&&i.k).map(i=>i.k));c.ranked.forEach(t=>{if(ks.has(t.k)){if(t.band==='start')w+=2;else if(t.band==='next')w+=1}})}
   return Math.max(.2,w)}
 function pickDaily(){
@@ -2664,7 +2775,8 @@ function renderDaily(){
   let h=`<div class="row"><button type="button" class="btn ghost" data-lback="1">← All topics</button></div>
    <article class="ltopic daily"><p class="eyebrow">National 5 · Every day</p><h2 class="ltitle">Daily 5</h2>
    <div class="dstats"><div><b>${st.n}</b><span>day streak</span></div><div><b>${seen}</b><span>seen of ${total}</span></div><div><b>${learned}</b><span>learned</span></div></div>
-   <p>Five quick questions a day. Questions you get wrong come back tomorrow; ones you get right come back after longer and longer gaps, so they stick. Topics you rated “not yet” and weak skills-check topics come up more often.</p>`;
+   <p>Five quick questions a day. Questions you get wrong come back tomorrow; ones you get right come back after longer and longer gaps, so they stick. Topics you rated “not yet” and weak skills-check topics come up more often.</p>
+   <div class="remind"><b>🔔 Daily reminder</b><span>Adds a repeating alert to your phone’s calendar.</span><div class="row">${[['0800','8am'],['1600','4pm'],['1900','7pm']].map(([f,l])=>`<a class="btn ghost" href="reminder-${f}.ics" target="_blank" rel="noopener">${l}</a>`).join('')}</div></div>`;
   if(doneToday&&DAILY.done){h+=dailyDone()}
   else if(DAILY.done){h+=dailyDone()}
   else{const q=DAILY.qs[DAILY.i];const t=q.l==='x-words'?{name:'Question words'}:LTOPIC(q.l);
@@ -2714,6 +2826,562 @@ document.addEventListener('click',e=>{const b=e.target.closest('.cw');if(b){e.pr
 document.addEventListener('keydown',e=>{if(e.key==='Escape')hideCw()});
 window.addEventListener('scroll',hideCw,{passive:true});
 
+
+/* ---------- Daily 5 gate: complete today's Daily 5 before using the site ---------- */
+const gate=document.createElement('div');gate.id='d5gate';gate.className='d5gate';gate.hidden=true;gate.setAttribute('role','dialog');gate.setAttribute('aria-modal','true');gate.setAttribute('aria-labelledby','gateTitle');document.body.appendChild(gate);
+const gateDone=()=>!!(S.streak&&S.streak.d===sday());
+function maybeGate(){
+  if(VIEW||(S.level&&S.level!=='N5')||!$('welcome').hidden||gateDone()){gate.hidden=true;document.body.classList.remove('gated');return}
+  if(!DAILY||DAILY.day!==sday()||DAILY.done)DAILY={day:sday(),qs:pickDaily(),i:0,right:0,done:false};
+  gate.hidden=false;document.body.classList.add('gated');paintGate();
+}
+function paintGate(){
+  const st=S.streak||{n:0,d:''};
+  let h=`<div class="gcard"><p class="eyebrow">Daily 5 · ${new Date().toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'})}</p><h2 id="gateTitle">Do your Daily 5 to open the site</h2>`;
+  if(DAILY.done){
+    h+=`<div class="ddone"><p class="dbig">${DAILY.right} / ${DAILY.qs.length}</p><p>${DAILY.right===DAILY.qs.length?'Perfect. ':''}Daily 5 done${st.n>1?`: that’s a ${st.n}-day streak`:''}. Anything you got wrong comes back tomorrow.</p><div class="row"><button class="btn" type="button" data-gopen="1">Open the site</button></div></div>`;
+  }else{
+    const q=DAILY.qs[DAILY.i],t=q.l==='x-words'?{name:'Question words'}:LTOPIC(q.l),m=q.m,order=m.o.map((_,i)=>i).sort(()=>Math.random()-.5);
+    h+=`<p class="sub">Answer all five to get in. Wrong answers still count: you’ll see why, and they come back tomorrow.</p>
+     <div class="dprog" aria-label="Question ${DAILY.i+1} of ${DAILY.qs.length}">${DAILY.qs.map((_,j)=>`<i class="${j<DAILY.i?'dn':j===DAILY.i?'cur':''}"></i>`).join('')}</div>
+     <p class="eyebrow">Question ${DAILY.i+1} of ${DAILY.qs.length} · ${esc(t.name)}</p>
+     <div class="lmc q" data-gid="${q.id}"><p class="qtext">${esc(m.q)}</p><div class="opts">${order.map(i=>`<button type="button" class="opt gopt" data-oi="${i}">${esc(m.o[i])}</button>`).join('')}</div><div class="fbm"></div></div>`;
+  }
+  gate.innerHTML=h+'</div>';gate.scrollTop=0;
+  const f=gate.querySelector('[data-gopen]')||gate.querySelector('#gateTitle');if(f){if(!f.matches('button'))f.tabIndex=-1;f.focus({preventScroll:true})}
+}
+gate.addEventListener('click',e=>{
+  const o=e.target.closest('.gopt');
+  if(o){const div=o.closest('[data-gid]');if(div.dataset.done)return;div.dataset.done='1';const q=dailyQ(div.dataset.gid),ok=+o.dataset.oi===0;
+    div.querySelectorAll('.gopt').forEach(b=>{b.disabled=true;if(+b.dataset.oi===0)b.classList.add('right');else if(b===o)b.classList.add('wrong')});
+    const cur=S.sr[q.id]||[0,sday()];const box=ok?Math.min(cur[0]+1,SR_GAPS.length):0;S.sr[q.id]=[box,addDays(sday(),ok?SR_GAPS[Math.max(0,box-1)]:1)];
+    if(ok)DAILY.right++;const last=DAILY.i>=DAILY.qs.length-1;
+    if(last){const st=S.streak||{n:0,d:''},td=sday();if(st.d!==td)S.streak={n:st.d===addDays(td,-1)?st.n+1:1,d:td}}
+    save();const f=div.querySelector('.fbm');f.className='fbm fb '+(ok?'good':'bad');
+    f.innerHTML=`<strong>${ok?'Correct.':'Not quite.'}</strong> ${esc(q.m.e)}<div class="row"><button type="button" class="btn" data-gnext="1">${last?'See how I did':'Next question →'}</button></div>`;
+    f.querySelector('[data-gnext]').focus();return}
+  if(e.target.closest('[data-gnext]')){if(DAILY.i>=DAILY.qs.length-1)DAILY.done=true;else DAILY.i++;paintGate();return}
+  if(e.target.closest('[data-gopen]')){gate.hidden=true;document.body.classList.remove('gated');if(LCUR==='x-daily')renderDaily();return}
+});
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)maybeGate()});
+
+/* Estimated marking for the Learn exam questions.
+   Each point: t = what the mark is for, a = list of alternative requirement sets (every pattern in one set must
+   appear in the same sentence), add = the one-line tip shown if it's missing.
+   type: state (short answers allowed), describe, explain (a reason/link word is needed in the sentence). */
+const MK={
+ 'd-research':{type:'describe',pts:[
+  {t:'Decide the questions',a:[[/\b(decide|write|plan|think of|come up with|choose|design|make up|prepare)\w*/i,/\bquestions?\b/i]],add:'Start with deciding what you need to find out and writing the questions.'},
+  {t:'Identify the target audience',a:[[/target (audience|market|group|users?)|\baudience\b|who (to|you will|will) (ask|give|send)/i]],add:'Say who it is for: identify the target audience.'},
+  {t:'Test it first',a:[[/\b(test|trial|pilot|check|try)\w*/i,/\b(few|small|clear|clarity|length|long|understand|mistakes?|friends?|first|before)\b/i]],add:'Add testing it on a few people first to check it is clear and not too long.'},
+  {t:'Hand it out',a:[[/\b(hand|give|send|email|post|distribut|share|ask)\w*/i,/\b(out|people|audience|users?|online|them|public)\b/i]],add:'Add handing it out to the target audience.'},
+  {t:'Collect the results',a:[[/\b(collect|gather|get back|receive|record)\w*/i,/\b(results?|answers?|responses?|data|them|it|questionnaires?)\b/i]],add:'Add collecting the results.'},
+  {t:'Analyse the results',a:[[/\b(analys|analyz|graph|chart|conclusion|look at the results|compare the results|use the results)\w*/i]],add:'Finish with analysing the results, e.g. in graphs or charts.'}]},
+ 'd-ideas':{type:'describe',zero:[[/^\s*(think of|come up with) (lots of|many) ideas\.?\s*$/i,'“Think of lots of ideas” on its own scores zero: say it is a group.']],pts:[
+  {t:'Explain the purpose or topic to the group',a:[[/\b(purpose|aim|topic|problem|theme|brief|task)\b/i]],add:'Start by explaining the purpose or topic to the group.'},
+  {t:'A group activity',a:[[/\b(group|people|team|everyone|class|others|together)\b/i]],add:'Make it clear that it is a group of people.'},
+  {t:'A set time',a:[[/\b(time limit|set time|minutes?|timed|time)\b/i]],add:'Add that it happens within a set time.'},
+  {t:'Record every idea',a:[[/\b(record|write|wrote|written|note|jot|scribe)\w*/i]],add:'Add that someone records every idea.'},
+  {t:'No idea is too silly',a:[[/silly|no (bad|wrong) ideas?|not (be )?judg|without judg|no criticis|don.?t (criticis|judge)|any idea|all ideas (are )?(accepted|welcome)/i]],add:'Add that no idea is too silly or judged.'},
+  {t:'Build on each other’s ideas',a:[[/build on|spark|bounce|each other|one another|combine|feed off/i]],add:'Add that people build on each other’s ideas.'},
+  {t:'Choose the best ideas',a:[[/\b(best|most promising|choose|select|pick|develop)\b/i,/\bideas?\b/i]],add:'Finish with choosing the best ideas to develop.'}]},
+ 'd-model':{type:'explain',zero:[[/to see what it looks like|to check it\b|to test it\b/i,'Too vague: say what is checked or tested.']],pts:[
+  {t:'Test the feel and grip in the hand',a:[[/\b(hold|holding|grip|hand|ergonom|comfort)\w*/i]],add:'Explain that users can hold it to test the grip and comfort, so the ergonomics can be improved.'},
+  {t:'Check the size or proportions',a:[[/\b(size|proportion|scale|dimension)\w*/i]],add:'Explain that it lets the designer check the size or proportions in 3D.'},
+  {t:'Understand the 3D form',a:[[/\b(3d|three.dimension|form)\w*/i]],add:'Explain that it shows the 3D form better than a drawing.'},
+  {t:'Get feedback from users or a client',a:[[/\b(client|users?|customers?|people)\b/i,/\b(feedback|opinion|views|show|try|test)\w*/i]],add:'Explain that it can be shown to a client or users to get feedback.'},
+  {t:'Find problems before making it',a:[[/\b(problem|fault|issue|change|alter|improve|refine|modif)\w*/i]],add:'Explain that problems can be found and fixed before it is made.'}]},
+ 'd-graphics':{type:'describe',zero:[[/easy to (send|store)/i,'“Easy to send” or “easy to store” scored zero in 2026.']],pts:[
+  {t:'Shows the materials or texture',a:[[/\b(material|texture|wood|oak|metal|aluminium|plastic|grain)\w*/i]],add:'Describe how it shows the materials or textures.'},
+  {t:'Shows the colours',a:[[/colou?r/i]],add:'Describe how it shows the colours.'},
+  {t:'Shows the finished product realistically',a:[[/realistic|real life|finished|final product|what it will look like|like the real/i]],add:'Describe how it shows what the finished lamp will look like.'},
+  {t:'Used to present to a client or for marketing',a:[[/\b(client|customer|market|advert|present|sell)\w*/i]],add:'Describe how it helps present the lamp to the client.'},
+  {t:'Shows the 3D form',a:[[/\b(3d|three.dimension|form|tone|shad|depth)\w*/i]],add:'Describe how it shows the 3D form, using tone or shading.'}]},
+ 'd-function':{type:'describe',pts:[
+  {t:'Light source to see in the dark',a:[[/\b(light|led|bulb|bright|lamp)\w*/i,/\b(see|dark|night|tent|so|to|for|allows?|lets|can)\b/i]],add:'Describe the light itself and what it lets the user do.'},
+  {t:'Handle or hook to carry or hang it',a:[[/\b(handle|hook|loop|strap)\w*/i,/\b(carry|hang|hold|so|to|for)\b/i]],add:'Describe the handle or hook and what it is for.'},
+  {t:'Battery or rechargeable power',a:[[/\b(batter|recharg|solar|usb|power)\w*/i,/\b(so|to|for|away|anywhere|without|mains|camping|charge)\b/i]],add:'Describe how it is powered away from mains electricity.'},
+  {t:'Weatherproof for outdoor use',a:[[/\b(waterproof|water|weather|rain|seal|outdoor)\w*/i]],add:'Describe how it copes with rain or outdoor use.'},
+  {t:'Stable base',a:[[/\b(base|feet|stand|flat|stable)\b/i,/\b(tip|stand|fall|knock|stable|so|to|over)\b/i]],add:'Describe the base and how it stops it tipping over.'},
+  {t:'Brightness control',a:[[/\b(dim|brightness|switch|setting|mode)\w*/i,/\b(so|to|for|adjust|change|save|battery)\b/i]],add:'Describe a control, e.g. a dimmer to save the battery.'}]},
+ 'd-market':{type:'describe',pts:[
+  {t:'Advertising',a:[[/\b(advert|tv|television|social media|instagram|tiktok|youtube|online|posters?|billboards?|radio|magazines?)\w*/i]],add:'Describe advertising, e.g. adverts on social media aimed at teenagers.'},
+  {t:'Celebrity or influencer endorsement',a:[[/\b(celebrit|influencer|endorse|famous|athlete|footballer|musician|singer|star)\w*/i]],add:'Describe an endorsement, e.g. a famous musician wearing them.'},
+  {t:'Promotions or offers',a:[[/\b(discount|offer|promotion|free|deal|competition|sale|giveaway|bundle)\w*/i]],add:'Describe a promotion, e.g. a launch discount or a free case.'},
+  {t:'Product placement',a:[[/product placement|\b(films?|movies?|tv shows?|series)\b/i]],add:'Describe product placement in a film or TV show.'},
+  {t:'Packaging or in-store display',a:[[/\b(packag|display|point.of.sale|shop window|in.store)\w*/i]],add:'Describe eye-catching packaging or an in-store display.'}]},
+ 'd-aesthetics':{type:'describe',zero:[[/\b(colourful|colorful|looks? (nice|good|cool)|nice colou?rs?|it.?s bright|attractive)\b/i,'Opinion words like “colourful” or “looks good” score zero: describe the colour, shape or texture of a part.']],pts:[
+  {t:'Colour of a part',a:[[/\b(red|blue|green|black|white|yellow|orange|pink|purple|grey|silver|gold|natural|colou?r)\w*/i,/\b(shade|base|arm|lamp|stand|wood|metal|it)\b/i]],add:'Describe the colour of one part, e.g. the shade is bright red.'},
+  {t:'Shape or form of a part',a:[[/\b(shape|form|curv|round|angular|geometric|organic|cone|conical|cylind|rectang|square|circular|streamlin)\w*/i]],add:'Describe the shape of one part, e.g. the shade is a curved cone.'},
+  {t:'Texture or finish',a:[[/\b(textur|smooth|rough|grain|matt|gloss|shiny|polish|brushed)\w*/i]],add:'Describe a texture, e.g. the smooth, glossy shade or the grain of the wood.'},
+  {t:'Contrast',a:[[/contrast/i]],add:'Describe a contrast between two parts.'},
+  {t:'Proportion, symmetry or line',a:[[/\b(proportion|symmetr|balance|slim|thin|thick|tall|lines?)\w*/i]],add:'Describe the proportions or lines, e.g. the slim arm.'}]},
+ 'd-ergo':{type:'describe',zero:[[/\b(\d+(st|th|nd|rd)? ?(%|percentile))/i,'Percentiles on their own score zero: link a part of the kettle to a part of the body.']],pts:[
+  {t:'Handle sized for the hand',a:[[/\b(handle|grip)\b/i,/\b(hand|hands|fingers?|palm|knuckles?|grip)\b/i,/\b(size|sized|length|long|wide|width|gap|diameter|fit|fits|room|space)\w*/i]],add:'Link the handle’s size or gap to the user’s hand or fingers.'},
+  {t:'Switch placed for the thumb or finger',a:[[/\b(switch|button|lever|trigger)\w*/i,/\b(thumb|finger|reach|press|push)\w*/i]],add:'Link the on switch to the thumb or finger, e.g. where it can be reached while holding the handle.'},
+  {t:'Weight or effort to lift and pour',a:[[/\b(lightweight|weight|lift|heavy|pour|strain|wrist)\w*/i]],add:'Describe how its weight makes it easy to lift and pour when full.'},
+  {t:'Comfortable or non-slip grip',a:[[/\b(non.?slip|rubber|soft|comfortabl|comfort)\w*/i,/\b(grip|handle|hold|hand)\w*/i]],add:'Describe a comfortable or non-slip grip on the handle.'},
+  {t:'Shows the user information (psychology)',a:[[/\b(colou?r|light|led|glow|sound|click|beep|whistle|window|gauge|level|indicat|markings?)\w*/i,/\b(on|boil|boiled|ready|water|see|know|show|tell|full)\b/i]],add:'Describe something the user sees or hears, e.g. a light that shows it is on.'},
+  {t:'Safety: no burns or spills',a:[[/\b(cool.?touch|insulat|burn|steam|cordless|stable|spill|lid lock)\w*/i]],add:'Describe a safety feature, e.g. a cool-touch body so the user isn’t burned.'}]},
+ 'd-eval':{type:'describe',pts:[
+  {t:'Retailer: feeds back what sells, price or display',a:[[/\b(retailers?|shops?|stores?)\b/i,/\b(sell|sells|sales|selling|price|packag|display|shelf|shelves|feedback|popular|customers)\w*/i]],add:'Describe how the retailer influences it, e.g. telling the company what sells or what fits their shelves.'},
+  {t:'Consumer: needs, demand or feedback',a:[[/\b(consumers?|customers?|users?|buyers?)\b/i,/\b(demand|need|want|review|feedback|buy|complain|opinion)\w*/i]],add:'Describe how the consumer influences it, e.g. reviews or demand for new features.'}]},
+ 'm-woods':{type:'state',pts:[
+  {t:'Smooth surface, easy to paint',a:[[/\b(smooth|paint|veneer|finish|surface)\w*/i]],add:'Give its smooth surface, which takes paint well.'},
+  {t:'Stable: doesn’t warp',a:[[/\b(stable|warp|twist|split|crack)\w*/i]],add:'Give that it is stable and won’t warp.'},
+  {t:'No grain or knots',a:[[/\b(grain|knots?)\b/i]],add:'Give that it has no grain or knots.'},
+  {t:'Easy to cut and machine',a:[[/\b(cut|machin|shape|work)\w*/i]],add:'Give that it is easy to cut and machine.'},
+  {t:'Comes in large sheets',a:[[/\b(sheets?|large|wide|panels?)\b/i]],add:'Give that it comes in large sheets.'},
+  {t:'Cheaper than solid wood',a:[[/\b(cheap|cheaper|cost|price)\w*/i,/\b(than|compared|solid|hardwood|real wood)\b/i]],add:'Give that it is cheaper than solid wood (say “than”).'}]},
+ 'm-metals':{type:'explain',pts:[
+  {t:'Resists corrosion when wet',a:[[/\b(corro|rust|stain|tarnish)\w*/i]],add:'Explain that it resists corrosion, so it won’t rust even though it is always wet.'},
+  {t:'Hygienic and easy to clean',a:[[/\b(hygien|clean|wipe|bacteria|germ)\w*/i]],add:'Explain that it is hygienic, so it is easy to wipe clean.'},
+  {t:'Hard and durable',a:[[/\b(hard|durab|scratch|dent|tough|last)\w*/i]],add:'Explain that it is hard, so it resists scratches and dents.'},
+  {t:'Attractive, modern look',a:[[/\b(attractive|shiny|shine|modern|sleek|look)\w*/i]],add:'Explain that its shiny finish looks modern in a kitchen.'}]},
+ 'm-plastics':{type:'explain',pts:[
+  {t:'Tough and impact resistant',a:[[/\b(tough|impact|crack|knock|drop|break)\w*/i]],add:'Explain that it is tough, so it won’t crack if the kettle is knocked.'},
+  {t:'Copes with heat',a:[[/\b(heat|hot|temperature|melt)\w*/i]],add:'Explain that it copes with the heat of the kettle body.'},
+  {t:'Good finish or colours',a:[[/\b(finish|smooth|gloss|shiny|colou?r)\w*/i]],add:'Explain that it gives a good finish in a range of colours.'},
+  {t:'Can be injection moulded',a:[[/\b(injection|mould|complex shape)\w*/i]],add:'Explain that it can be injection moulded into complex shapes.'},
+  {t:'Electrical insulator',a:[[/\b(insulat|electric|shock)\w*/i]],add:'Explain that it is an electrical insulator, so the user won’t get a shock.'},
+  {t:'Lightweight',a:[[/\b(light ?weight|light to lift)\b/i]],add:'Explain that it is lightweight, so the kettle is easier to lift.'}]},
+ 'm-marking':{type:'describe',zero:[[/\b(try square|pencil|marking gauge)\b/i,'Woodwork tools (try square, pencil, marking gauge) don’t score for marking out metal.']],pts:[
+  {t:'Coat with engineer’s blue',a:[[/\b(blue|marking (fluid|ink))\b/i]],add:'Start by coating the steel with engineer’s blue so the lines show.'},
+  {t:'Scribe lines with a rule and scriber',a:[[/\bscrib(er|e)\w*/i]],add:'Describe scribing the lines with a scriber and steel rule.'},
+  {t:'Engineer’s square for lines at 90°',a:[[/engineer.?s square/i]],add:'Add using an engineer’s square for lines at 90° to the edge.'},
+  {t:'Odd-leg callipers for parallel lines',a:[[/odd.?leg|jenny/i]],add:'Add using odd-leg callipers for lines parallel to the edge.'},
+  {t:'Centre punch the corner centres',a:[[/cent(re|er) punch/i]],add:'Add centre punching the centre of each rounded corner.'},
+  {t:'Dividers for the rounded corners',a:[[/\bdividers?\b/i]],add:'Add scribing the rounded corners with dividers.'}]},
+ 'm-tools':{type:'describe',zero:[[/\btap\b/i,'A tap cuts internal threads: this question is about a die (external thread).']],pts:[
+  {t:'Chamfer the end of the bar',a:[[/\b(chamfer|taper|bevel)\w*/i]],add:'Add chamfering the end of the bar so the die starts cutting easily.'},
+  {t:'Hold the bar upright in a vice',a:[[/\bvice\b/i,/\b(vertical|upright|straight|secure|tight|firm)\w*/i]],add:'Add holding the bar upright and secure in a vice.'},
+  {t:'Keep the die square to the bar',a:[[/\b(square|straight|level|90)\b/i,/\b(die|stock|bar)\b/i]],add:'Add keeping the die square to the bar.'},
+  {t:'Use cutting compound or oil',a:[[/\b(lubric|oil|cutting (fluid|compound|paste)|grease)\w*/i]],add:'Add using cutting compound or oil.'},
+  {t:'Turn back to break the swarf',a:[[/\b(swarf|back|reverse|quarter|half)\b/i]],add:'Add turning back every so often to break the swarf.'}]},
+ 'm-joining':{type:'describe',zero:[[/^\s*glue it\.?\s*$/i,'“Glue it” on its own scores zero: name the glue and how it is applied.']],pts:[
+  {t:'Dowels: drill matching holes',a:[[/\b(dowel|biscuit)\w*/i,/\b(drill|jig|holes?|insert|cut)\w*/i]],add:'Describe drilling matching holes for dowels, e.g. with a dowel jig.'},
+  {t:'Apply wood glue',a:[[/\b(glue|pva|adhesive)\b/i,/\b(brush|apply|spread|edges?|both)\w*/i]],add:'Describe applying wood glue to the edges with a brush.'},
+  {t:'Clamp with sash cramps',a:[[/\b(cramp|clamp)\w*/i]],add:'Describe clamping the boards together with sash cramps until the glue sets.'},
+  {t:'Wipe off the excess glue',a:[[/\b(wipe|excess|damp cloth|squeez)\w*/i]],add:'Describe wiping off the excess glue with a damp cloth.'},
+  {t:'Plane the edges straight first',a:[[/\bplane\w*/i,/\b(edge|straight|flat|square)\w*/i]],add:'Describe planing the edges straight so they meet well.'}]},
+ 'm-finish':{type:'explain',pts:[
+  {t:'Applied with a cloth, so no brush to clean',a:[[/\b(cloth|rag|brush)\w*/i]],add:'Explain that wax goes on with a cloth, so there is no brush to clean.'},
+  {t:'Dries straight away',a:[[/\b(dry|dries|drying|instant|wait|straight away)\w*/i]],add:'Explain that wax can be used straight away, while varnish needs time to dry.'},
+  {t:'No runs or drips',a:[[/\b(run|runs|drip|drips)\b/i]],add:'Explain that wax won’t run or drip like varnish can.'},
+  {t:'Natural look and feel',a:[[/\b(natural|grain|matt|soft|feel|look)\w*/i]],add:'Explain that wax keeps a natural look and feel to the pine.'},
+  {t:'Easy to reapply or repair',a:[[/\b(reappl|re-?apply|top up|touch up|repair)\w*/i]],add:'Explain that wax is easy to reapply if it wears.'}]},
+ 'm-plan':{type:'explain',pts:[
+  {t:'Know what material to order',a:[[/\b(order|buy|how much|quantit|amount)\w*/i]],add:'Explain that it shows exactly how much material to order.'},
+  {t:'Reduce waste',a:[[/\bwast\w*/i]],add:'Explain that planning the cuts reduces waste.'},
+  {t:'Cut parts accurately to size',a:[[/\b(size|accura|correct|dimension)\w*/i]],add:'Explain that every part can be cut accurately to size.'},
+  {t:'Estimate the cost',a:[[/\b(cost|price|budget)\w*/i]],add:'Explain that it helps work out the cost.'},
+  {t:'Every shelf in the batch is the same',a:[[/\b(identical|same|batch|consistent)\w*/i]],add:'Explain that every shelf in the batch comes out the same.'}]},
+ 'c-processes':{type:'describe',pts:[
+  {t:'Rough or uneven surface',a:[[/\b(rough|grain|uneven|textur|sandy)\w*/i]],add:'Describe the rough, uneven surface left by the sand.'},
+  {t:'Split line',a:[[/\b(split|parting|seam)\w*/i]],add:'Describe the split line where the two halves of the mould met.'},
+  {t:'Fettling marks',a:[[/\b(fettl|sprue|riser|runner|grind)\w*/i]],add:'Describe fettling marks where the runner and riser were removed.'},
+  {t:'Draft angles',a:[[/\b(draft|taper)\w*/i]],add:'Describe draft angles (tapered sides).'},
+  {t:'Fillets or rounded corners',a:[[/\b(fillet|rounded|round)\w*/i]],add:'Describe the fillets or rounded corners.'},
+  {t:'Low accuracy',a:[[/\baccura\w*/i]],add:'Describe its low dimensional accuracy.'}]},
+ 'c-cam':{type:'describe',zero:[[/3d print\w*[^.]{0,30}\b(quick|quicker|fast|faster)\b/i,'3D printing is slow per part, so “quick” is wrong for 3D printers.']],pts:[
+  {t:'Made directly from the CAD file',a:[[/\b(cad|file|drawing|computer)\b/i]],add:'Describe how parts are made directly from the CAD file.'},
+  {t:'Accurate, identical parts',a:[[/\b(accura|identical|consisten|same)\w*/i]],add:'Describe how every part is accurate and identical.'},
+  {t:'Can run 24 hours a day',a:[[/\b(24|all day|night|continu|efficien|automat)\w*/i]],add:'Describe how the machines can run 24 hours a day.'},
+  {t:'Complex shapes',a:[[/\b(complex|intricate|detail)\w*/i]],add:'Describe how complex shapes can be made.'},
+  {t:'Fewer workers needed',a:[[/\b(skill|workers?|labour|staff|wages?)\w*/i]],add:'Describe how fewer skilled workers are needed.'},
+  {t:'Designs easy to change or send',a:[[/\b(edit|change|modif|email|send)\w*/i]],add:'Describe how the files are easy to change or send.'},
+  {t:'Laser cutters are fast',a:[[/\blaser\w*/i,/\b(fast|faster|quick|quicker|speed)\b/i]],add:'Describe how laser cutters are fast.'},
+  {t:'Less waste',a:[[/\bwast\w*/i]],add:'Describe how little material is wasted.'}]},
+ 'c-standard':{type:'describe',pts:[
+  {t:'Standard sizes, easy to plan in',a:[[/\b(standard sizes?|range of sizes|sizes?)\b/i]],add:'Describe how they come in standard sizes, so they are easy to plan into the product.'},
+  {t:'Bought in, not made',a:[[/\b(buy|bought|in.?house|supplier|don.?t (have|need) to make|doesn.?t (have|need) to make)\w*/i]],add:'Describe how they are bought in, so the manufacturer doesn’t have to make them.'},
+  {t:'Fewer stages in production',a:[[/\b(fewer|less|speed|quicker|faster)\w*/i,/\b(stages?|production|assembl|process)\w*/i]],add:'Describe how there are fewer stages in production.'},
+  {t:'Consistent quality',a:[[/\b(consisten|quality|reliab)\w*/i]],add:'Describe their consistent quality.'},
+  {t:'Easy to source in large quantities',a:[[/\b(source|bulk|large quantit|available|supplier)\w*/i]],add:'Describe how they are easy to get in large quantities.'},
+  {t:'Easy to replace',a:[[/\b(replac|repair|spare)\w*/i]],add:'Describe how worn bearings are easy to replace.'},
+  {t:'Cheaper than making them',a:[[/\b(cheap|cheaper|cost)\w*/i,/\b(than|in.?house|making)\b/i]],add:'Describe how buying them is cheaper than making them in-house.'}]},
+ 'c-systems':{type:'explain',pts:[
+  {t:'Huge numbers are needed',a:[[/\b(millions?|huge|large (number|quantit)|many|demand|thousands)\b/i]],add:'Explain that millions of caps are needed.'},
+  {t:'Mould cost spread, so each cap is cheap',a:[[/\b(mould|tooling|set.?up)\b/i,/\b(spread|shared|many|over|each)\b/i],[/\b(cheap|low cost|unit cost|each)\b/i,/\b(many|millions?|volume|spread|mass)\b/i]],add:'Explain that the cost of the mould is spread over millions of caps, so each one is cheap.'},
+  {t:'Every cap is identical',a:[[/\b(identical|consisten|same)\w*/i]],add:'Explain that every cap comes out identical, so they all fit.'},
+  {t:'Automated, so fewer workers',a:[[/\b(automat|machines?|workers?|labour)\w*/i]],add:'Explain that it is automated, so few workers are needed.'}]},
+ 'c-impact':{type:'describe',zero:[[/\b(sustainable materials|environmentally friendly materials|eco.?friendly)\b/i,'“Sustainable” or “eco-friendly materials” on their own scored zero in 2025: say how.']],pts:[
+  {t:'Reduce material, parts or packaging',a:[[/\b(reduc|less material|fewer parts|less packaging|less energy|minimi)\w*/i]],add:'Describe reducing the material, parts or packaging used.'},
+  {t:'Reuse',a:[[/\b(reus|re-use)\w*/i]],add:'Describe reusing parts or materials.'},
+  {t:'Recycle',a:[[/\brecycl\w*/i]],add:'Describe using recyclable materials, or labelling parts so they can be recycled.'},
+  {t:'Rethink the design',a:[[/\b(rethink|refill|redesign)\w*/i]],add:'Describe rethinking the design, e.g. making it refillable.'},
+  {t:'Extend the lifespan',a:[[/\b(lifespan|last longer|durab|repair|replac|upgrad|protect)\w*/i]],add:'Describe making it last longer, e.g. repairable or with a protective finish.'},
+  {t:'Design for disassembly',a:[[/\b(disassembl|take apart|taken apart|come apart|separat)\w*/i]],add:'Describe designing it to come apart so materials can be separated.'},
+  {t:'Renewable energy or less factory waste',a:[[/\b(renewable|solar|wind|offcut|scrap)\w*/i]],add:'Describe how a manufacturer could use renewable energy or recycle offcuts.'}]}
+};
+
+/* ---------- topic summaries ---------- */
+const SUM={'d-research':'How designers find out what a product needs, and turn it into a specification.','d-ideas':'Two techniques for coming up with lots of ideas: brainstorming and morphological analysis.','d-model':'Why designers make sketch, block, scale and computer models.','d-graphics':'How sketches, drawings and renders help designers explore and share ideas.','d-function':'What a product does, and how well it does it: maintenance, life expectancy and safety.','d-market':'Who a product is for, and how it is marketed and branded.','d-aesthetics':'How a product looks and feels, and what influences that.','d-ergo':'Making products safe, comfortable and easy to use.','d-eval':'How products are evaluated, and who influences their design.','m-woods':'Hardwoods, softwoods and manufactured boards: properties and uses.','m-metals':'Ferrous and non-ferrous metals: properties and uses.','m-plastics':'Thermoplastics and thermosetting plastics: properties and uses.','m-marking':'The tools for measuring and marking out wood and metal accurately.','m-tools':'Hand tools and machine tools, and how to set them up.','m-joining':'Joints, glue and fixings, and the tools for holding work.','m-finish':'Preparing surfaces and applying finishes to wood, metal and plastic.','m-plan':'Planning how to make a product: sequence, drawings and cutting lists.','c-processes':'How products are made in factories: moulding and casting.','c-cam':'Computer-aided manufacture, laser cutters and 3D printers.','c-standard':'Bought-in parts and knock-down fittings.','c-systems':'One-off and mass production.','c-impact':'How manufacturing affects society and the environment, and how to be more sustainable.'};
+
+/* ---------- topic status (red / amber / green) from everything the pupil has done ---------- */
+function topicStatus(id){
+  const sig=[];const its=CKL_N5.filter(i=>i.l===id);
+  const rated=its.filter(i=>S.rag[i.id]);if(rated.length)sig.push(rated.reduce((t,i)=>t+({r:0,a:.5,g:1})[S.rag[i.id]],0)/rated.length);
+  const tq=S.tq&&S.tq[id];if(tq)sig.push(tq[0]/tq[1]);
+  const ex=S.ex&&S.ex[id];if(ex)sig.push(ex[0]/ex[1]);
+  const ks=[...new Set(its.filter(i=>i.k).map(i=>i.k))];const c=ks.length&&combined('N5');
+  if(c)ks.forEach(k=>{const t=c.ranked.find(x=>x.k===k);if(t)sig.push(t.pct)});
+  if(!sig.length)return {band:'n',pct:null};
+  const pct=sig.reduce((a,b)=>a+b,0)/sig.length;return {band:pct>=.75?'g':pct>=.5?'a':'r',pct};
+}
+const BANDTXT={g:'Secure',a:'Getting there',r:'Needs work',n:'Not started'};
+const ragDot=id=>{const s=topicStatus(id);return `<span class="tdot td-${s.band}" title="${BANDTXT[s.band]}"><span class="sr">${BANDTXT[s.band]}</span></span>`};
+
+/* ---------- estimated marking ---------- */
+const LINK=/\b(so|because|which|means|meaning|therefore|so that|allowing|allows|lets|letting|stopping|preventing|whereas|than|otherwise|making it)\b/i;
+function markAnswer(id,text){
+  const spec=MK[id],max=curTopic().exam.max,res={score:0,max,spans:[],tip:'',credited:[]};
+  const sents=[];const re=/[^.!?\n]+[.!?]*/g;let m;while((m=re.exec(text))){if(m[0].trim())sents.push({s:m.index,t:m[0]})}
+  const add=(a,b,c)=>res.spans.push([a,b,c]);
+  let why=false,shortish=false,listy=false;const done=new Set();
+  sents.forEach(se=>{
+    const words=(se.t.match(/[A-Za-z’']+/g)||[]).length;
+    const clauses=[];const cr=/[^,;]+/g;let c;
+    while((c=cr.exec(se.t))){const parts=c[0].split(/\b(?=and\b|then\b|also\b)/i);let o=c.index;parts.forEach(p=>{clauses.push({s:se.s+o,e:se.s+o+p.length,w:(p.match(/[A-Za-z’']+/g)||[]).length});o+=p.length})}
+    const used=new Set();
+    spec.pts.forEach((pt,pi)=>{if(done.has(pi))return;
+      for(const set of pt.a){const hits=set.map(r=>{const mm=r.exec(se.t);return mm?[se.s+mm.index,se.s+mm.index+mm[0].length]:null});
+        if(hits.some(h=>!h))continue;
+        const ci=clauses.findIndex(cl=>hits[0][0]>=cl.s&&hits[0][0]<cl.e);
+        let ok=true,cls='ok';
+        if(spec.type!=='state'&&words<4){ok=false;shortish=true}
+        else if(clauses[ci]&&clauses[ci].w<2&&spec.type!=='state'){ok=false;listy=true}
+        else if(spec.type==='explain'&&!LINK.test(se.t)){ok=false;why=true}
+        else if(used.has(ci)){ok=false}
+        if(ok){used.add(ci);done.add(pi);res.credited.push(pt.t)}else cls='amb';
+        if(ok){const lead=se.t.length-se.t.trimStart().length;add(se.s+lead,se.s+se.t.trimEnd().length,'ok')}else hits.forEach(h=>add(h[0],h[1],cls));break}
+    });
+  });
+  res.score=Math.min(max,done.size);
+  let zeroMsg='';(spec.zero||[]).forEach(([r,msg])=>{const g=new RegExp(r.source,r.flags.includes('g')?r.flags:r.flags+'g');let z;while((z=g.exec(text))){add(z.index,z.index+z[0].length,'bad');zeroMsg=zeroMsg||msg;if(!z[0].length)break}});
+  const vg=/\b(quick|quicker|cheap|cheaper|easy|easier)\b(?!\s+(to|than|because|so|for)\b)/gi;let v;let vague=false;
+  while((v=vg.exec(text))){add(v.index,v.index+v[0].length,'bad');vague=true}
+  const chunks=text.split(/[,\n;]+/).map(x=>x.trim()).filter(Boolean);
+  if(spec.type!=='state'&&chunks.length>=3&&chunks.reduce((t,x)=>t+x.split(/\s+/).length,0)/chunks.length<=2.5)listy=true;
+  const miss=spec.pts.find((p,i)=>!done.has(i));
+  res.tip=res.score>=max?'Full marks. Nicely done.'
+    :listy?'Write each point as a full sentence: one clear point for each mark.'
+    :zeroMsg?zeroMsg
+    :vague?'“Quick”, “cheap” or “easy” on their own score zero: say why, or compared with what.'
+    :why?'Add the reason: use “so” or “because” to show what it leads to.'
+    :shortish?'Some points are too short to count: write them as full sentences.'
+    :miss?'To get another mark: '+miss.add.charAt(0).toLowerCase()+miss.add.slice(1):'Add another separate point.';
+  return res;
+}
+function highlight(text,spans){
+  const pr={bad:3,ok:2,amb:1};const cls=new Array(text.length).fill('');
+  spans.forEach(([a,b,c])=>{for(let i=a;i<b&&i<text.length;i++)if(!cls[i]||pr[c]>pr[cls[i]])cls[i]=c});
+  let h='',cur='',buf='';const flush=()=>{if(!buf)return;h+=cur?`<mark class="mk-${cur}">${esc(buf)}</mark>`:esc(buf);buf=''};
+  for(let i=0;i<text.length;i++){if(cls[i]!==cur){flush();cur=cls[i]}buf+=text[i]}flush();
+  return h.replace(/\n/g,'<br>');
+}
+
+/* ---------- topic hub ---------- */
+let HUB=null;
+const curTopic=()=>LEARN.N5.find(x=>x.id===HUB);
+function topicCards(t){
+  const cards=[];let cur={h:t.name,b:[]};
+  t.body.forEach(blk=>{if(blk[0]==='h'){if(cur.b.length)cards.push(cur);cur={h:blk[1],b:[]}}else cur.b.push(blk)});
+  if(cur.b.length)cards.push(cur);
+  cards.push({h:'Exam tip',b:[['p',t.tip]],tip:true});return cards;
+}
+function blockHTML(blocks){return blocks.map(([k,v,cap])=>k==='p'?`<p>${esc(v)}</p>`:k==='ul'?`<ul>${v.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:k==='ol'?`<ol>${v.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>`:k==='fig'?figHTML(v,cap):'').join('')}
+function renderHub(id){
+  HUB=id;LCUR=id;const t=curTopic(),A=AREAS[t.area];S.lr=S.lr||{};S.tq=S.tq||{};S.ex=S.ex||{};
+  const nCards=topicCards(t).length,tq=S.tq[id],ex=S.ex[id];
+  $('learnBody').innerHTML=`<div class="row"><button type="button" class="btn ghost" data-lback="1">← All topics</button></div>
+   <article class="hub ${A.cls}"><p class="eyebrow">National 5 · ${esc(A.name)}</p>
+   <h2 class="ltitle">${esc(t.name)} ${ragDot(id)}</h2><p class="hsum">${esc(SUM[id]||'')}</p>
+   <details class="hspec"><summary>What the course says</summary><p>${esc(t.spec)}</p></details>
+   <div class="htiles">
+    <button type="button" class="htile ht-learn" data-panel="learn"><span class="hti">${ICON.learn}</span><span class="htt">Learn it</span><span class="hts">${S.lr[id]?'✓ Read':nCards+' short cards'}</span></button>
+    <button type="button" class="htile ht-test" data-panel="test"><span class="hti">${ICON.test}</span><span class="htt">Test yourself</span><span class="hts">${tq?`Best ${tq[0]} / ${tq[1]}`:t.mcq.length+' quick questions'}</span></button>
+    <button type="button" class="htile ht-exam" data-panel="exam"><span class="hti">${ICON.exam}</span><span class="htt">Get exam ready</span><span class="hts">${ex?`Last mark ${ex[0]} / ${ex[1]}`:'Exam question, marked for you'}</span></button>
+   </div></article>`;
+}
+const ICON={learn:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z"/><path d="M12 6v14"/></svg>',
+ test:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg>',
+ exam:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>'};
+
+/* ---------- pop-up panels ---------- */
+const tp=document.createElement('div');tp.className='tpanel';tp.hidden=true;tp.innerHTML='<div class="tp-sheet" role="dialog" aria-modal="true" aria-labelledby="tpTitle"><header class="tp-head"><span class="tp-ic"></span><h2 id="tpTitle"></h2><button type="button" class="tp-x" data-pclose="1" aria-label="Close">×</button></header><div class="tp-body"></div><footer class="tp-foot"></footer></div>';document.body.appendChild(tp);
+let PK=null,CARD=0,TQ=null,tpLast=null;
+function openPanel(kind,fromSwitch){
+  PK=kind;const t=curTopic();tp.querySelector('.tp-sheet').className='tp-sheet tp-'+kind;
+  tp.querySelector('.tp-ic').innerHTML=ICON[kind];$('tpTitle').textContent=({learn:'Learn it',test:'Test yourself',exam:'Get exam ready'})[kind]+' · '+t.name;
+  if(kind==='learn'){CARD=0;paintCard()}else if(kind==='test'){TQ={i:0,right:0,order:t.mcq.map((_,i)=>i)};paintTQ()}else paintExam();
+  if(tp.hidden){tpLast=document.activeElement;tp.hidden=false;document.body.classList.add('gated');try{history.pushState({tp:1},'')}catch(e){}}
+  tp.querySelector('.tp-body').scrollTop=0;tp.querySelector('.tp-x').focus({preventScroll:true});
+}
+function closePanel(fromPop){if(tp.hidden)return;tp.hidden=true;document.body.classList.remove('gated');if(!fromPop){try{if(history.state&&history.state.tp)history.back()}catch(e){}}renderHub(HUB);const b=document.querySelector(`#learnBody [data-panel="${PK}"]`);if(b)b.focus({preventScroll:true})}
+window.addEventListener('popstate',()=>{if(!tp.hidden)closePanel(true)});
+function setBody(h,f){tp.querySelector('.tp-body').innerHTML=h;tp.querySelector('.tp-foot').innerHTML=f||''}
+function paintCard(){
+  const t=curTopic(),cards=topicCards(t),c=cards[CARD],last=CARD===cards.length-1;
+  if(last){S.lr[HUB]=1;save()}
+  setBody(`<div class="card ${c.tip?'card-tip':''}"><h3>${esc(c.h)}</h3>${blockHTML(c.b)}</div>`,
+   `<button type="button" class="btn ghost" data-card="-1" ${CARD?'':'disabled'}>← Back</button><span class="cdots" aria-label="Card ${CARD+1} of ${cards.length}">${cards.map((_,i)=>`<i class="${i===CARD?'on':i<CARD?'dn':''}"></i>`).join('')}</span>${last?'<button type="button" class="btn nx-test" data-panel="test">Test yourself →</button>':'<button type="button" class="btn" data-card="1">Next →</button>'}`);
+}
+function paintTQ(){
+  const t=curTopic(),n=t.mcq.length;
+  if(TQ.i>=n){S.tq[HUB]=S.tq[HUB]&&S.tq[HUB][0]>TQ.right?S.tq[HUB]:[TQ.right,n];save();
+    setBody(`<div class="ddone"><p class="dbig">${TQ.right} / ${n}</p><p>${TQ.right===n?'All correct. ':''}${TQ.right<n?'Questions you got wrong also come up in your Daily 5.':'Ready for an exam question?'}</p></div>`,
+     `<button type="button" class="btn ghost" data-tq="retry">Try again</button><button type="button" class="btn nx-exam" data-panel="exam">Get exam ready →</button>`);return}
+  const m=t.mcq[TQ.order[TQ.i]],order=m.o.map((_,i)=>i).sort(()=>Math.random()-.5);
+  setBody(`<p class="eyebrow">Question ${TQ.i+1} of ${n}</p><div class="lmc q" data-tqi="${TQ.order[TQ.i]}"><p class="qtext">${esc(m.q)}</p><div class="opts">${order.map(i=>`<button type="button" class="opt tqo" data-oi="${i}">${esc(m.o[i])}</button>`).join('')}</div><div class="fbm"></div></div>`,
+   `<span class="cdots">${t.mcq.map((_,i)=>`<i class="${i===TQ.i?'on':i<TQ.i?'dn':''}"></i>`).join('')}</span>`);
+}
+function paintExam(){
+  const t=curTopic(),w=t.exam,cmd=(w.q.match(/^(Describe|Explain|Give|State|Name|Outline)/)||[])[1],prev=(S.exAns&&S.exAns[HUB])||'';
+  const rec=PP_RECENT.filter(r=>r[4]===HUB).length;
+  setBody(`<p class="qtext">${esc(w.q)} <span class="marks">(${w.max} marks)</span> ${cmd?`<button type="button" class="ppc cw" data-cw="${cmd}">${cmd}</button>`:''}</p>
+   <label for="exAns" class="sr">Your answer</label><textarea id="exAns" placeholder="Write your answer in full sentences…">${esc(prev)}</textarea>
+   <div class="row"><button class="btn" type="button" data-mark="1">Mark my answer</button></div><div id="exRes" aria-live="polite"></div>
+   <details class="xmore"><summary>Show model answer</summary><div class="model"><p>${esc(w.model)}</p></div></details>
+   ${ppChips(HUB)}
+   ${CKL_N5.some(i=>i.l===HUB)?`<details class="xmore tp-rate"><summary>Rate yourself on this topic</summary><ul class="ckl-list">${CKL_N5.filter(i=>i.l===HUB).map(ragItem).join('')}</ul></details>`:''}`,
+   `<button type="button" class="btn ghost" data-panel="learn">← Learn it</button><button type="button" class="btn ghost" data-pclose="1">Done</button>`);
+}
+tp.addEventListener('click',e=>{
+  if(e.target===tp||e.target.closest('[data-pclose]')){closePanel();return}
+  const sw=e.target.closest('[data-panel]');if(sw){openPanel(sw.dataset.panel);return}
+  const cd=e.target.closest('[data-card]');if(cd){CARD=Math.max(0,CARD+ +cd.dataset.card);paintCard();tp.querySelector('.tp-body').scrollTop=0;return}
+  const o=e.target.closest('.tqo');
+  if(o){const div=o.closest('[data-tqi]');if(div.dataset.done)return;div.dataset.done='1';const m=curTopic().mcq[+div.dataset.tqi],ok=+o.dataset.oi===0;if(ok)TQ.right++;
+    div.querySelectorAll('.tqo').forEach(b=>{b.disabled=true;if(+b.dataset.oi===0)b.classList.add('right');else if(b===o)b.classList.add('wrong')});
+    const f=div.querySelector('.fbm');f.className='fbm fb '+(ok?'good':'bad');f.innerHTML=`<strong>${ok?'Correct.':'Not quite.'}</strong> ${esc(m.e)}`;
+    tp.querySelector('.tp-foot').innerHTML=`<button type="button" class="btn" data-tq="next">${TQ.i>=curTopic().mcq.length-1?'See my score':'Next →'}</button>`;tp.querySelector('[data-tq]').focus();return}
+  const q=e.target.closest('[data-tq]');if(q){if(q.dataset.tq==='retry')TQ={i:0,right:0,order:curTopic().mcq.map((_,i)=>i).sort(()=>Math.random()-.5)};else TQ.i++;paintTQ();tp.querySelector('.tp-body').scrollTop=0;return}
+  if(e.target.closest('[data-mark]')){
+    const txt=$('exAns').value.trim();S.exAns=S.exAns||{};S.exAns[HUB]=txt;
+    if(txt.split(/\s+/).filter(Boolean).length<4){$('exRes').innerHTML='<p class="fb bad">Write your full answer first, in sentences.</p>';save();return}
+    const r=markAnswer(HUB,txt);S.ex[HUB]=[r.score,r.max];save();
+    $('exRes').innerHTML=`<div class="mres"><p class="mscore"><span>Estimated mark</span><b>${r.score} / ${r.max}</b></p><p class="mtip">${esc(r.tip)}</p>
+     <div class="mans">${highlight(txt,r.spans)}</div>
+     <p class="mkey"><mark class="mk-ok">earns a mark</mark> <mark class="mk-amb">nearly</mark> <mark class="mk-bad">scores zero</mark></p>
+     <p class="msmall">This is an estimate based on the marking instructions. Your teacher’s mark is the real one.</p></div>`;
+    $('exRes').scrollIntoView({block:'nearest'});return}
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!tp.hidden)closePanel()});
+
+/* ---------- tools quick-fire ---------- */
+const LEG=(d,w)=>`<path class="lo" d="${d}" stroke-width="${w||7}"/><path class="li" d="${d}" stroke-width="${(w||7)-3}"/>`;
+const HATCH=(x,y,w,h,step)=>{let s='';for(let i=x+step;i<x+w;i+=step)s+=`<line class="hl" x1="${i}" y1="${y+1}" x2="${i-4}" y2="${y+h-1}"/>`;return s};
+const TEETH=(x1,x2,y,dir)=>{let d=`M${x1} ${y}`;for(let x=x1;x<x2;x+=4)d+=` L${x+2} ${y+3*dir} L${x+4} ${y}`;return `<path class="tm" d="${d}" fill="none"/>`};
+const TSVG={
+ 'try-square':`<rect class="tm" x="40" y="14" width="106" height="12"/><rect class="tw" x="20" y="14" width="20" height="72" rx="2"/><circle class="tb" cx="30" cy="34" r="3"/><circle class="tb" cx="30" cy="52" r="3"/><circle class="tb" cx="30" cy="70" r="3"/>`,
+ 'eng-square':`<rect class="tm" x="34" y="14" width="112" height="8"/><rect class="tm" x="20" y="14" width="14" height="72"/><circle cx="34" cy="22" r="2.5" fill="#fff" stroke="#4A5563"/>`,
+ 'steel-rule':`<rect class="tm" x="8" y="40" width="144" height="18"/>`+Array.from({length:28},(_,i)=>`<line class="hl" x1="${13+i*5}" y1="40" x2="${13+i*5}" y2="${i%2?45:50}"/>`).join(''),
+ 'marking-gauge':`<rect class="tw" x="10" y="44" width="140" height="10"/><path class="tm" d="M16 54 L18 63 L20 54 z"/><rect class="tw" x="70" y="20" width="22" height="58" rx="3"/><rect class="tb" x="77" y="10" width="8" height="10"/><circle class="tb" cx="81" cy="9" r="5"/>`,
+ 'mortise-gauge':`<rect class="tw" x="10" y="44" width="140" height="10"/><rect class="tb" x="10" y="46" width="56" height="4"/><path class="tm" d="M15 54 L17 63 L19 54 z"/><path class="tm" d="M27 54 L29 63 L31 54 z"/><rect class="tw" x="70" y="20" width="22" height="58" rx="3"/><rect class="tb" x="77" y="10" width="8" height="10"/><circle class="tb" cx="155" cy="49" r="5"/>`,
+ 'scriber':`<rect class="tm" x="12" y="46" width="136" height="6"/><rect class="tm" x="58" y="42" width="44" height="14" rx="2"/>${HATCH(58,42,44,14,5)}<path class="tm" d="M12 46 L2 49 L12 52 z"/><path class="tm" d="M148 46 Q158 48 156 60 L152 59 Q153 52 148 52 z"/>`,
+ 'odd-leg':`${LEG('M76 18 L62 92')}${LEG('M84 18 L102 80 L94 88')}<circle class="tm" cx="80" cy="15" r="8"/><circle class="tb" cx="80" cy="15" r="3"/>`,
+ 'outside-cal':`${LEG('M76 18 C36 40 46 82 74 90',6)}${LEG('M84 18 C124 40 114 82 86 90',6)}<circle class="tm" cx="80" cy="15" r="8"/><circle class="tb" cx="80" cy="15" r="3"/>`,
+ 'dividers':`${LEG('M76 18 L52 94',6)}${LEG('M84 18 L108 94',6)}<line class="hl" x1="62" y1="56" x2="98" y2="56" stroke-width="2"/><rect class="tb" x="92" y="51" width="8" height="10"/><path class="tm" d="M70 12 Q80 0 90 12" fill="none" stroke-width="3"/><circle class="tm" cx="80" cy="15" r="7"/>`,
+ 'centre-punch':`<rect class="tm" x="18" y="40" width="98" height="18"/>${HATCH(18,40,98,18,6)}<path class="tm" d="M116 40 L146 47 L152 49 L146 51 L116 58 z"/><rect class="tm" x="10" y="43" width="8" height="12"/>`,
+ 'bradawl':`<rect class="tw" x="8" y="34" width="62" height="30" rx="14"/><rect class="tb" x="70" y="41" width="8" height="16"/><rect class="tm" x="78" y="46" width="64" height="6"/><rect class="tm" x="142" y="44" width="4" height="10"/>`,
+ 'pencil':`<rect x="10" y="42" width="12" height="14" fill="#E9A6B5" stroke="#8a4a5a"/><rect class="tm" x="22" y="42" width="8" height="14"/><rect x="30" y="42" width="98" height="14" fill="#F2C230" stroke="#8a6d1e"/><path class="tw" d="M128 42 L148 49 L128 56 z"/><path d="M142 47 L150 49 L142 51 z" fill="#333"/>`,
+ 'forstner':`<rect class="tm" x="10" y="44" width="78" height="10"/><path class="tm" d="M88 44 L108 36 L108 62 L88 54 z"/><rect class="tm" x="108" y="24" width="24" height="50" rx="2"/><line class="hl" x1="120" y1="26" x2="128" y2="72"/><path class="tm" d="M132 24 L138 28 L132 32 z"/><path class="tm" d="M132 66 L138 70 L132 74 z"/><path class="tm" d="M132 46 L144 49 L132 52 z"/>`,
+ 'twist':`<rect class="tm" x="10" y="42" width="54" height="14"/><rect class="tm" x="64" y="42" width="76" height="14"/>`+Array.from({length:7},(_,i)=>`<line class="hl" x1="${68+i*10}" y1="42" x2="${80+i*10}" y2="56" stroke-width="2"/>`).join('')+`<path class="tm" d="M140 42 L154 49 L140 56 z"/>`,
+ 'centre-drill':`<rect class="tm" x="44" y="36" width="72" height="26"/>${HATCH(44,36,72,26,7)}<path class="tm" d="M44 36 L30 45 L16 45 L16 53 L30 53 L44 62 z"/><path class="tm" d="M116 36 L130 45 L144 45 L144 53 L130 53 L116 62 z"/>`,
+ 'countersink':`<rect class="tm" x="10" y="44" width="80" height="10"/><path class="tm" d="M90 26 L90 72 L134 49 z"/><line class="hl" x1="96" y1="36" x2="120" y2="47"/><line class="hl" x1="96" y1="62" x2="120" y2="51"/>`,
+ 'flat-bit':`<rect class="tm" x="10" y="45" width="70" height="8"/><rect class="tm" x="80" y="32" width="48" height="34"/><path class="tm" d="M128 32 L138 38 L128 42 z"/><path class="tm" d="M128 56 L138 60 L128 66 z"/><path class="tm" d="M128 44 L150 49 L128 54 z"/>`,
+ 'hole-saw':`<rect class="tm" x="20" y="44" width="60" height="10"/><rect class="tm" x="80" y="18" width="46" height="62" rx="3"/><path class="tm" d="M126 18 L132 22 L126 26 L132 30 L126 34 L132 38 L126 42 L132 46 L126 50 L132 54 L126 58 L132 62 L126 66 L132 70 L126 74 L132 78 L126 80" fill="none"/><rect class="tm" x="126" y="46" width="26" height="6"/><path class="tm" d="M152 46 L158 49 L152 52 z"/>`,
+ 'tenon-saw':`<rect class="tm" x="8" y="32" width="112" height="38"/>${TEETH(8,120,70,1)}<rect class="tb" x="8" y="26" width="114" height="9" rx="1"/><path class="tw" d="M116 22 L148 22 Q156 22 156 30 L156 78 Q156 86 148 86 L132 86 L116 68 z"/><ellipse cx="140" cy="52" rx="7" ry="18" fill="#fff" stroke="#8A5A2B" stroke-width="1.5"/>`,
+ 'coping-saw':`${LEG('M34 72 L34 18 L128 18 L128 72',6)}<line x1="34" y1="72" x2="128" y2="72" stroke="#333" stroke-width="1.5"/><rect class="tr" x="2" y="66" width="32" height="14" rx="7"/>`,
+ 'hacksaw':`${LEG('M28 72 L28 22 L142 22 L142 72',6)}<rect class="tm" x="28" y="69" width="114" height="5"/>${TEETH(28,142,74,1)}<path class="th" d="M28 60 L10 60 Q4 60 6 68 L14 94 L30 94 L28 72 z"/>`,
+ 'junior-hacksaw':`${LEG('M22 72 Q22 22 82 22 Q142 22 142 72',5)}<rect class="tm" x="22" y="69" width="120" height="4"/>${TEETH(22,142,73,1)}`,
+ 'plane':`<path class="tm" d="M8 70 L152 70 L148 56 L12 56 z"/><path class="tm" d="M68 56 L92 12 L101 15 L80 56 z"/><path class="tr" d="M28 56 Q22 24 44 18 L54 18 Q40 32 48 56 z"/><ellipse class="tr" cx="128" cy="44" rx="9" ry="12"/>`,
+ 'chisel':`<rect class="tw" x="8" y="36" width="56" height="26" rx="10"/><rect class="tb" x="64" y="40" width="8" height="18"/><rect class="tm" x="72" y="45" width="10" height="8"/><path class="tm" d="M82 40 L146 40 L156 56 L82 56 z"/>`,
+ 'mallet':`<path class="tw" d="M54 44 L66 44 L64 96 L56 96 z"/><path class="tw" d="M22 12 L98 12 L94 48 L26 48 z"/><path d="M30 22 Q60 18 90 24 M29 32 Q60 28 91 34 M28 41 Q60 38 92 42" fill="none" stroke="#8A5A2B" stroke-width="1"/>`,
+ 'ball-pein':`<rect class="tw" x="8" y="44" width="116" height="11" rx="5"/><rect class="tm" x="122" y="22" width="16" height="50"/><circle class="tm" cx="130" cy="18" r="10"/><rect class="tm" x="119" y="70" width="22" height="12" rx="2"/>`,
+ 'file':`<rect class="tw" x="6" y="38" width="46" height="22" rx="9"/><rect class="tb" x="52" y="42" width="6" height="14"/><path class="tm" d="M58 41 L152 45 L152 53 L58 57 z"/>${HATCH(58,42,92,14,5)}`,
+ 'rasp':`<rect class="tw" x="6" y="38" width="46" height="22" rx="9"/><rect class="tb" x="52" y="42" width="6" height="14"/><path class="tm" d="M58 40 L152 44 L152 54 L58 58 Q54 49 58 40 z"/>`+Array.from({length:30},(_,i)=>`<circle cx="${62+(i%15)*6}" cy="${i<15?46:52}" r="1.3" fill="#4A5563"/>`).join(''),
+ 'g-cramp':`${LEG('M96 20 L42 20 Q24 20 24 38 L24 62 Q24 80 42 80 L96 80',10)}<line x1="84" y1="6" x2="84" y2="64" stroke="#4A5563" stroke-width="5"/><line x1="70" y1="6" x2="98" y2="6" stroke="#4A5563" stroke-width="4" stroke-linecap="round"/><rect class="tm" x="76" y="64" width="16" height="6"/>`,
+ 'sash-cramp':`<rect class="tm" x="6" y="42" width="148" height="9"/>`+Array.from({length:9},(_,i)=>`<circle cx="${16+i*12}" cy="46.5" r="2" fill="#fff" stroke="#4A5563"/>`).join('')+`<rect class="th" x="44" y="26" width="12" height="36" rx="2"/><rect class="th" x="132" y="26" width="14" height="36" rx="2"/><line x1="146" y1="34" x2="158" y2="34" stroke="#4A5563" stroke-width="4"/><line x1="158" y1="24" x2="158" y2="44" stroke="#4A5563" stroke-width="3" stroke-linecap="round"/>`,
+ 'snips':`<path class="tm" d="M78 46 L150 40 L150 46 L82 52 z"/><path class="tm" d="M82 52 L150 52 L150 58 L78 56 z"/>${LEG('M78 48 Q44 28 10 32',8).replace(/class="li"/,'class="ri"')}${LEG('M78 54 Q44 74 10 70',8).replace(/class="li"/,'class="ri"')}<circle class="tb" cx="80" cy="51" r="5"/>`,
+ 'tap':`<line x1="10" y1="28" x2="150" y2="28" stroke="#4A5563" stroke-width="8" stroke-linecap="round"/><line x1="12" y1="28" x2="48" y2="28" stroke="#3D3D46" stroke-width="10" stroke-linecap="round"/><line x1="112" y1="28" x2="148" y2="28" stroke="#3D3D46" stroke-width="10" stroke-linecap="round"/><rect class="tm" x="68" y="18" width="24" height="22" rx="3"/><rect class="tm" x="75" y="40" width="10" height="46"/>`+Array.from({length:7},(_,i)=>`<line class="hl" x1="75" y1="${52+i*5}" x2="85" y2="${49+i*5}"/>`).join('')+`<path class="tm" d="M75 86 L80 94 L85 86 z"/>`,
+ 'die':`<rect class="th" x="6" y="44" width="46" height="12" rx="6"/><rect class="th" x="108" y="44" width="46" height="12" rx="6"/><rect class="tm" x="50" y="46" width="60" height="8"/><circle class="tm" cx="80" cy="50" r="26"/><circle class="tb" cx="80" cy="50" r="15"/><circle cx="80" cy="50" r="5" fill="#fff" stroke="#8A6D1E" stroke-width="1.5"/>`+[0,120,240].map(a=>{const r=a*Math.PI/180;return `<circle cx="${(80+10*Math.cos(r)).toFixed(1)}" cy="${(50+10*Math.sin(r)).toFixed(1)}" r="3" fill="#fff" stroke="#8A6D1E"/>`}).join('')
+};
+const TOOLS={
+ 'try-square':{n:'Try square',u:'Mark and check lines at 90° to the edge of wood.'},
+ 'eng-square':{n:'Engineer’s square',u:'Mark and check lines at 90° on metal and plastic.',alt:'engineer’s try square'},
+ 'steel-rule':{n:'Steel rule',u:'Measure and mark lengths accurately.',alt:'rule, steel ruler'},
+ 'marking-gauge':{n:'Marking gauge',u:'Mark a line parallel to the edge of wood.'},
+ 'mortise-gauge':{n:'Mortise gauge',u:'Mark two parallel lines at once, for a mortise and tenon joint.'},
+ 'scriber':{n:'Scriber',u:'Scratch marking-out lines onto metal or plastic.'},
+ 'odd-leg':{n:'Odd-leg callipers',u:'Mark a line parallel to the edge of metal or plastic.',alt:'jenny callipers, hermaphrodite callipers'},
+ 'outside-cal':{n:'Outside callipers',u:'Measure the outside of round bar or a turned part.'},
+ 'dividers':{n:'Dividers',u:'Scribe circles and arcs on metal or plastic.',alt:'spring dividers'},
+ 'centre-punch':{n:'Centre punch',u:'Make a dent in metal so the drill starts in the right place.'},
+ 'bradawl':{n:'Bradawl',u:'Make a small starter hole in wood for a screw or drill.'},
+ 'pencil':{n:'Pencil',u:'Mark lines on wood. It doesn’t show well on metal or acrylic.'},
+ 'forstner':{n:'Forstner bit',u:'Drill a neat, flat-bottomed hole in wood, e.g. for a hinge.'},
+ 'twist':{n:'Twist drill',u:'Drill holes in metal, plastic and wood.',alt:'twist drill bit, HSS drill'},
+ 'centre-drill':{n:'Centre drill',u:'Start an accurate hole on the centre lathe.',alt:'combination centre drill'},
+ 'countersink':{n:'Countersink bit',u:'Make a cone-shaped recess so a screw head sits flush.',alt:'countersink, rose countersink'},
+ 'flat-bit':{n:'Flat bit',u:'Drill large, rough holes in wood quickly.',alt:'spade bit'},
+ 'hole-saw':{n:'Hole saw',u:'Cut large round holes in wood or thin sheet.'},
+ 'tenon-saw':{n:'Tenon saw',u:'Make straight cuts in wood, e.g. for joints.',alt:'back saw'},
+ 'coping-saw':{n:'Coping saw',u:'Cut curves in wood and plastic.'},
+ 'hacksaw':{n:'Hacksaw',u:'Make straight cuts in metal and plastic.'},
+ 'junior-hacksaw':{n:'Junior hacksaw',u:'Make small, light cuts in metal and plastic.'},
+ 'plane':{n:'Smoothing plane',u:'Smooth wood and take it down to size.',alt:'bench plane, jack plane (longer)'},
+ 'chisel':{n:'Bevel-edge chisel',u:'Cut away waste wood from joints.',alt:'chisel'},
+ 'mallet':{n:'Mallet',u:'Strike a chisel without damaging its handle.'},
+ 'ball-pein':{n:'Ball-pein hammer',u:'Strike a centre punch, and shape metal.',alt:'engineer’s hammer'},
+ 'file':{n:'Flat file',u:'Remove metal and file edges flat and smooth.',alt:'hand file, file'},
+ 'rasp':{n:'Rasp',u:'Shape wood quickly, especially curves.',alt:'Surform (a similar tool)'},
+ 'g-cramp':{n:'G-cramp',u:'Hold small pieces together, or hold work to the bench.',alt:'G-clamp'},
+ 'sash-cramp':{n:'Sash cramp',u:'Hold a long frame together while the glue dries.',alt:'sash clamp, bar clamp'},
+ 'snips':{n:'Tin snips',u:'Cut thin sheet metal.',alt:'snips'},
+ 'tap':{n:'Tap and tap wrench',u:'Cut an internal thread inside a hole.'},
+ 'die':{n:'Die and die stock',u:'Cut an external thread on a metal rod.',alt:'die holder'}
+};
+const TSETS=[
+ {id:'mark',n:'Marking out',c:'ts-mark',t:['try-square','eng-square','steel-rule','marking-gauge','mortise-gauge','scriber','odd-leg','outside-cal','dividers','centre-punch']},
+ {id:'wood',n:'Woodwork tools',c:'ts-wood',t:['tenon-saw','coping-saw','plane','chisel','mallet','rasp','sash-cramp','g-cramp','bradawl']},
+ {id:'metal',n:'Metalwork tools',c:'ts-metal',t:['hacksaw','junior-hacksaw','file','ball-pein','centre-punch','snips','tap','die','scriber']},
+ {id:'drill',n:'Drill bits',c:'ts-drill',t:['forstner','twist','centre-drill','countersink','flat-bit','hole-saw','bradawl','centre-punch']},
+ {id:'diff',n:'Spot the difference',c:'ts-diff',t:[]}
+];
+const TDIFF=[
+ {q:'Mark a 90° line across a piece of steel.',a:'eng-square',b:'try-square',d:'Try square: wooden stock, for wood. Engineer’s square: all steel, for metal and plastic.'},
+ {q:'Mark a line 10 mm in from the edge of a piece of pine.',a:'marking-gauge',b:'odd-leg',d:'Marking gauge for wood. Odd-leg callipers for metal and plastic.'},
+ {q:'Mark a line parallel to the edge of an aluminium sheet.',a:'odd-leg',b:'outside-cal',d:'Odd-leg callipers have one leg with a foot that runs along the edge. Outside callipers measure round bar.'},
+ {q:'Check the diameter of a bar you turned on the centre lathe.',a:'outside-cal',b:'odd-leg',d:'Outside callipers: both legs curve in to grip round work.'},
+ {q:'Mark both sides of a mortise in one go.',a:'mortise-gauge',b:'marking-gauge',d:'Mortise gauge: two pins. Marking gauge: one spur.'},
+ {q:'Start a screw hole in a piece of wood.',a:'bradawl',b:'centre-punch',d:'Bradawl: pushed into wood by hand. Centre punch: hit with a hammer to dent metal.'},
+ {q:'Mark where to drill a hole in mild steel.',a:'centre-punch',b:'bradawl',d:'Centre punch for metal, so the twist drill doesn’t wander.'},
+ {q:'Mark cutting lines on a sheet of acrylic.',a:'scriber',b:'pencil',d:'A scriber scratches a fine line that shows up. Pencil is for wood.'},
+ {q:'Drill a neat, flat-bottomed hole for a cabinet hinge.',a:'forstner',b:'flat-bit',d:'Forstner bit: neat and flat-bottomed. Flat bit: fast but rough.'},
+ {q:'Start a hole in the end of a bar on the centre lathe.',a:'centre-drill',b:'twist',d:'Centre drill first: it is short and stiff, so it starts the hole accurately.'},
+ {q:'Cut a curved shape out of plywood.',a:'coping-saw',b:'tenon-saw',d:'Coping saw: thin blade for curves. Tenon saw: straight cuts.'},
+ {q:'Cut a length of steel bar.',a:'hacksaw',b:'tenon-saw',d:'Hacksaw for metal. A tenon saw is for wood.'},
+ {q:'Make a screw head sit flush with the surface.',a:'countersink',b:'twist',d:'Countersink bit makes the cone-shaped recess.'},
+ {q:'Shape a curved edge on a piece of oak quickly.',a:'rasp',b:'file',d:'Rasp for wood. Flat file for metal.'}
+];
+const tpic=(id,cls)=>`<svg class="tsvg ${cls||''}" viewBox="0 0 160 100" aria-hidden="true">${TSVG[id]}</svg>`;
+let TQZ=null;
+function renderTools(){
+  S.tools=S.tools||{};
+  $('learnBody').innerHTML=`<div class="row"><button type="button" class="btn ghost" data-lback="1">← All topics</button></div>
+  <h2 class="lt-title">Tools quick-fire</h2><p class="sub">Pick a set. Look first, then play.</p>
+  <div class="tsets">${TSETS.map(s=>{const n=s.id==='diff'?TDIFF.length:s.t.length,b=S.tools[s.id];
+   return `<div class="tset ${s.c}"><div class="tset-pic">${tpic(s.id==='diff'?'odd-leg':s.t[0])}${s.id==='diff'?tpic('outside-cal'):''}</div><div class="tset-t"><b>${esc(s.n)}</b><span>${s.id==='diff'?n+' pairs':n+' tools'}${b!=null?' · best '+b+'/8':''}</span></div>
+   <div class="tset-b">${s.id==='diff'?'':`<button type="button" class="btn ghost" data-tlook="${s.id}">Look first</button>`}<button type="button" class="btn" data-tplay="${s.id}">Play</button></div></div>`}).join('')}</div>`;
+}
+function toolLook(sid){
+  const s=TSETS.find(x=>x.id===sid);
+  $('learnBody').innerHTML=`<div class="row"><button type="button" class="btn ghost" data-tback="1">← Tool sets</button></div><h2 class="lt-title">${esc(s.n)}</h2>
+  <div class="tgal">${s.t.map(id=>{const t=TOOLS[id];return `<div class="tcard">${tpic(id)}<b>${esc(t.n)}</b><span>${esc(t.u)}</span>${t.alt?`<span class="talt">Also called: ${esc(t.alt)}</span>`:''}</div>`}).join('')}</div>
+  <div class="row"><button type="button" class="btn" data-tplay="${sid}">Play this set</button></div>`;
+}
+const shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(x=>x[1]);
+function toolPlay(sid){
+  let qs;
+  if(sid==='diff')qs=shuf(TDIFF).slice(0,8).map(d=>({k:'diff',q:d.q,a:d.a,o:shuf([d.a,d.b]),d:d.d}));
+  else{const s=TSETS.find(x=>x.id===sid);qs=shuf(s.t).slice(0,8).map((id,i)=>({k:i%2?'use':'name',a:id,o:shuf([id,...shuf(s.t.filter(x=>x!==id)).slice(0,3)])}))}
+  TQZ={sid,qs,i:0,right:0};paintTool();
+}
+function paintTool(){
+  const z=TQZ,q=z.qs[z.i],dots=z.qs.map((_,i)=>`<span class="${i<z.i?'d-done':i===z.i?'d-now':''}"></span>`).join('');
+  let h=`<div class="row"><button type="button" class="btn ghost" data-tback="1">← Tool sets</button><span class="tdots" aria-label="Question ${z.i+1} of ${z.qs.length}">${dots}</span></div>`;
+  if(q.k==='name')h+=`<div class="tq">${tpic(q.a,'big')}<p class="tq-q">What is this?</p><div class="topts names">${q.o.map(id=>`<button type="button" class="topt" data-tans="${id}">${esc(TOOLS[id].n)}</button>`).join('')}</div></div>`;
+  else h+=`<div class="tq"><p class="tq-q">${esc(q.k==='use'?'Which tool would you use to '+TOOLS[q.a].u.charAt(0).toLowerCase()+TOOLS[q.a].u.slice(1).replace(/\.$/,'?'):q.q)}</p><div class="topts pics${q.o.length===2?' two':''}">${q.o.map(id=>`<button type="button" class="topt" data-tans="${id}">${tpic(id)}<span>${esc(TOOLS[id].n)}</span></button>`).join('')}</div></div>`;
+  h+=`<div id="tfb" aria-live="polite"></div>`;
+  $('learnBody').innerHTML=h;
+}
+function toolAnswer(btn){
+  const z=TQZ,q=z.qs[z.i];if(btn.closest('.topts').dataset.done)return;btn.closest('.topts').dataset.done=1;
+  const ok=btn.dataset.tans===q.a;if(ok)z.right++;
+  document.querySelectorAll('[data-tans]').forEach(b=>{if(b.dataset.tans===q.a)b.classList.add('right');else if(b===btn)b.classList.add('wrong');b.disabled=true});
+  const t=TOOLS[q.a],last=z.i>=z.qs.length-1;
+  $('tfb').innerHTML=`<div class="tfb ${ok?'ok':'no'}"><b>${ok?'✓ '+esc(t.n):'Answer: '+esc(t.n)}</b><p>${esc(q.d||t.u)}</p>${t.alt?`<p class="talt">Also called: ${esc(t.alt)}</p>`:''}</div>
+  <div class="row"><button type="button" class="btn" data-tnext="1">${last?'See my score':'Next →'}</button></div>`;
+  document.querySelector('[data-tnext]').focus({preventScroll:true});
+}
+function toolNext(){
+  const z=TQZ;z.i++;
+  if(z.i<z.qs.length){paintTool();return}
+  S.tools=S.tools||{};S.tools[z.sid]=Math.max(S.tools[z.sid]||0,z.right);save();
+  $('learnBody').innerHTML=`<div class="tdone"><p class="tq-q">${z.right} / ${z.qs.length}</p><p>${z.right>=7?'Brilliant. You know these tools.':z.right>=5?'Good. Play again to lock them in.':'Have a look first, then try again.'}</p>
+  <div class="row"><button type="button" class="btn" data-tplay="${z.sid}">Play again</button>${z.sid!=='diff'?`<button type="button" class="btn ghost" data-tlook="${z.sid}">Look first</button>`:''}<button type="button" class="btn ghost" data-tback="1">Tool sets</button></div></div>`;
+}
+$('tab-learn').addEventListener('click',e=>{
+  const a=e.target.closest('[data-tans]');if(a){toolAnswer(a);return}
+  const n=e.target.closest('[data-tnext]');if(n){toolNext();return}
+  const p=e.target.closest('[data-tplay]');if(p){toolPlay(p.dataset.tplay);$('tab-learn').scrollIntoView({block:'start'});return}
+  const l=e.target.closest('[data-tlook]');if(l){toolLook(l.dataset.tlook);$('tab-learn').scrollIntoView({block:'start'});return}
+  const b=e.target.closest('[data-tback]');if(b){renderTools();return}
+});
+
+
+
+/* ---------- real exam questions as chips -> answer in the panel ---------- */
+function ppChips(id){
+  const rec=PP_RECENT.map((r,i)=>[r,'R'+i]).filter(x=>x[0][4]===id),old=PP_N5.map((r,i)=>[r,'O'+i]).filter(x=>x[0][4]===id);
+  if(!rec.length&&!old.length)return '';
+  const chip=([r,k])=>`<button type="button" class="ppchip${r[0]<2025?' old':''}" data-ppq="${k}"><b>${r[0]}</b> Q${esc(r[1])}${S.ppd&&S.ppd[k]!=null?` <span class="ppdone">${S.ppd[k]}/${r[2]||'?'}</span>`:''}</button>`;
+  return `<div class="ppchips"><h3>Real exam questions</h3><div class="ppcrow">${rec.map(chip).join('')}${old.map(chip).join('')}</div></div>`;
+}
+const PPSTOP=new Set('about above after again their there these those which while would could should other using being because through where when with that this from into have will your what them they then than also more most such each some very just only make made used uses like over under does done much many must need'.split(' '));
+const ppWords=t=>(t.toLowerCase().match(/[a-z’']{4,}/g)||[]).filter(w=>!PPSTOP.has(w)).map(w=>w.slice(0,5));
+let PPK=null;
+function ppGet(k){return k[0]==='R'?PP_RECENT[+k.slice(1)]:PP_N5[+k.slice(1)]}
+function paintPPQ(k){
+  PPK=k;const [y,q,mk,cmd,l,txt]=ppGet(k);S.ppa=S.ppa||{};
+  setBody(`<p class="pphead"><span class="ppy">${y}</span> <b>Q${esc(q)}</b>${mk?` · ${mk} mark${mk>1?'s':''}`:''} ${cmd?`<button type="button" class="ppc cw" data-cw="${esc(cmd)}">${esc(cmd)}</button>`:''}</p>
+   <p class="qtext">${esc(cmd?cmd+' '+txt.charAt(0).toLowerCase()+txt.slice(1):txt)}</p>
+   <label for="ppAns" class="sr">Your answer</label><textarea id="ppAns" placeholder="Write your answer in full sentences…">${esc(S.ppa[k]||'')}</textarea>
+   <div class="row"><button class="btn" type="button" data-ppcheck="1">Check my answer</button></div><div id="ppRes" aria-live="polite"></div>`,
+   `<button type="button" class="btn ghost" data-panel="exam">← Exam questions</button><button type="button" class="btn ghost" data-pclose="1">Done</button>`);
+}
+function ppCheck(){
+  const k=PPK,[y,q,mk,cmd,l,txt,rep,pts,zero,note]=ppGet(k),ans=$('ppAns').value.trim();S.ppa[k]=ans;save();
+  if(ans.split(/\s+/).filter(Boolean).length<4){$('ppRes').innerHTML='<p class="fb bad">Write your full answer first, in sentences.</p>';return}
+  if(!pts||!pts.length){$('ppRes').innerHTML=`<div class="mres"><p class="mtip">Marking points for ${y} aren’t on the site yet. Compare your answer with the model answer for this topic.</p></div>`;return}
+  const aw=new Set(ppWords(ans));
+  const guess=pts.map(p=>{const w=[...new Set(ppWords(p))];return w.length&&w.filter(x=>aw.has(x)).length/w.length>=0.5});
+  const sc=Math.min(mk||1,guess.filter(Boolean).length),miss=pts.find((p,i)=>!guess[i]);S.ppd=S.ppd||{};S.ppd[k]=sc;save();
+  $('ppRes').innerHTML=`<div class="mres"><p class="mscore"><span>Estimated mark</span><b>${sc} / ${mk||1}</b></p>
+   <p class="mtip">${sc>=(mk||1)?'Full marks. Nicely done.':miss?'To get another mark: '+esc(miss.charAt(0).toLowerCase()+miss.slice(1)):'Add another separate point.'}</p>
+   <details class="xmore"><summary>What earns the marks</summary><ul class="pptick">${pts.map((p,i)=>`<li class="${guess[i]?'got':''}"><span aria-hidden="true">${guess[i]?'✓':'○'}</span> ${esc(p)}</li>`).join('')}</ul>
+   ${note?`<p class="ppnote">${esc(note)}</p>`:''}
+   ${zero&&zero.length?`<p class="ppzh">Scored zero</p><ul class="ppzero">${zero.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
+   ${rep?`<p class="pprep"><b>${y} course report:</b> ${esc(rep)}</p>`:''}</details>
+   <p class="msmall">This is an estimate based on the ${y} marking instructions. Your teacher’s mark is the real one.</p></div>`;
+  $('ppRes').scrollIntoView({block:'nearest'});
+}
+tp.addEventListener('click',e=>{
+  const c=e.target.closest('[data-ppq]');if(c){paintPPQ(c.dataset.ppq);tp.querySelector('.tp-body').scrollTop=0;return}
+  if(e.target.closest('[data-ppcheck]')){ppCheck();return}
+});
+/* ---------- skills-check topic -> Learn topic, priorities, welcome ---------- */
+function K2L(k){const c={};CKL_N5.filter(i=>i.k===k).forEach(i=>c[i.l]=(c[i.l]||0)+1);const l=Object.keys(c).sort((a,b)=>c[b]-c[a])[0];return l&&MK[l]?l:null}
+function renderPrio(){
+  const box=$('prioBody');if(!box)return;
+  if((S.level||'N5')!=='N5'){box.innerHTML='';return}
+  const all=LEARN.N5.map(t=>({t,st:topicStatus(t.id)}));
+  const red=all.filter(x=>x.st.band==='r').sort((a,b)=>a.st.pct-b.st.pct),amb=all.filter(x=>x.st.band==='a').sort((a,b)=>a.st.pct-b.st.pct),grn=all.filter(x=>x.st.band==='g'),none=all.filter(x=>x.st.band==='n');
+  const row=x=>`<button type="button" class="prow" data-golearn="${x.t.id}">${ragDot(x.t.id)}<span>${esc(x.t.name)}</span><span class="pgo">→</span></button>`;
+  const focus=[...red,...amb].slice(0,6);
+  box.innerHTML=`<div class="chartcard prio"><h3>Focus on next</h3>
+   ${focus.length?`<div class="plist">${focus.map(row).join('')}</div>`:`<p class="sub">${grn.length?'No red or amber topics. Brilliant.':'Rate yourself on the checklist below, or try a topic, and your focus topics appear here.'}</p>`}
+   <p class="pkey"><span>${ragDot2('r')} ${red.length} to work on</span><span>${ragDot2('a')} ${amb.length} nearly there</span><span>${ragDot2('g')} ${grn.length} strong</span><span>${ragDot2('n')} ${none.length} not started</span></p>
+   ${grn.length?`<details class="pmore"><summary>Strong topics</summary><div class="plist">${grn.map(row).join('')}</div></details>`:''}</div>`;
+}
+function ragDot2(b){return `<span class="tdot td-${b}" aria-hidden="true"></span>`}
+document.addEventListener('click',e=>{
+  const g=e.target.closest('[data-gotab]');if(g){showTab(g.dataset.gotab);$('tab-'+g.dataset.gotab).scrollIntoView({block:'start'});return}
+  if(e.target.closest('#goPlan')){showTab('progress');setTimeout(()=>$('planCard').scrollIntoView({block:'start'}),40);return}
+  const w=e.target.closest('[data-welcome]');if(w){S.welcomed=1;save();if(w.dataset.welcome==='ckl'){showTab('progress');setTimeout(()=>{const c=document.querySelector('.ckl');if(c)c.scrollIntoView({block:'start'})},40)}else{const c=$('welcomeCard');if(c)c.remove()}return}
+});
 /* ---------- question words trainer ---------- */
 function renderWords(){
   const W=WORDS_N5;LCUR='x-words';
@@ -2742,14 +3410,35 @@ renderEntry();renderExtra();
 if(VIEW&&!S.level){const first=CHECKS.find(c=>S.checks[c.id]&&Object.keys(S.checks[c.id].m||{}).length);S.level=first?first.level:'N5'}
 const chosen=S.level;applyLevel(chosen||CK(S.cur).level);if(!chosen&&!VIEW)S.level=null;
 update();showTab(VIEW?'history':(S.tab||'learn'));showWelcome(!S.level&&!VIEW);
+maybeGate();
 /* deep links from the PDF plan: #go=tab:id:level */
 (function(){const m=/^#go=(\w+):([\w-]+)(?::(N5|H))?$/.exec(location.hash);if(!m||VIEW)return;try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}
   const [,tab,id,lv]=m;if(lv&&lv!==S.level){applyLevel(lv);save()}else if(!S.level){applyLevel('N5');save()}showWelcome(false);
-  if(tab==='plan'){showTab('overall');setTimeout(()=>{const d=document.querySelector(`#ovTopics details[data-k="${id}"]`);if(d){d.open=true;d.scrollIntoView({block:'start'});scrollBy(0,-80)}else $('tab-overall').scrollIntoView({block:'start'})},60)}
+  if(tab==='plan'){const l=K2L(id);if(l){LVIEW='N5';LCUR=l;showTab('learn');$('tab-learn').scrollIntoView({block:'start'})}else showTab('progress')}
   else if(tab==='learn'){LVIEW='N5';LCUR=id;showTab('learn');$('tab-learn').scrollIntoView({block:'start'})}
-  else if(tab==='skills'){showTab('profile');setTimeout(()=>{const c=document.querySelector('.ckl');if(c)c.scrollIntoView({block:'start'})},60)}
+  else if(tab==='skills'){showTab('progress');setTimeout(()=>{const c=document.querySelector('.ckl');if(c)c.scrollIntoView({block:'start'})},60)}
+  maybeGate();
 })();
 booting=false;autoOpen();paintNick();
+})();
+</script>
+
+<script>
+/* app install + offline support */
+(function(){
+  const bar=document.getElementById('installBar'),btn=document.getElementById('installBtn'),msg=document.getElementById('installMsg');
+  const standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+  let dismissed=false;try{dismissed=localStorage.getItem('dm-install-x')==='1'}catch(e){}
+  const close=()=>{bar.hidden=true;try{localStorage.setItem('dm-install-x','1')}catch(e){}};
+  document.getElementById('installX').addEventListener('click',close);
+  if('serviceWorker' in navigator&&/^https?:$/.test(location.protocol)){navigator.serviceWorker.register('sw.js').catch(()=>{})}
+  if(standalone||dismissed)return;
+  let deferred=null;
+  window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;btn.hidden=false;bar.hidden=false});
+  btn.addEventListener('click',async()=>{if(!deferred)return;deferred.prompt();try{await deferred.userChoice}catch(e){}deferred=null;bar.hidden=true});
+  window.addEventListener('appinstalled',()=>{bar.hidden=true});
+  const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  if(ios&&/^https?:$/.test(location.protocol)){msg.innerHTML='Install D+M as an app: tap <b>Share</b> then <b>Add to Home Screen</b>.';bar.hidden=false}
 })();
 </script>
 </body>
