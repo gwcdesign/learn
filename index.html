@@ -408,6 +408,7 @@ body.gated{overflow:hidden}
 .tpanel[hidden]{display:none}
 .tp-sheet{background:var(--card);width:100%;max-width:680px;max-height:calc(100dvh - 32px);border-radius:18px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.35)}
 .tsvg{display:block;width:100%;height:auto;max-width:200px;margin:0 auto}.tsvg.big{max-width:300px}
+.dtag{display:inline-block;margin:.1rem 0 .5rem;padding:.2rem .6rem;border-radius:999px;background:#F6EFE3;color:#5B1A2B;font-size:.85rem;font-weight:600}.dtag.again{background:#FBE3E3}
 .tsvg .tw{fill:#E2B27A;stroke:#8A5A2B}.tsvg .tm{fill:#D5DAE1;stroke:#4A5563}.tsvg .th{fill:#3D3D46;stroke:#1f1f25}.tsvg .tb{fill:#D9B44A;stroke:#8A6D1E}.tsvg .tr{fill:#B8323A;stroke:#6d1a1f}
 .tsvg .tw,.tsvg .tm,.tsvg .th,.tsvg .tb,.tsvg .tr{stroke-width:1.5;stroke-linejoin:round}.tsvg .lo{fill:none;stroke:#4A5563;stroke-linecap:round}.tsvg .li{fill:none;stroke:#D5DAE1;stroke-linecap:round}.tsvg .ri{fill:none;stroke:#B8323A;stroke-linecap:round}.tsvg .hl{stroke:#4A5563;stroke-width:1}
 .tsets{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
@@ -2772,22 +2773,35 @@ function pastForTopic(id){const rec=PP_RECENT.filter(r=>r[4]===id),old=PP_N5.fil
    <p class="pplinks"><a href="${PP_N5_LINKS.finder}" target="_blank" rel="noopener">Past papers and marking instructions ↗</a></p></div>`}
 
 /* ---------- daily recall (spaced repetition) ---------- */
-const SR_GAPS=[1,2,4,7,14,30];
+const SR_GAPS=[3,7,14,30,60];
+/* right: comes back after 3, 7, 14… days; wrong: comes back tomorrow */
+function srMark(id,ok){S.sr=S.sr||{};const cur=S.sr[id]||[0,sday()];const box=ok?Math.min(cur[0]+1,SR_GAPS.length):0;S.sr[id]=[box,addDays(sday(),ok?SR_GAPS[box-1]:1),sday()]}
+/* label so a returning question doesn't look like a repeat by mistake */
+function dtag(q){const t=q.tag;if(!t||t==='new')return '<p class="dtag">✨ New question</p>';if(t==='again')return '<p class="dtag again">🔁 Back again: this one was wrong last time</p>';if(t==='check')return '<p class="dtag">✅ Quick check: you got this right yesterday</p>';return `<p class="dtag">⭐ Review: ${q.n>1?`right ${q.n} times in a row`:'you got this right last time'}</p>`}
+function srMigrate(){S.sr=S.sr||{};if(S.srV2)return;const lim=addDays(sday(),2);Object.values(S.sr).forEach(v=>{if(v[0]>=1&&v[1]<lim)v[1]=lim});S.srV2=1}
 const sday=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
 const addDays=(d,n)=>{const x=new Date(d+'T12:00:00');x.setDate(x.getDate()+n);return x.toISOString().slice(0,10)};
 function srPool(){const p=[];LEARN.N5.forEach(t=>t.mcq.forEach((m,i)=>p.push({id:t.id+'.'+i,l:t.id,m})));WORDS_N5.practice.forEach((m,i)=>p.push({id:'w.'+i,l:'x-words',m}));return p}
 function topicWeight(l){if(l==='x-words')return 1.5;let w=1;{const st=topicStatus(l);if(st.pct!==null)w+=(1-st.pct)*2}CKL_N5.filter(i=>i.l===l).forEach(i=>{const v=S.rag[i.id];if(v==='r')w+=1.5;else if(v==='a')w+=.7;else if(v==='g')w-=.15});
   return Math.max(.2,w)}
 function pickDaily(){
-  S.sr=S.sr||{};const td=sday(),pool=srPool();
-  const due=pool.filter(q=>S.sr[q.id]&&S.sr[q.id][1]<=td).sort((a,b)=>S.sr[a.id][1].localeCompare(S.sr[b.id][1]));
-  let pick=due.slice(0,5);
+  S.sr=S.sr||{};srMigrate();const td=sday(),pool=srPool();
+  /* reviews: wrong answers first, then the longest overdue; at most 3 so new questions always appear */
+  const due=pool.filter(q=>S.sr[q.id]&&S.sr[q.id][1]<=td).sort((a,b)=>(S.sr[a.id][0]-S.sr[b.id][0])||S.sr[a.id][1].localeCompare(S.sr[b.id][1]));
+  let pick=due.slice(0,3);
+  /* one of yesterday's right answers comes back once as a quick check */
+  const yd=addDays(td,-1),chk=pool.filter(q=>{const v=S.sr[q.id];return v&&v[0]===1&&v[2]===yd&&v[1]>td});
+  if(chk.length&&pick.length<3)pick.push(chk[Math.floor(Math.random()*chk.length)]);
+  /* new questions: weaker topics are more likely, one per topic where possible */
   const fresh=pool.filter(q=>!S.sr[q.id]).map(q=>({q,k:Math.random()**(1/topicWeight(q.l))})).sort((a,b)=>b.k-a.k).map(x=>x.q);
-  const used=new Set();pick.forEach(q=>used.add(q.l));
+  const used=new Set(pick.map(q=>q.l));
   for(const q of fresh){if(pick.length>=5)break;if(used.has(q.l)&&fresh.length>20)continue;pick.push(q);used.add(q.l)}
   for(const q of fresh){if(pick.length>=5)break;if(!pick.includes(q))pick.push(q)}
+  for(const q of due){if(pick.length>=5)break;if(!pick.includes(q))pick.push(q)}
   if(pick.length<5){const later=pool.filter(q=>S.sr[q.id]&&!pick.includes(q)).sort((a,b)=>S.sr[a.id][1].localeCompare(S.sr[b.id][1]));pick=pick.concat(later.slice(0,5-pick.length))}
-  return pick;
+  const ck=new Set(chk.map(q=>q.id));
+  pick.forEach(q=>{const v=S.sr[q.id];q.tag=!v?'new':v[0]===0?'again':ck.has(q.id)&&v[1]>td?'check':'review';q.n=v?v[0]:0});
+  return pick.sort(()=>Math.random()-.5);
 }
 let DAILY=null;
 function renderDaily(){
@@ -2798,13 +2812,13 @@ function renderDaily(){
   let h=`<div class="row"><button type="button" class="btn ghost" data-lback="1">← All topics</button></div>
    <article class="ltopic daily"><p class="eyebrow">National 5 · Every day</p><h2 class="ltitle">Daily 5</h2>
    <div class="dstats"><div><b>${st.n}</b><span>day streak</span></div><div><b>${seen}</b><span>seen of ${total}</span></div><div><b>${learned}</b><span>learned</span></div></div>
-   <p>Five quick questions a day. Questions you get wrong come back tomorrow; ones you get right come back after longer and longer gaps, so they stick. Topics you rated “not yet” and weak skills-check topics come up more often.</p>
+   <p>Five quick questions a day. Anything you get wrong, here or in Test yourself, comes back tomorrow. Ones you get right come back after 3 days, then longer gaps, so they stick. Your weaker topics come up more often.</p>
    <div class="remind"><b>🔔 Daily reminder</b><span>Adds a repeating alert to your phone’s calendar.</span><div class="row">${[['0800','8am'],['1600','4pm'],['1900','7pm']].map(([f,l])=>`<a class="btn ghost" href="reminder-${f}.ics" target="_blank" rel="noopener">${l}</a>`).join('')}</div></div>`;
   if(doneToday&&DAILY.done){h+=dailyDone()}
   else if(DAILY.done){h+=dailyDone()}
   else{const q=DAILY.qs[DAILY.i];const t=q.l==='x-words'?{name:'Question words'}:LTOPIC(q.l);
     h+=`<div class="dprog" aria-label="Question ${DAILY.i+1} of ${DAILY.qs.length}">${DAILY.qs.map((_,j)=>`<i class="${j<DAILY.i?'dn':j===DAILY.i?'cur':''}"></i>`).join('')}</div>
-     <p class="eyebrow">Question ${DAILY.i+1} of ${DAILY.qs.length} · ${esc(t.name)}</p>
+     <p class="eyebrow">Question ${DAILY.i+1} of ${DAILY.qs.length} · ${esc(t.name)}</p>${dtag(q)}
      <div class="lmc q dq" data-did="${q.id}"></div>`}
   h+='</article>';
   $('learnBody').innerHTML=h;
@@ -2819,7 +2833,7 @@ $('tab-learn').addEventListener('click',e=>{
   const o=e.target.closest('.dopt');
   if(o){const div=o.closest('.dq');if(div.dataset.done)return;div.dataset.done='1';const q=dailyQ(div.dataset.did),ok=+o.dataset.oi===0;
     div.querySelectorAll('.dopt').forEach(b=>{b.disabled=true;if(+b.dataset.oi===0)b.classList.add('right');else if(b===o)b.classList.add('wrong')});
-    if(!VIEW){d5Log(q,ok);const cur=S.sr[q.id]||[0,sday()];const box=ok?Math.min(cur[0]+1,SR_GAPS.length):0;S.sr[q.id]=[box,addDays(sday(),ok?SR_GAPS[Math.max(0,box-1)]:1)]}
+    if(!VIEW){d5Log(q,ok);srMark(q.id,ok)}
     if(ok)DAILY.right++;
     const last=DAILY.i>=DAILY.qs.length-1;
     const f=div.querySelector('.fbm');f.className='fbm fb '+(ok?'good':'bad');
@@ -2867,7 +2881,7 @@ function paintGate(){
     const q=DAILY.qs[DAILY.i],t=q.l==='x-words'?{name:'Question words'}:LTOPIC(q.l),m=q.m,order=m.o.map((_,i)=>i).sort(()=>Math.random()-.5);
     h+=`<p class="sub">Answer all five to get in. Wrong answers still count: you’ll see why, and they come back tomorrow.</p>
      <div class="dprog" aria-label="Question ${DAILY.i+1} of ${DAILY.qs.length}">${DAILY.qs.map((_,j)=>`<i class="${j<DAILY.i?'dn':j===DAILY.i?'cur':''}"></i>`).join('')}</div>
-     <p class="eyebrow">Question ${DAILY.i+1} of ${DAILY.qs.length} · ${esc(t.name)}</p>
+     <p class="eyebrow">Question ${DAILY.i+1} of ${DAILY.qs.length} · ${esc(t.name)}</p>${dtag(q)}
      <div class="lmc q" data-gid="${q.id}"><p class="qtext">${esc(m.q)}</p><div class="opts">${order.map(i=>`<button type="button" class="opt gopt" data-oi="${i}">${esc(m.o[i])}</button>`).join('')}</div><div class="fbm"></div></div>`;
   }
   gate.innerHTML=h+'</div>';gate.scrollTop=0;
@@ -2877,7 +2891,7 @@ gate.addEventListener('click',e=>{
   const o=e.target.closest('.gopt');
   if(o){const div=o.closest('[data-gid]');if(div.dataset.done)return;div.dataset.done='1';const q=dailyQ(div.dataset.gid),ok=+o.dataset.oi===0;
     div.querySelectorAll('.gopt').forEach(b=>{b.disabled=true;if(+b.dataset.oi===0)b.classList.add('right');else if(b===o)b.classList.add('wrong')});
-    d5Log(q,ok);const cur=S.sr[q.id]||[0,sday()];const box=ok?Math.min(cur[0]+1,SR_GAPS.length):0;S.sr[q.id]=[box,addDays(sday(),ok?SR_GAPS[Math.max(0,box-1)]:1)];
+    d5Log(q,ok);srMark(q.id,ok);
     if(ok)DAILY.right++;const last=DAILY.i>=DAILY.qs.length-1;
     if(last){const st=S.streak||{n:0,d:''},td=sday();if(st.d!==td)S.streak={n:st.d===addDays(td,-1)?st.n+1:1,d:td}}
     save();const f=div.querySelector('.fbm');f.className='fbm fb '+(ok?'good':'bad');
@@ -3192,7 +3206,7 @@ tp.addEventListener('click',e=>{
   const sw=e.target.closest('[data-panel]');if(sw){openPanel(sw.dataset.panel);return}
   const cd=e.target.closest('[data-card]');if(cd){CARD=Math.max(0,CARD+ +cd.dataset.card);paintCard();tp.querySelector('.tp-body').scrollTop=0;return}
   const o=e.target.closest('.tqo');
-  if(o){const div=o.closest('[data-tqi]');if(div.dataset.done)return;div.dataset.done='1';const m=curTopic().mcq[+div.dataset.tqi],ok=+o.dataset.oi===0;if(ok)TQ.right++;
+  if(o){const div=o.closest('[data-tqi]');if(div.dataset.done)return;div.dataset.done='1';const m=curTopic().mcq[+div.dataset.tqi],ok=+o.dataset.oi===0;if(ok)TQ.right++;if(!VIEW)srMark(curTopic().id+'.'+div.dataset.tqi,ok);
     div.querySelectorAll('.tqo').forEach(b=>{b.disabled=true;if(+b.dataset.oi===0)b.classList.add('right');else if(b===o)b.classList.add('wrong')});
     const f=div.querySelector('.fbm');f.className='fbm fb '+(ok?'good':'bad');f.innerHTML=`<strong>${ok?'Correct.':'Not quite.'}</strong> ${esc(m.e)}`;
     tp.querySelector('.tp-foot').innerHTML=`<button type="button" class="btn" data-tq="next">${TQ.i>=curTopic().mcq.length-1?'See my score':'Next →'}</button>`;tp.querySelector('[data-tq]').focus();return}
