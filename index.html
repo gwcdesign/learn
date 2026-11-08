@@ -910,6 +910,7 @@ body.bmup-on{overflow:hidden}
 .bmup-steps p{margin:0;color:#cfcfd4;font-size:15px;line-height:1.45}
 .bmup-btn{font:700 16px var(--body);border:0;border-radius:12px;padding:12px 16px;min-height:46px;cursor:pointer;margin-top:8px}
 .bmup-btn.gold{background:#FFD23F;color:#1a1a1a}
+.bmup-btn.mint{display:inline-block;text-decoration:none;background:linear-gradient(175deg,#FBF8EF,#D6E6D1);color:#2B141D}
 .bmup-addr{font-weight:700;color:#fff;background:rgba(0,0,0,.4);border-radius:6px;padding:1px 6px;-webkit-user-select:all;user-select:all}
 .bmup-share{vertical-align:-3px}
 .bmup-ok{color:#5EE08F;font-size:14px;margin:6px 0 0;min-height:1em}.bmup-ok.bad{color:#FF9C9C}
@@ -4126,6 +4127,7 @@ booting=false;autoOpen();paintNick();
   if(!ios||!sa||VIEW)return;
   const addr=(location.origin+location.pathname).replace(/^https?:\/\//,'').replace(/\/(index\.html)?$/,'');
   const icon=(document.querySelector('.tb-logo')||{}).src||'icon-192.png';
+  const safUrl=location.origin+location.pathname.replace(/index\.html$/,'')+'?app=2';
   const box=document.createElement('div');box.className='bmup';box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','bmupT');
   if(inUrl||mark){
     if(mark)return;try{localStorage.setItem('bm-app2','1')}catch(e){}
@@ -4154,8 +4156,8 @@ booting=false;autoOpen();paintNick();
     <p class="bmup-lede">To keep using BenchMark, swap this app for the new one. It takes about a minute and your progress comes with you.</p>
     <ol class="bmup-steps">
      <li><span class="n">1</span><div><b>Save your progress</b>${has?`<p>Copy your progress link, then paste it into Notes so it’s safe.</p><button type="button" class="bmup-btn gold" id="bmupCp">Copy my progress link</button><input type="text" id="bmupLk" readonly aria-label="Your progress link" hidden><p class="bmup-ok" id="bmupCpMsg" aria-live="polite"></p>`:`<p>You haven’t got any progress to save yet, so go to step 2.</p>`}</div></li>
-     <li><span class="n">2</span><div><b>Open Safari</b><p>Go to <span class="bmup-addr">${addr}</span></p></div></li>
-     <li><span class="n">3</span><div><b>Add it to your home screen</b><p>Tap Share <svg class="bmup-share" width="16" height="18" viewBox="0 0 18 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 1v12M5 5l4-4 4 4M3 9H1v10h16V9h-2"/></svg>, then <b class="il">Add to Home Screen</b>. Check it says BenchMark.</p></div></li>
+     <li><span class="n">2</span><div><b>Open BenchMark in Safari</b><p>Tap the button. If Safari doesn’t open, open Safari or Chrome yourself and go to <span class="bmup-addr">${addr}</span></p><a class="bmup-btn mint" id="bmupSaf" href="x-safari-${safUrl}">Open in Safari ↗</a></div></li>
+     <li><span class="n">3</span><div><b>Add it to your home screen</b><p>Tap Share <svg class="bmup-share" width="16" height="18" viewBox="0 0 18 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 1v12M5 5l4-4 4 4M3 9H1v10h16V9h-2"/></svg>, then <b class="il">Add to Home Screen</b>. In Chrome, Share is at the top right. Check it says BenchMark.</p></div></li>
      <li><span class="n">4</span><div><b>Open the new BenchMark</b><p>${has?'Paste your progress link when it asks.':'Tap “I’m new to BenchMark” when it asks.'}</p></div></li>
      <li><span class="n">5</span><div><b>Delete this old app</b><p>${has?'Once your progress is showing in the new one, press':'Press'} and hold this old icon, then tap Remove App and Delete App.</p></div></li>
     </ol></div>`;
@@ -4164,6 +4166,7 @@ booting=false;autoOpen();paintNick();
     const ok=()=>{S.linkSig=progressSig();save();m.textContent='Copied. Now paste it into Notes.'};
     const fail=()=>{lk.hidden=false;lk.focus();lk.select();m.textContent='Press and hold the link above, tap Select All, then Copy.'};
     try{navigator.clipboard.writeText(u).then(ok,fail)}catch(e){fail()}});
+  $('bmupSaf').addEventListener('click',()=>{const t=setTimeout(()=>{if(!document.hidden){try{window.open(safUrl,'_blank')}catch(e){}}},1500);document.addEventListener('visibilitychange',()=>clearTimeout(t),{once:true})});
   document.addEventListener('visibilitychange',()=>{if(!document.hidden){gate.hidden=true;document.body.classList.remove('gated')}});
 })();
 })();
