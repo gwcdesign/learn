@@ -1,5 +1,5 @@
 /* BenchMark offline helper. Change VERSION when you want every device to refresh its saved copy. */
-const VERSION='dm-v16';
+const VERSION='dm-v17';
 const CORE=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png','icon-maskable-512.png','apple-touch-icon.png','favicon-32.png'];
 const EXTRA_HOSTS=['fonts.googleapis.com','fonts.gstatic.com','cdnjs.cloudflare.com','commons.wikimedia.org','upload.wikimedia.org'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(VERSION).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting()))});
