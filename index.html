@@ -834,7 +834,7 @@ section.step.tp-overall .stephead h2{color:#fff!important}section.step.tp-overal
 .prio.chartcard{background:transparent!important;box-shadow:none!important;border:0!important;padding:0!important}
 .prio .prow{background:linear-gradient(160deg,#34363B,#232428)!important;border:1px solid #17181B!important;color:#fff!important}
 .prio .pgo{color:#BFC3C8}.prio .pkey{color:#F1D9DF}.prio details.pmore summary{color:#fff}.prio .lgh{color:#fff!important}
-.bmw .bmi svg{animation:revert}
+
 .bmw .bmi.red .bseg{animation:bk-blinkR 1.1s steps(1) infinite}
 
 /* my progress: same black grid as Learn, seamless anthracite groups */
@@ -856,6 +856,51 @@ section.step.tp-overall{background:linear-gradient(rgba(255,255,255,.045) 1px,tr
 .pempty{color:#9EA2A9;font-size:14.5px;margin:8px 0 2px}
 section.step.tp-overall .chartcard{background:linear-gradient(160deg,#34363B,#232428)!important;border:1px solid #17181B!important;color:#fff}
 section.step.tp-overall .chartcard h3,section.step.tp-overall .chartcard label{color:#fff!important}section.step.tp-overall .chartcard .sub{color:#BFC3C8}
+
+/* ===== dark theme for everything inside Learn / My progress / CAD ===== */
+section.step.tp-cad{background:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px) 0 0/22px 22px,linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px) 0 0/22px 22px,#0B0B0D!important;border-color:#26272B!important;box-shadow:none!important;color:#E6E7EA}
+section.step.tp-cad .stephead h2{color:#fff!important}
+:is(.tp-learn,.tp-overall,.tp-cad) :is(.tset,.tcard,.tq,.ltopic,.tfb,.remind,.ddone,.welcome1,.chartcard,.ccard,.cadcard,details.cad,.lmc,.dq){background:linear-gradient(160deg,#34363B,#232428)!important;border:1px solid #17181B!important;color:#F2F3F5!important;box-shadow:none!important}
+:is(.tp-learn,.tp-overall,.tp-cad) :is(.tset,.tcard,.tq,.ltopic) :is(b,h2,h3,strong,.lt-title,.ltitle){color:#fff!important}
+:is(.tp-learn,.tp-overall,.tp-cad) :is(.sub,.talt,.tcred,.tcred a,.lmeta,.hs,.what,.when){color:#B8BCC3!important}
+.tp-learn .lt-title{color:#fff}
+.tp-learn .tset-pic,.tp-learn .tcard .tphoto,.tp-learn .tcard .tsvg{background:#EDEAE4;border-radius:10px}
+.tp-learn .tset-t span{color:#B8BCC3}
+.tp-learn .topt{background:#26272B!important;border:2px solid #3A3C42!important;color:#fff!important}
+.tp-learn .topt:hover:not(:disabled){border-color:#FFD23F!important}
+.tp-learn .topt.right{background:#173B27!important;border-color:#2FB565!important;color:#C8FFDA!important}
+.tp-learn .topt.wrong{background:#3F1715!important;border-color:#FF2D2D!important;color:#FFC9C5!important}
+.tp-learn .topt .tsvg,.tp-learn .topt .tphoto{background:#EDEAE4;border-radius:8px}
+.tp-learn .tq-q{color:#fff!important}
+.tp-learn .tfb.ok{border-color:#2FB565!important}.tp-learn .tfb.no{border-color:#FF2D2D!important}
+:is(.tp-learn,.tp-overall,.tp-cad) .btn.ghost{color:#fff!important;border-color:#4A4D54!important;background:transparent!important}
+:is(.tp-learn,.tp-overall,.tp-cad) .btn:not(.ghost){background:#FFD23F!important;color:#17181B!important;border-color:#FFD23F!important}
+:is(.tp-learn,.tp-overall,.tp-cad) a:not(.btn){color:#FFD978}
+:is(.tp-learn,.tp-overall,.tp-cad) select,:is(.tp-learn,.tp-overall,.tp-cad) input[type=text]{background:#1B1C1F;color:#fff;border:1px solid #3A3C42}
+.tp-learn .opt{background:#26272B!important;border:2px solid #3A3C42!important;color:#fff!important}.tp-learn .opt.right,.tp-learn .opt.ok{background:#173B27!important;border-color:#2FB565!important}.tp-learn .opt.wrong,.tp-learn .opt.no{background:#3F1715!important;border-color:#FF2D2D!important}
+.tp-learn .qtext,.tp-learn .fbm,.tp-learn .dstats b{color:#fff!important}.tp-learn .dstats span{color:#B8BCC3!important}.tp-learn .dstats>div{background:#1B1C1F!important;border-color:#2E3035!important}
+.d5gate{background:rgba(6,6,8,.9)!important}
+.gcard{background:linear-gradient(160deg,#34363B,#232428)!important;border:1px solid #17181B!important;border-top:6px solid #FFD23F!important;color:#F2F3F5!important}
+.gcard h2{color:#FFD23F!important}.gcard p,.gcard .sub{color:#C9CCD1}.gcard .eyebrow{color:#FFD23F!important}
+.gcard .qtext,.gcard .q,.gcard b,.gcard strong{color:#fff!important}
+.gcard .opt{background:#26272B!important;border:2px solid #3A3C42!important;color:#fff!important}
+.gcard .opt.right,.gcard .opt.ok{background:#173B27!important;border-color:#2FB565!important}.gcard .opt.wrong,.gcard .opt.no{background:#3F1715!important;border-color:#FF2D2D!important}
+.gcard .dprog i{background:#3A3C42}.gcard .dprog i.cur,.gcard .dprog i.dn{background:#FFD23F}
+.gcard .btn:not(.ghost){background:#FFD23F!important;color:#17181B!important;border-color:#FFD23F!important}.gcard .btn.ghost{color:#fff!important;border-color:#4A4D54!important;background:transparent!important}
+.dtag{background:#3A3C42!important;color:#FFE58A!important}.dtag.again{background:#4A1D1D!important;color:#FFB0AA!important}
+.gcard :focus-visible{outline:2px solid #FFD23F}.gcard h2:focus,.gcard h2:focus-visible{outline:none}
+/* tabs: one family, gold for the open tab */
+nav.tabs button{background:linear-gradient(160deg,#34363B,#232428)!important;color:#E6E7EA!important;border:1px solid #17181B!important;border-radius:12px!important;box-shadow:none!important}
+nav.tabs button[aria-selected="true"]{background:#0B0B0D!important;color:#FFD23F!important;border:1.5px solid #FFD23F!important;box-shadow:0 0 12px rgba(255,210,63,.3)!important}
+nav.tabs{border-bottom:0!important}
+
+/* mint cream close and back buttons */
+.tp-x{background:linear-gradient(175deg,#FBF8EF,#D6E6D1)!important;color:#2B141D!important;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.tp-x:hover{filter:brightness(.97)}
+.tp-foot .btn[disabled]{opacity:.4;cursor:not-allowed}
+.tp-foot [data-card][disabled]{visibility:hidden}
+.btn.ghost[data-lback]{background:linear-gradient(175deg,#FBF8EF,#D6E6D1)!important;color:#2B141D!important;border:0!important;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.row:has(>[data-lback]:only-child){margin-bottom:18px}
 /* ---- site glue for the battery ladder ---- */
 .bmw .lgrid{grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:12px}
 .bmw .lcard.bmc{font:inherit;text-align:left;cursor:pointer;width:100%;flex-direction:row;margin:0;border-left-width:1px;color:#fff}
@@ -948,7 +993,7 @@ section.step.tp-overall .chartcard h3,section.step.tp-overall .chartcard label{c
   <div class="linkrow"><input type="text" id="linkBox" readonly aria-label="Your progress link"><button class="btn" type="button" id="copyLink">Copy link</button></div>
   <p class="status" id="linkMsg" aria-live="polite"></p>
   <div class="pastebox"><h4 class="plh">Use a progress link</h4><p>Paste a link from before to bring your progress here.</p>
-   <div class="linkrow"><input type="text" id="pasteBox" aria-label="Paste a progress link" placeholder="Paste your link"><button class="btn" type="button" id="pasteGo">Open</button></div><p class="status" id="pasteMsg" aria-live="polite"></p></div>
+   <div class="linkrow"><input type="text" id="pasteBox" aria-label="Paste a progress link" placeholder="Paste your link"><button class="btn" type="button" id="pasteGo">Restore</button></div><p class="status" id="pasteMsg" aria-live="polite"></p></div>
   <ul class="tips">
     <li><b>Keep it safe:</b> paste it into OneNote, your notes app, or a Teams chat with yourself.</li>
     <li><b>Update it</b> now and then. An old link won’t have your newest practice.</li>
@@ -1358,7 +1403,7 @@ const PP_N5=[
    Row: [year, q, marks, command, learnTopic, question, reportNote, markingPoints[], zeroMarks[], markerNote] */
 const PP_RECENT=[
  // ---------- 2026: coffee station, treadmill, water bottle, toy car ----------
- [2026,'1(a)(i)',2,'State','m-woods','Coffee station: two benefits of using softwoods.','Most candidates answered this well.',
+ [2026,'1(a)(i)',2,'State','m-woods','two benefits of using softwoods.','Most candidates answered this well.',
   ['Readily available or easy to source','Sustainable','Easy to cut or work, e.g. to cut joints','Attractive appearance','Strong or sturdy; durable or tough','Cheaper than hardwood (a comparison makes “cheap” count)'],
   ['“It is lightweight.”','“Cheap” with no comparison']],
  [2026,'1(a)(ii)',2,'Describe','m-marking','Mark out the positions of the dowels on the side, naming tools.','Most candidates answered this well.',
@@ -1459,7 +1504,7 @@ const PP_RECENT=[
  [2026,'10',3,'Describe','d-function','Steps to increase the life expectancy of products, to reduce environmental impact.','',
   ['Make replacement parts easy to get','Protective finishes','Better-quality materials','Better manufacturing and assembly quality; quality checks','Clear instructions for correct use','Easy to maintain','Long-life batteries'],[]],
  // ---------- 2025: picnic caddy, activity toy, hair dryer, rocking horses ----------
- [2025,'1(a)(i)',1,'Name','m-woods','Picnic caddy: a manufactured board for the base.','Most candidates answered this well.',
+ [2025,'1(a)(i)',1,'Name','m-woods','a manufactured board for the base.','Most candidates answered this well.',
   ['Plywood or MDF (chipboard or hardboard also accepted)'],['“Blockboard.” (too thick for the base)']],
  [2025,'1(a)(ii)',1,'State','m-woods','One other reason oak suits the main body, apart from strong and durable.','Many wrote “strong” or “durable”. These were in the question, so they scored zero.',
   ['Suitable for outdoor use; weather resistant','Attractive appearance','Takes a finish well'],
@@ -2177,7 +2222,7 @@ function runFx(kind,amt){
 function encodeProgress(){
   const c={};CHECKS.forEach(ck=>{const r=S.checks[ck.id];if(!ck.q||!r||!Object.keys(r.m).length)return;
     c[ck.id]=[ck.q.map(q=>r.m[q.id]===undefined?'-':r.m[q.id]).join(''),r.date||'']});
-  const rs=CKL_N5.map(i=>S.rag[i.id]||'-').join('');const pr={};['tq','ex','exb','ppd','evd','d5','evMig','lr','tools','sr','srV2','streak'].forEach(k=>{if(S[k]&&(typeof S[k]!=='object'||Object.keys(S[k]).length))pr[k]=S[k]});const j=JSON.stringify(Object.assign({v:2,c,n:S.nick||'',k:S.cls||''},/[rag]/.test(rs)?{r:rs}:{},Object.keys(pr).length?{p:pr}:{}));return btoa(unescape(encodeURIComponent(j))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+  const rs=CKL_N5.map(i=>S.rag[i.id]||'-').join('');const pr={};['tq','ex','exb','ppd','att','evd','d5','evMig','lr','tools','sr','srV2','streak','welcomed','level','weeks','per'].forEach(k=>{if(S[k]&&(typeof S[k]!=='object'||Object.keys(S[k]).length))pr[k]=S[k]});const j=JSON.stringify(Object.assign({v:2,c,n:S.nick||'',k:S.cls||''},/[rag]/.test(rs)?{r:rs}:{},Object.keys(pr).length?{p:pr}:{}));return btoa(unescape(encodeURIComponent(j))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
 }
 function decodeProgress(code){
   try{const b=code.replace(/-/g,'+').replace(/_/g,'/');const o=JSON.parse(decodeURIComponent(escape(atob(b))));const out={};
@@ -2213,12 +2258,20 @@ let VIEWDATA=null;
   if(!d)return;const ln=d.__n,lk=d.__k,lr=d.__r||{},lp=d.__p||{};delete d.__n;delete d.__k;delete d.__r;delete d.__p;VIEWDATA={c:d,n:ln,k:lk,r:lr,p:lp};VIEW=true;const keep=S;S=fresh();S.checks=d;S.rag=lr;Object.assign(S,lp);S.nick=ln;S.cls=lk;S.unlocked={};CHECKS.forEach(c=>{if(!c.enc)S.unlocked[c.id]=true});S.weeks=keep.weeks;S.per=keep.per;bindM();
   $('viewBanner').hidden=false;
 })();
+function adoptProgress(c,r,p,n,k){
+  let mine=fresh();try{const x=localStorage.getItem(KEY);if(x)mine=Object.assign(mine,JSON.parse(x))}catch(e){}
+  mine.checks=c||{};mine.rag=r||{};Object.assign(mine,p||{});if(n)mine.nick=n;if(k)mine.cls=k;
+  const un={};CHECKS.forEach(ck=>{if(!ck.enc)un[ck.id]=true});mine.unlocked=Object.assign(mine.unlocked||{},un);
+  VIEW=false;S=mine;bindM();S.linkSig=progressSig();save();
+  try{if(!localStorage.getItem(KEY))throw 0}catch(e){return false}return true}
 $('pasteGo').addEventListener('click',()=>{const v=($('pasteBox').value||'').trim(),i=v.indexOf('#p=');const code=i>=0?v.slice(i+3):v;
-  if(!code||!decodeProgress(code)){$('pasteMsg').textContent='That doesn’t look like a progress link. Copy the whole link and try again.';return}
-  location.hash='p='+code;location.reload()});
+  const d=code&&decodeProgress(code);
+  if(!d){$('pasteMsg').textContent='That doesn’t look like a progress link. Copy the whole link and try again.';return}
+  const ok=adoptProgress(d.__c||(()=>{const c=Object.assign({},d);delete c.__n;delete c.__k;delete c.__r;delete c.__p;return c})(),d.__r,d.__p,d.__n,d.__k);
+  $('viewBanner').hidden=true;refreshAll();
+  $('pasteMsg').textContent=ok?'Done. Your progress is saved on this device.':'Your progress is showing but this device would not save it. Check the browser is not in private mode.';$('pasteBox').value=''});
 $('keepLink').addEventListener('click',()=>{
-  let mine=fresh();try{const r=localStorage.getItem(KEY);if(r)mine=Object.assign(mine,JSON.parse(r))}catch(e){}
-  mine.checks=VIEWDATA.c;mine.rag=VIEWDATA.r||{};Object.assign(mine,VIEWDATA.p||{});if(VIEWDATA.n)mine.nick=VIEWDATA.n;if(VIEWDATA.k)mine.cls=VIEWDATA.k;mine.unlocked=Object.assign(mine.unlocked||{},S.unlocked);VIEW=false;S=mine;bindM();S.linkSig=progressSig();save();
+  adoptProgress(VIEWDATA.c,VIEWDATA.r,VIEWDATA.p,VIEWDATA.n,VIEWDATA.k);
   $('viewBanner').hidden=true;refreshAll();
 });
 $('exitView').addEventListener('click',()=>{location.reload()});
@@ -2230,7 +2283,7 @@ function showTab(t){
   S.tab=t;save();
   if(t==='progress'){renderPrio();renderOverall()}if(t==='learn')renderLearn();
 }
-document.querySelector('.tabs').addEventListener('click',e=>{const b=e.target.closest('button[data-tab]');if(b)showTab(b.dataset.tab)});
+document.querySelector('.tabs').addEventListener('click',e=>{const b=e.target.closest('button[data-tab]');if(!b)return;if(b.dataset.tab==='learn'){if(typeof tp!=='undefined'&&!tp.hidden)closePanel();LCUR=null;HUB=null}showTab(b.dataset.tab);if(b.dataset.tab==='learn')$('tab-learn').scrollIntoView({block:'start'})});
 document.querySelector('.tabs').addEventListener('keydown',e=>{const bs=[...document.querySelectorAll('.tabs button')];const i=bs.indexOf(document.activeElement);if(i<0)return;
   if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=bs[(i+(e.key==='ArrowRight'?1:bs.length-1))%bs.length];n.focus();showTab(n.dataset.tab)}});
 
@@ -3492,8 +3545,8 @@ const awayRocket=`<span class="away"><svg viewBox="0 0 96 110"><path d="M48 12 C
 
 /* ---------- BenchMark battery & rocket ladder ---------- */
 const TIERS=['n','r','a','g','p','b','o','l'];
-const TLAB={n:'START CHARGING',r:'LOW BATTERY',a:'CHARGING',g:'CHARGED',p:'SUPERCHARGED',b:'BUILDING YOUR ROCKET',o:'ROLL-OUT',l:'FLYING HIGH'};
-const TNAME={n:'Start charging',r:'Low',a:'Charging',g:'Charged',p:'Supercharged',b:'Building your rocket',o:'Roll-out',l:'Flying high'};
+const TLAB={n:'START CHARGING',r:'LOW BATTERY',a:'CHARGING',g:'CHARGED',p:'SUPERCHARGED',b:'GETTING READY',o:'ROLL-OUT',l:'FLYING HIGH'};
+const TNAME={n:'Start charging',r:'Low',a:'Charging',g:'Charged',p:'Supercharged',b:'Getting ready',o:'Roll-out',l:'Flying high'};
 const TCLS={n:'bempty',r:'red',a:'amb',g:'grn',p:'pnk',b:'build',o:'roll',l:'lift'};
 const TCOL={n:'#80858C',r:'#FF2D2D',a:'#FFA51F',g:'#A6FF1F',p:'#FF2E9A',b:'#FFD23F',o:'#FFD23F',l:'#FFD23F'};
 const pl=(n,w)=>`${n} ${w}${n===1?'':'s'}`;
@@ -3514,7 +3567,7 @@ function topicStatus(id){
   const sc=[tqs,exs].filter(v=>v!==null),pct=sc.reduce((a,b)=>a+b,0)/sc.length;
   const P=ppInfo(id);let tier=band;
   if(band==='g'&&tqs===1&&P.need>0&&P.full>=Math.min(2,P.need)){
-    tier=(P.full>=P.need&&P.yrsOK)?'l':P.full>=4?'o':P.full>=3?'b':'p';
+    tier=(P.full>=P.need)?'l':P.full>=4?'o':P.full>=3?'b':'p';
   }
   return {band,tier,pct,diamond:tier==='l',tqs,exs,pp:P.full,need:P.need,avail:P.avail,yrsOK:P.yrsOK};
 }
@@ -3527,9 +3580,9 @@ function nextStep(st){
       const need=[];if(st.tqs!==1)need.push('get every Test yourself question right');const k=Math.min(2,st.need)-st.pp;if(k>0)need.push(`get full marks on ${pl(k,'past paper question')}`);
       return 'To Supercharge it, '+need.join(' and ')+'.'}
     case 'p':case 'b':case 'o':{const left=st.need-st.pp;
-      if(left<=0)return 'Try a past paper question from a different exam year for lift-off.';
+      if(left<=0)return 'Try one more past paper question at full marks for lift-off.';
       const nx=st.need-st.pp===1?'lift-off':st.pp+1===3?'start building your rocket':st.pp+1===4?'roll your rocket out':'lift-off';
-      return `${pl(left,'more past paper question')} at full marks for lift-off.`+(st.tier==='p'?` The next one starts building your rocket.`:'')}
+      return `${pl(left,'more past paper question')} at full marks for lift-off.`+(st.tier==='p'?` The next one starts getting your rocket ready.`:'')}
     default:return 'This is the top level. Brilliant work: you’re flying high.';
   }
 }
@@ -3668,6 +3721,7 @@ function openPanel(kind,fromSwitch){
 }
 function closePanel(fromPop){if(tp.hidden)return;tp.hidden=true;document.body.classList.remove('gated');if(!fromPop){try{if(history.state&&history.state.tp)history.back()}catch(e){}}renderHub(HUB);const b=document.querySelector(`#learnBody [data-panel="${PK}"]`);if(b)b.focus({preventScroll:true})}
 window.addEventListener('popstate',()=>{if(!tp.hidden)closePanel(true)});
+tp.addEventListener('input',e=>{if(VIEW)return;if(e.target.id==='exAns'){S.exAns=S.exAns||{};S.exAns[HUB]=e.target.value;save()}else if(e.target.id==='ppAns'&&PPK){S.ppa=S.ppa||{};S.ppa[PPK]=e.target.value;save()}});
 function setBody(h,f){tp.querySelector('.tp-body').innerHTML=h;tp.querySelector('.tp-foot').innerHTML=f||''}
 function paintCard(){
   const t=curTopic(),cards=topicCards(t),c=cards[CARD],last=CARD===cards.length-1;
@@ -3693,7 +3747,7 @@ function paintExam(){
    <details class="xmore"><summary>Show model answer</summary><div class="model"><p>${esc(w.model)}</p></div></details>
    ${ppChips(HUB)}
    ${CKL_N5.some(i=>i.l===HUB)?`<details class="xmore tp-rate"><summary>Rate yourself on this topic</summary><ul class="ckl-list">${CKL_N5.filter(i=>i.l===HUB).map(ragItem).join('')}</ul></details>`:''}`,
-   `<button type="button" class="btn ghost" data-panel="learn">← Learn it</button><button type="button" class="btn ghost" data-pclose="1">Done</button>`);
+   `<button type="button" class="btn ghost" data-panel="learn">← Learn it</button><button type="button" class="btn ghost" data-pclose="1" data-pdone="1" disabled title="Mark your answer first">Done</button>`);
 }
 tp.addEventListener('click',e=>{
   if(e.target===tp||e.target.closest('[data-pclose]')){closePanel();return}
@@ -3712,7 +3766,7 @@ tp.addEventListener('click',e=>{
     $('exRes').innerHTML=`<div class="mres"><p class="mscore"><span>Estimated mark</span><b>${r.score} / ${r.max}</b></p><p class="mtip">${esc(r.tip)}</p>
      <div class="mans">${highlight(txt,r.spans)}</div>
      <p class="mkey"><mark class="mk-ok">earns a mark</mark> <mark class="mk-amb">nearly</mark> <mark class="mk-bad">scores zero</mark></p>
-     <p class="msmall">This is an estimate based on the marking instructions. Your teacher’s mark is the real one.</p></div>`;
+     <p class="msmall">This is an estimate based on the marking instructions. Your teacher’s mark is the real one.</p></div>`;{const d=tp.querySelector('[data-pdone]');if(d){d.disabled=false;d.removeAttribute('title')}}
     $('exRes').scrollIntoView({block:'nearest'});return}
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!tp.hidden)closePanel()});
@@ -3885,7 +3939,7 @@ function ppChips(id){
 }
 const PPSTOP=new Set('the and for are was its can use you not but has had all any one two how why who way get got put out off too our own per via let lot see may also into from that this with have will your what them they then than more most such each some very just only make made used uses like over under does done much many must need about above after again their there these those which while would could should other using being because through where when it is'.split(' '));
 const PPSYN={grease:'lubricant',oil:'lubricant',lube:'lubricant',visor:'guard',shield:'guard',chizel:'chisel',chisle:'chisel',scribber:'scriber',identicle:'identical',same:'identical',paided:'paid',wages:'paid',salary:'paid',cramp:'clamp',cramps:'clamp',clamps:'clamp',vice:'clamp',secure:'clamp',secured:'clamp',tight:'clamp',tighten:'clamp',hold:'clamp',holding:'clamp',fitted:'fit',fits:'fit',opinion:'opinions',views:'opinions',feedback:'opinions',quicker:'faster',speed:'faster',speeds:'faster',quickly:'faster',twist:'turn',turns:'turn',rotate:'turn',sandpaper:'sand',sanding:'sand',sanded:'sand',abrasive:'sand',wet:'damp',dampen:'damp',water:'damp',heater:'heat',heating:'heat',heated:'heat',warm:'heat',cracking:'crack',cracks:'crack',snap:'crack',break:'crack',breaking:'crack',shatter:'crack',less:'fewer',wider:'wide',bigger:'large',biggest:'large',lots:'many',lot:'many',loads:'many',wide:'many',everyone:'people',others:'people',public:'people',customers:'people',consumers:'people',buyers:'people',checklist:'evaluate',check:'evaluate',test:'evaluate',testing:'evaluate',tested:'evaluate',compare:'evaluate',hands:'hand',fingers:'finger',thumbs:'thumb',lift:'weight',heavy:'weight',heavier:'weight',strength:'strong',stronger:'strong',sturdy:'strong',robust:'strong',rust:'corrosion',rusting:'corrosion',corrode:'corrosion',accurately:'accurate',accuracy:'accurate',precise:'accurate',error:'mistakes',errors:'mistakes',mistake:'mistakes',efficiency:'efficient',automatic:'automated',automation:'automated',robots:'automated',machines:'automated'};
-Object.assign(PPSYN,{bascet:'basket',handel:'handle',bounce:'spark',bouncing:'spark',labor:'labour',workers:'labour',worker:'labour',workforce:'labour',staff:'labour',audience:'market',customer:'market',button:'switch',buttons:'switch',switches:'switch',mass:'large',amounts:'volumes',amount:'volumes',bulk:'large',stocked:'available',buy:'source',bought:'source',speeding:'faster',protractor:'square',opion:'opinions',option:'opinions',skribble:'record',scribble:'record',write:'record',written:'record',jot:'record'});
+Object.assign(PPSYN,{tech:'technology',demand:'want',demands:'want',wanted:'want',wants:'want',needs:'want',need:'want',require:'want',bascet:'basket',handel:'handle',bounce:'spark',bouncing:'spark',labor:'labour',workers:'labour',worker:'labour',workforce:'labour',staff:'labour',audience:'market',customer:'market',button:'switch',buttons:'switch',switches:'switch',mass:'large',amounts:'volumes',amount:'volumes',bulk:'large',stocked:'available',buy:'source',bought:'source',speeding:'faster',protractor:'square',opion:'opinions',option:'opinions',skribble:'record',scribble:'record',write:'record',written:'record',jot:'record'});
 const PPWEAK=new Set(['produ','desig','item','thing','fewer','likel','easie','bette','more','good']);
 const PPGEN=new Set(['saw','plane','drill','bit','joint','glue','file','gauge','squar','chise','punch','board','metal','plast','calli','mould','cast','tool','machi','paint','finis']);
 const ppStem=w=>{w=PPSYN[w]||w;if(w.length>4)w=w.replace(/(ing|ed|es|s|ly)$/,'');return (PPSYN[w]||w).slice(0,5)};
@@ -3900,6 +3954,13 @@ function ppHit(unit,p){const uw=new Set(ppWords(unit));return ppAlts(p).some(a=>
 function ppZero(unit,zero){const uw=[...new Set(ppWords(unit).filter(x=>!PPWEAK.has(x)))];if(!uw.length)return false;
   return (zero||[]).some(z=>{const zc=z.replace(/[“”"]/g,'').replace(/\b(on (its|their) own|unless.*|unqualified|e\.g\..*)\b/gi,' ');
     return ppAlts(zc).some(a=>{const w=new Set(ppWords(a).filter(x=>!PPWEAK.has(x)));return w.size&&uw.every(x=>w.has(x))&&[...w].every(x=>uw.includes(x))})})}
+/* definition questions: every idea must be there, in any wording */
+const PPRULE={
+ '2026|6(c)(i)':[[/\b(new|newer|latest|modern|advanc\w*|emerging|innovat\w*|break.?through|discover\w*|invent\w*)\b/i,/\b(tech\w*|materials?|process\w*|methods?|manufactur\w*|production|science|scientific|component\w*|electronic\w*)\b/i],[/\b(products?|designs?|items?|devices?|gadgets?|things?|ideas?|developed|develops?|creat\w*|made|make|makes|invent\w*|manufactur\w*|produc\w*|sold|sell|market)\b/i]],
+ '2026|6(c)(ii)':[[/\b(demand\w*|wants?|wanted|needs?|needed|desires?|wish\w*|ask\w*|request\w*|gap|trends?|popular\w*|society|consumers?|customers?|users?|public|people|buyers?|market research)\b/i],[/\b(products?|designs?|designers?|items?|develop\w*|creat\w*|made|make|makes|produc\w*|manufactur\w*|meet|meets|fill|fills|satisfy|respond\w*|suppl\w*)\b/i]]};
+function ppRule(y,q,ans){const r=PPRULE[y+'|'+q];if(!r)return null;
+  const t=ans.replace(/[’']/g,'');
+  return r.every(g=>(Array.isArray(g)?g:[g]).every(x=>x.test(t)))&&ans.split(/\s+/).filter(Boolean).length>=6}
 let PPK=null;
 function ppGet(k){return k[0]==='R'?PP_RECENT[+k.slice(1)]:PP_N5[+k.slice(1)]}
 function paintPPQ(k){
@@ -3909,7 +3970,7 @@ function paintPPQ(k){
    <p class="pppic"><a href="${ppPaper(y,q)}" target="_blank" rel="noopener">🖼 See the picture: open the ${y} paper${(PP_PAGE[y]||{})[q]?' at page '+PP_PAGE[y][q]:''} ↗</a></p>
    <label for="ppAns" class="sr">Your answer</label><textarea id="ppAns" placeholder="${/^(Describe|Explain)$/i.test(cmd||'')?'Write your answer in full sentences…':'A word or short phrase is enough…'}">${esc(S.ppa[k]||'')}</textarea>
    <div class="row"><button class="btn" type="button" data-ppcheck="1">Check my answer</button></div><div id="ppRes" aria-live="polite"></div><div id="ppMI">${S.ppd&&S.ppd[k]!=null?ppMI(k):''}</div>`,
-   `<button type="button" class="btn ghost" data-panel="exam">← Exam questions</button><button type="button" class="btn ghost" data-pclose="1">Done</button>`);
+   `<button type="button" class="btn ghost" data-panel="exam">← Exam questions</button><button type="button" class="btn ghost" data-pclose="1" data-pdone="1" disabled title="Check your answer first">Done</button>`);
 }
 function ppMI(k){const r=ppGet(k);if(!r)return '';const pts=(r[7]||[]).filter(x=>!/^(each mark|note)/i.test(x)),zero=r[8]||[];if(!pts.length)return '';
   return `<details class="ppmi"><summary>What earns the marks (${r[0]} marking instructions)</summary><ul>${pts.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>${zero.length?`<p class="ppz">Scores zero:</p><ul class="ppzl">${zero.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}<p class="ppnote">Points are summarised from the SQA marking instructions. Any other valid point can also score: check with your teacher.</p></details>`}
@@ -3938,6 +3999,7 @@ function ppCheck(){
   if(aes&&!listy){const A={style:/style|modern|retro|traditional|classic|futuristic|old.fashioned/i,colour:/colou?r|red|blue|green|yellow|pink|orange|purple|black|white|grey|bright|pastel/i,shape:/shape|curv|round|square|rectangular|circular|organic|geometric|angular/i,form:/\bform\b|3d|chunky|slim|bulky/i,texture:/textur|smooth|rough|bumpy|grain|matt|gloss|shiny/i,pattern:/pattern|stripe|spot|repeat|motif/i,line:/\blines?\b/i,proportion:/proportion|scale|size/i,contrast:/contrast/i,harmony:/harmon/i,symmetry:/symmetr|balance/i};
     const found=new Set();units.forEach(u=>{if(kind!=='short'&&u.split(/\s+/).length<3){shortish=true;return}Object.keys(A).forEach(a=>{if(A[a].test(u))found.add(a)})});
     extra=found.size;pts.forEach((x,i)=>{if(/^each mark:/i.test(x))got[i]=extra>0})}
+  const rule=ppRule(y,q,ans);if(rule!==null){got.fill(false);if(rule&&!ppZero(ans,zero))got[0]=true;shortish=false;vague=false;listy&&(got[0]=false)}
   const sc=Math.min(max,aes?extra:got.filter(Boolean).length+extraShort);S.ppd=S.ppd||{};const ppr=ppGet(k),bf=ppr?topicStatus(ppr[4]):null;S.ppd[k]=Math.max(sc,S.ppd[k]||0);evStamp('pp:'+k);save();if($('ppMI'))$('ppMI').innerHTML=ppMI(k);if(ppr&&MK[ppr[4]])setTimeout(()=>topicCelebrate(ppr[4],bf),900);
   const answerLike=x=>!/^(each mark|also accepted|accept|award|note|any )/i.test(x)&&!/marks?\)/i.test(x);
   const miss=pts.find((p,i)=>!got[i]&&answerLike(p));
@@ -3961,7 +4023,7 @@ function ppCheck(){
    ${zero&&zero.length?`<p class="ppzh">Scored zero</p><ul class="ppzero">${zero.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
    ${rep?`<p class="pprep"><b>${y} course report:</b> ${esc(rep)}</p>`:''}</details>
    <p class="msmall">This is an estimate based on the ${y} marking instructions. If you’re not sure about your mark, check it with your teacher.</p></div>`;
-  $('ppRes').scrollIntoView({block:'nearest'});
+  $('ppRes').scrollIntoView({block:'nearest'});{const d=tp.querySelector('[data-pdone]');if(d){d.disabled=false;d.removeAttribute('title')}}
 }
 tp.addEventListener('click',e=>{
   const c=e.target.closest('[data-ppq]');if(c){paintPPQ(c.dataset.ppq);tp.querySelector('.tp-body').scrollTop=0;return}
@@ -3975,14 +4037,14 @@ function renderPrio(){
   if((S.level||'N5')!=='N5'){box.innerHTML='';return}
   const all=LEARN.N5.map(t=>({t,st:topicStatus(t.id)}));
   const by=b=>all.filter(x=>x.st.band===b);
-  const red=by('r').sort((a,b)=>a.st.pct-b.st.pct),amb=by('a').sort((a,b)=>a.st.pct-b.st.pct),grn=by('g').sort((a,b)=>(TIERS.indexOf(b.st.tier)-TIERS.indexOf(a.st.tier))||(b.st.pct-a.st.pct)),none=by('n');
+  const red=by('r').sort((a,b)=>a.st.pct-b.st.pct),amb=by('a').sort((a,b)=>a.st.pct-b.st.pct),grn=all.filter(x=>x.st.tier==='g').sort((a,b)=>b.st.pct-a.st.pct),sup=all.filter(x=>x.st.tier==='p'),rkt=all.filter(x=>'bol'.includes(x.st.tier)),none=by('n');
   const nm=x=>esc(SHORTN[x.t.id]||x.t.name);
   const row=x=>`<button type="button" class="prow2" data-golearn="${x.t.id}">${miniIcon(x.st.tier)}<span class="pn">${nm(x)}</span><span class="pgo" aria-hidden="true">›</span></button>`;
   const chip=x=>`<button type="button" class="pchip" data-golearn="${x.t.id}">${miniIcon(x.st.tier)}<span>${nm(x)}</span></button>`;
   const grp=(tier,title,list,empty)=>`<div class="pgrp ${TCLS[tier]}"><div class="pgh"><span class="pbig">${batSVG(tier,46)}</span><span class="pgt"><b>${title}</b><small>${list.length} topic${list.length===1?'':'s'}</small></span></div>
     ${list.length?(PRIOSTYLE==='a'?`<div class="prows">${list.map(row).join('')}</div>`:`<div class="pchips">${list.map(chip).join('')}</div>`):`<p class="pempty">${empty}</p>`}</div>`;
-  const started=red.length+amb.length+grn.length;
-  box.innerHTML=`<div class="prio2 ps-${PRIOSTYLE}">${started?grp('r','Low battery',red,'Nothing on low right now.')+grp('a','Charging',amb,'Nothing charging yet.')+grp('g','Charged',grn,'Nothing charged yet. Keep practising.')+(none.length?grp('n','Start charging',none,''):'')
+  const started=red.length+amb.length+grn.length+sup.length+rkt.length;
+  box.innerHTML=`<div class="prio2 ps-${PRIOSTYLE}">${started?grp('r','Low battery',red,'Nothing on low right now.')+grp('a','Charging',amb,'Nothing charging yet.')+grp('g','Charged',grn,'Nothing charged yet. Keep practising.')+grp('p','Supercharged',sup,'Nothing supercharged yet.')+(none.length?grp('n','Start charging',none,''):'')
      :`<p class="pempty">Every topic starts on an empty battery. Pick a topic in Learn and do Test yourself to start charging it.</p><div class="row"><button type="button" class="btn" data-gotab="learn">Go to Learn</button></div>`}</div>`;
 }
 document.addEventListener('click',e=>{
