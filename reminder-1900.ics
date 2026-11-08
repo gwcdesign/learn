@@ -9,12 +9,12 @@ DTSTAMP:20261101T000000Z
 DTSTART:20261102T190000
 DURATION:PT10M
 RRULE:FREQ=DAILY
-SUMMARY:D+M Daily 5
-DESCRIPTION:Five quick questions. Open the D+M app or https://gwcdesign.github.io/dm/
+SUMMARY:BenchMark Daily 5
+DESCRIPTION:Five quick questions. Open the BenchMark app or https://gwcdesign.github.io/dm/
 URL:https://gwcdesign.github.io/dm/
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:D+M Daily 5
+DESCRIPTION:BenchMark Daily 5
 TRIGGER:PT0M
 END:VALARM
 END:VEVENT
