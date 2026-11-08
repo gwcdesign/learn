@@ -916,6 +916,13 @@ body.bmup-on{overflow:hidden}
 .bmup-share{vertical-align:-3px}
 .bmup-ok{color:#5EE08F;font-size:14px;margin:6px 0 0;min-height:1em}.bmup-ok.bad{color:#FF9C9C}
 .bmup input{width:100%;font:16px var(--body);padding:12px;border-radius:12px;border:2px solid #555;background:#111;color:#fff;margin:6px 0 4px}
+
+.bmup-row{display:flex;gap:8px;flex-wrap:wrap}
+.bmup-locked .bmup-btn,.bmup-locked .bmup-open{opacity:.35;pointer-events:none}
+.bmup-lockmsg{color:#FFD23F!important;font-size:14px}
+li:not(.bmup-locked) .bmup-lockmsg{display:none}
+.bmup-steps li.bmup-warn{background:#3D2320;border:1px solid #7A3A33}
+.bmup-steps li.bmup-warn b.il{color:#FFB4A8}
 .bmup-lab{font-weight:700;color:#fff;display:block}
 .bmup-link{display:block;margin-top:14px;background:none;border:0;color:#bbb;font:15px var(--body);text-decoration:underline;cursor:pointer;padding:8px 0}
 /* the pink dot on Progress link is enough: no status text in the top bar */
@@ -4134,8 +4141,8 @@ booting=false;autoOpen();paintNick();
     if(VIEW||BM_HAD)return;let seen=false;try{seen=localStorage.getItem('bm-welcome2')==='1'}catch(e){}if(seen)return;
     try{localStorage.setItem('bm-welcome2','1')}catch(e){}
     BM_BLOCK=true;gate.hidden=true;document.body.classList.remove('gated');
-    box.innerHTML=`<div class="bmup-s"><div class="bmup-top"><img src="${icon}" alt=""><h2 id="bmupT">Welcome to the new BenchMark</h2></div>
-      <p class="bmup-lede">Used BenchMark before? Paste your progress link to bring everything across.</p>
+    box.innerHTML=`<div class="bmup-s"><div class="bmup-top"><img src="${icon}" alt=""><h2 id="bmupT">Welcome to BenchMark</h2></div>
+      <p class="bmup-lede">Used BenchMark or the old D+M app before? Paste your progress link to bring everything across.</p>
       <label for="bmupIn" class="bmup-lab">Your progress link</label><input id="bmupIn" type="text" placeholder="Paste your link here" autocomplete="off">
       <button type="button" class="bmup-btn gold" id="bmupGo">Bring my progress across</button><p class="bmup-ok" id="bmupMsg" aria-live="polite"></p>
       <button type="button" class="bmup-link" id="bmupNew">I’m new to BenchMark</button></div>`;
@@ -4154,21 +4161,23 @@ booting=false;autoOpen();paintNick();
   BM_BLOCK=true;gate.hidden=true;document.body.classList.remove('gated');
   const has=!VIEW&&hasMarks(),phone=ios||/android|mobile/i.test(navigator.userAgent),href=(ios&&sa?'x-safari-':'')+NEWURL;
   const addStep=phone?(ios?`Tap Share <svg class="bmup-share" width="16" height="18" viewBox="0 0 18 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 1v12M5 5l4-4 4 4M3 9H1v10h16V9h-2"/></svg>, then <b class="il">Add to Home Screen</b>. In Chrome, Share is at the top right.`:`Tap the <b class="il">⋮</b> menu, then <b class="il">Add to Home screen</b> or <b class="il">Install app</b>.`):`Bookmark the new site so you can find it again (press Ctrl+D, or ⌘+D on a Mac).`;
-  const delStep=phone?`Press and hold the old BenchMark icon on your home screen, then remove it.`:`Delete your old BenchMark bookmark, if you have one.`;
+  const delStep=phone?`Press and hold the old app icon on your home screen (it may be called D+M), then remove it.`:`Delete your old bookmark for the old site, if you have one.`;
   box.innerHTML=`<div class="bmup-s"><div class="bmup-top"><img src="${icon}" alt="The BenchMark icon"><h2 id="bmupT">BenchMark has moved</h2></div>
     <p class="bmup-lede">BenchMark has a new web address: <span class="bmup-addr">${NEWHOST}</span>. Move across now. It takes about a minute and your progress comes with you.</p>
     <ol class="bmup-steps">
-     <li><span class="n">1</span><div><b>Save your progress</b>${has?`<p>Copy your progress link, then paste it into Notes or OneNote so it’s safe.</p><button type="button" class="bmup-btn gold" id="bmupCp">Copy my progress link</button><input type="text" id="bmupLk" readonly aria-label="Your progress link" hidden><p class="bmup-ok" id="bmupCpMsg" aria-live="polite"></p>`:`<p>You haven’t got any progress to save on this device, so go to step 2.</p>`}</div></li>
-     <li><span class="n">2</span><div><b>Open the new BenchMark</b><p>If the button doesn’t work, go to <span class="bmup-addr">${NEWHOST}</span> yourself.</p><a class="bmup-btn mint" id="bmupSaf" href="${href}" target="_blank" rel="noopener">Open the new BenchMark ↗</a></div></li>
+     <li><span class="n">1</span><div><b>Save your progress</b>${has?`<p>Copy your progress link, then paste it into Notes or OneNote so it’s safe.</p><div class="bmup-row"><button type="button" class="bmup-btn gold" id="bmupCp">Copy my progress link</button>${navigator.share?'<button type="button" class="bmup-btn mint" id="bmupSh">Save it to Notes</button>':''}</div><input type="text" id="bmupLk" readonly aria-label="Your progress link" hidden><p class="bmup-ok" id="bmupCpMsg" aria-live="polite"></p>`:`<p>You haven’t got any progress to save on this device, so go to step 2.</p>`}</div></li>
+     <li${has?' class="bmup-locked" id="bmupS2"':''}><span class="n">2</span><div><b>Open the new BenchMark</b><p class="bmup-lockmsg">${has?'Copy your progress link first. This button unlocks once you have.':''}</p><p class="bmup-open">If the button doesn’t work, go to <span class="bmup-addr">${NEWHOST}</span> yourself.</p><a class="bmup-btn mint" id="bmupSaf" href="${href}" target="_blank" rel="noopener">Open the new BenchMark ↗</a></div></li>
      <li><span class="n">3</span><div><b>Bring your progress across</b><p>${has?'The new site asks for your progress link: paste it in.':'The new site asks for a progress link: tap “I’m new to BenchMark”.'}</p></div></li>
      <li><span class="n">4</span><div><b>${phone?'Add it to your home screen':'Bookmark it'}</b><p>${addStep}${phone?' Check it says BenchMark.':''}</p></div></li>
-     <li><span class="n">5</span><div><b>Remove the old one</b><p>${has?'Once your progress is showing on the new site: ':''}${delStep}</p></div></li>
+     <li class="${has?'bmup-warn':''}"><span class="n">5</span><div><b>Remove the old one: do this last</b>${has?`<p><b class="il">⚠ Deleting this old ${phone?'app':'site'} deletes the progress saved in it.</b> Only remove it once your topics and batteries are showing on the new BenchMark.</p>`:''}<p>${delStep}</p></div></li>
     </ol></div>`;
   document.body.appendChild(box);document.body.classList.add('bmup-on');
   const cp=$('bmupCp');if(cp)cp.addEventListener('click',()=>{const u=linkURL(),lk=$('bmupLk'),m=$('bmupCpMsg');lk.value=u;
-    const ok=()=>{S.linkSig=progressSig();save();m.textContent='Copied. Now paste it somewhere safe.'};
-    const fail=()=>{lk.hidden=false;lk.focus();lk.select();m.textContent='Press and hold (or right-click) the link above, then Copy.'};
+    const unlock=()=>{const s2=$('bmupS2');if(s2)s2.classList.remove('bmup-locked')};
+    const ok=()=>{S.linkSig=progressSig();save();m.textContent='Copied. Now paste it somewhere safe.';unlock()};
+    const fail=()=>{lk.hidden=false;lk.focus();lk.select();m.textContent='Press and hold (or right-click) the link above, then Copy.';unlock()};
     try{navigator.clipboard.writeText(u).then(ok,fail)}catch(e){fail()}});
+  const sh=$('bmupSh');if(sh)sh.addEventListener('click',()=>{const u=linkURL();navigator.share({title:'My BenchMark progress link',text:'My BenchMark progress link: '+u}).then(()=>{S.linkSig=progressSig();save();$('bmupCpMsg').textContent='Saved. Keep it safe.';const s2=$('bmupS2');if(s2)s2.classList.remove('bmup-locked')},()=>{})});
   if(ios&&sa)$('bmupSaf').addEventListener('click',()=>{const t=setTimeout(()=>{if(!document.hidden){try{window.open(NEWURL,'_blank')}catch(e){}}},1500);document.addEventListener('visibilitychange',()=>clearTimeout(t),{once:true})});
   document.addEventListener('visibilitychange',()=>{if(!document.hidden){gate.hidden=true;document.body.classList.remove('gated')}});
 })();
