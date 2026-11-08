@@ -894,6 +894,28 @@ nav.tabs button{background:linear-gradient(160deg,#34363B,#232428)!important;col
 nav.tabs button[aria-selected="true"]{background:#0B0B0D!important;color:#FFD23F!important;border:1.5px solid #FFD23F!important;box-shadow:0 0 12px rgba(255,210,63,.3)!important}
 nav.tabs{border-bottom:0!important}
 
+
+/* new-app swap screens */
+.bmup{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.72);display:flex;align-items:flex-end;justify-content:center;font-family:var(--body)}
+.bmup-s{background:#232327;color:#fff;width:100%;max-width:560px;max-height:100dvh;overflow:auto;border-radius:22px 22px 0 0;padding:22px 20px calc(24px + env(safe-area-inset-bottom,0px));box-shadow:0 -10px 40px rgba(0,0,0,.6)}
+@media (min-width:600px){.bmup{align-items:center}.bmup-s{border-radius:22px;max-height:calc(100dvh - 40px)}}
+body.bmup-on{overflow:hidden}
+.bmup-top{display:flex;align-items:center;gap:14px;margin-bottom:8px}.bmup-top img{width:58px;height:58px;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.5)}
+.bmup h2{font:600 24px/1.2 var(--display);margin:0;color:#fff}
+.bmup-lede{color:#d8d8dc;font-size:16px;line-height:1.5;margin:6px 0 14px}
+.bmup-steps{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.bmup-steps li{display:grid;grid-template-columns:32px 1fr;gap:12px;background:#2e2e33;border-radius:14px;padding:12px}
+.bmup-steps .n{width:32px;height:32px;border-radius:50%;background:linear-gradient(175deg,#FBF8EF,#D6E6D1);color:#2B141D;font-weight:700;display:grid;place-items:center}
+.bmup-steps b{display:block;font-size:16px;margin-bottom:3px}.bmup-steps b.il{display:inline;margin:0}
+.bmup-steps p{margin:0;color:#cfcfd4;font-size:15px;line-height:1.45}
+.bmup-btn{font:700 16px var(--body);border:0;border-radius:12px;padding:12px 16px;min-height:46px;cursor:pointer;margin-top:8px}
+.bmup-btn.gold{background:#FFD23F;color:#1a1a1a}
+.bmup-addr{font-weight:700;color:#fff;background:rgba(0,0,0,.4);border-radius:6px;padding:1px 6px;-webkit-user-select:all;user-select:all}
+.bmup-share{vertical-align:-3px}
+.bmup-ok{color:#5EE08F;font-size:14px;margin:6px 0 0;min-height:1em}.bmup-ok.bad{color:#FF9C9C}
+.bmup input{width:100%;font:16px var(--body);padding:12px;border-radius:12px;border:2px solid #555;background:#111;color:#fff;margin:6px 0 4px}
+.bmup-lab{font-weight:700}
+.bmup-link{display:block;margin-top:14px;background:none;border:0;color:#bbb;font:15px var(--body);text-decoration:underline;cursor:pointer;padding:8px 0}
 /* mint cream close and back buttons */
 .tp-x{background:linear-gradient(175deg,#FBF8EF,#D6E6D1)!important;color:#2B141D!important;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.25)}
 .tp-x:hover{filter:brightness(.97)}
@@ -1614,6 +1636,8 @@ const PP_HIDE=new Set([]);const ppShow=r=>!PP_HIDE.has(r[0]+'|'+r[1]);
 const PP_ALL=PP_RECENT.concat(PP_N5).filter(ppShow);
 /* ---------- state ---------- */
 const KEY='dm-n5-oct-skills-v1';
+const BM_HAD=(()=>{try{return !!localStorage.getItem(KEY)}catch(e){return false}})();
+let BM_BLOCK=false;
 const fresh=()=>({rag:{},checks:{},mc:{},w:{},self:{},f:{},weeks:6,per:2,cur:'n5-oct',unlocked:{},cel:{},tab:'learn'});
 let S=fresh(),VIEW=false;
 try{const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}
@@ -3263,6 +3287,7 @@ window.addEventListener('scroll',hideCw,{passive:true});
 const gate=document.createElement('div');gate.id='d5gate';gate.className='d5gate';gate.hidden=true;gate.setAttribute('role','dialog');gate.setAttribute('aria-modal','true');gate.setAttribute('aria-labelledby','gateTitle');document.body.appendChild(gate);
 const gateDone=()=>!!(S.streak&&S.streak.d===sday());
 function maybeGate(){
+  if(BM_BLOCK){gate.hidden=true;return}
   if(VIEW||(S.level&&S.level!=='N5')||!$('welcome').hidden||gateDone()){gate.hidden=true;document.body.classList.remove('gated');return}
   if(!DAILY||DAILY.day!==sday()||DAILY.done)DAILY={day:sday(),qs:pickDaily(),i:0,right:0,done:false};
   gate.hidden=false;document.body.classList.add('gated');paintGate();
@@ -4090,6 +4115,57 @@ maybeGate();
   maybeGate();
 })();
 booting=false;autoOpen();paintNick();
+
+/* ---------- moving to the new home-screen app (iPhone and iPad) ---------- */
+(function(){
+  const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  const sa=navigator.standalone===true,web=/^https?:$/.test(location.protocol);
+  const inUrl=/[?&]app=2\b/.test(location.search);let mark=false;try{mark=localStorage.getItem('bm-app2')==='1'}catch(e){}
+  /* in the browser, make sure a new home-screen app remembers it is the new one */
+  if(!sa&&web&&!inUrl){try{history.replaceState(history.state,'',location.pathname+(location.search?location.search+'&':'?')+'app=2'+location.hash)}catch(e){}}
+  if(!ios||!sa||VIEW)return;
+  const addr=(location.origin+location.pathname).replace(/^https?:\/\//,'').replace(/\/(index\.html)?$/,'');
+  const icon=(document.querySelector('.tb-logo')||{}).src||'icon-192.png';
+  const box=document.createElement('div');box.className='bmup';box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-labelledby','bmupT');
+  if(inUrl||mark){
+    if(mark)return;try{localStorage.setItem('bm-app2','1')}catch(e){}
+    if(BM_HAD)return;
+    BM_BLOCK=true;
+    box.innerHTML=`<div class="bmup-s"><div class="bmup-top"><img src="${icon}" alt=""><h2 id="bmupT">Welcome to the new BenchMark</h2></div>
+      <p class="bmup-lede">Bring your progress across from the old app. Paste the link you saved in Notes.</p>
+      <label for="bmupIn" class="bmup-lab">Your progress link</label><input id="bmupIn" type="text" placeholder="Paste your link here" autocomplete="off">
+      <button type="button" class="bmup-btn gold" id="bmupGo">Bring my progress across</button><p class="bmup-ok" id="bmupMsg" aria-live="polite"></p>
+      <button type="button" class="bmup-link" id="bmupNew">I’m new to BenchMark</button></div>`;
+    document.body.appendChild(box);document.body.classList.add('bmup-on');
+    const finish=()=>{box.remove();document.body.classList.remove('bmup-on');BM_BLOCK=false;maybeGate()};
+    $('bmupNew').addEventListener('click',finish);
+    $('bmupGo').addEventListener('click',()=>{const v=$('bmupIn').value.trim(),i=v.indexOf('#p='),code=i>=0?v.slice(i+3):v,d=code&&decodeProgress(code);
+      if(!d){$('bmupMsg').textContent='That doesn’t look like a progress link. Copy the whole link from Notes and try again.';$('bmupMsg').className='bmup-ok bad';return}
+      const c=Object.assign({},d);delete c.__n;delete c.__k;delete c.__r;delete c.__p;
+      const ok=adoptProgress(c,d.__r,d.__p,d.__n,d.__k);refreshAll();
+      $('bmupMsg').className='bmup-ok';$('bmupMsg').textContent=ok?'Done. Your progress is saved in the new app.':'This device would not save your progress. Ask your teacher for help.';
+      if(ok)setTimeout(finish,1400)});
+    return;
+  }
+  /* the old home-screen app: no way past this until they move */
+  BM_BLOCK=true;gate.hidden=true;document.body.classList.remove('gated');
+  const has=hasMarks();
+  box.innerHTML=`<div class="bmup-s"><div class="bmup-top"><img src="${icon}" alt="The new BenchMark icon"><h2 id="bmupT">There’s a new version of BenchMark</h2></div>
+    <p class="bmup-lede">To keep using BenchMark, swap this app for the new one. It takes about a minute and your progress comes with you.</p>
+    <ol class="bmup-steps">
+     <li><span class="n">1</span><div><b>Save your progress</b>${has?`<p>Copy your progress link, then paste it into Notes so it’s safe.</p><button type="button" class="bmup-btn gold" id="bmupCp">Copy my progress link</button><input type="text" id="bmupLk" readonly aria-label="Your progress link" hidden><p class="bmup-ok" id="bmupCpMsg" aria-live="polite"></p>`:`<p>You haven’t got any progress to save yet, so go to step 2.</p>`}</div></li>
+     <li><span class="n">2</span><div><b>Open Safari</b><p>Go to <span class="bmup-addr">${addr}</span></p></div></li>
+     <li><span class="n">3</span><div><b>Add it to your home screen</b><p>Tap Share <svg class="bmup-share" width="16" height="18" viewBox="0 0 18 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 1v12M5 5l4-4 4 4M3 9H1v10h16V9h-2"/></svg>, then <b class="il">Add to Home Screen</b>. Check it says BenchMark.</p></div></li>
+     <li><span class="n">4</span><div><b>Open the new BenchMark</b><p>${has?'Paste your progress link when it asks.':'Tap “I’m new to BenchMark” when it asks.'}</p></div></li>
+     <li><span class="n">5</span><div><b>Delete this old app</b><p>${has?'Once your progress is showing in the new one, press':'Press'} and hold this old icon, then tap Remove App and Delete App.</p></div></li>
+    </ol></div>`;
+  document.body.appendChild(box);document.body.classList.add('bmup-on');
+  const cp=$('bmupCp');if(cp)cp.addEventListener('click',()=>{const u=linkURL(),lk=$('bmupLk'),m=$('bmupCpMsg');lk.value=u;
+    const ok=()=>{S.linkSig=progressSig();save();m.textContent='Copied. Now paste it into Notes.'};
+    const fail=()=>{lk.hidden=false;lk.focus();lk.select();m.textContent='Press and hold the link above, tap Select All, then Copy.'};
+    try{navigator.clipboard.writeText(u).then(ok,fail)}catch(e){fail()}});
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden){gate.hidden=true;document.body.classList.remove('gated')}});
+})();
 })();
 </script>
 
